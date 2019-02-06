@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "97176501072",
+    "firebase_url": "https://cabbazar-app.firebaseio.com",
+    "project_id": "cabbazar-app",
+    "storage_bucket": "cabbazar-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97176501072:android:98c7fb2888dc5ca1",
+        "android_client_info": {
+          "package_name": "com.cabbazar.partners"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97176501072-bc84fhidfkvrlan7k7bk7qld49l9f097.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDYQNcxCWP2xTQlCnNOZhA0UStAPQm1Uw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:97176501072:android:1bbbb5d3487c2484",
+        "android_client_info": {
+          "package_name": "com.cabbazar_user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "97176501072-bc84fhidfkvrlan7k7bk7qld49l9f097.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDYQNcxCWP2xTQlCnNOZhA0UStAPQm1Uw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
