@@ -19,7 +19,8 @@ export default {
         flex : 1
     },
     leftIconStyle:{
-        color: 'white'
+        color: 'white',
+        width:30
     },
     titleStyle:{
         color: "white" , alignSelf: 'center'

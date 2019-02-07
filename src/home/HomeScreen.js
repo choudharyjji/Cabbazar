@@ -50,7 +50,7 @@ class HomeScreen extends Component {
 
             this._getNumberValue();
             //  this.locationData();
-            // console.log( 'arry loc ', this.state.arrayLocations);
+
 
     }
     async componentDidMount() {
@@ -101,7 +101,7 @@ class HomeScreen extends Component {
         * */
         this.messageListener = firebase.messaging().onMessage((message) => {
             //process data message
-            console.log(JSON.stringify(message));
+
         });
     }
 
@@ -115,7 +115,7 @@ class HomeScreen extends Component {
     openSearchModal(trip) {
         RNGooglePlaces.openAutocompleteModal()
             .then((place) => {
-                console.log(place);
+
                 let loc ={
                     address: place.name,
                         location: {
@@ -157,9 +157,9 @@ class HomeScreen extends Component {
     }
 
     async getToken() {
-        console.log("Token: in getToken")
+
         let fcmToken = await AsyncStorage.getItem('fcmToken');
-        console.log("fcmToken: ",fcmToken)
+
         if (fcmToken==null) {
             fcmToken = await firebase.messaging().getToken();
             if (fcmToken) {
@@ -175,19 +175,19 @@ class HomeScreen extends Component {
         try {
             await firebase.messaging().requestPermission();
             // User has authorised
-            console.log("Token: in permission" )
+
             this.getToken();
         } catch (error) {
             console.log("Token: ",error)
             // User has rejected permissions
-            console.log('permission rejected');
+
         }
     }
 
 
     async _getNumberValue(){
         const number = await AsyncStorage.getItem('number')
-        console.log('LoginToken',number);
+
         if(number == null){
 
         }else{
@@ -266,10 +266,10 @@ class HomeScreen extends Component {
             loading:true
         });
 
-        console.log("Data: ",data)
+
 
         GetPrices(data).then((res) =>{
-            console.log("res: ",res)
+
             if (res.status===200) {
                 this.setState({
                     loading: false,
@@ -288,7 +288,7 @@ class HomeScreen extends Component {
 
     renderItem = (place,index) =>{
 
-        console.log("Place : ",place)
+
         return(
             <View key={place.index}>
                 <View style={{backgroundColor:"rgb(204,162,80)",borderRadius:10,justifyContent:'center',alignItems:'center',
@@ -321,7 +321,7 @@ class HomeScreen extends Component {
 
     render() {
 
-        console.log("Ititnerary : ",this.state.itineraryOneWay)
+
         const {headerStyle,leftIconStyle,leftStyle,bodyStyle,titleStyle,rightIconStyle} = AppTheme;
 
         return (

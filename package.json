@@ -20,7 +20,7 @@
     "react-native-google-autocomplete": "^0.1.5",
     "react-native-google-places": "^2.5.2",
     "react-native-material-dropdown": "^0.11.1",
-    "react-native-razorpay": "^2.0.17",
+    "react-native-razorpay": "^2.0.19",
     "react-native-simple-dialogs": "^1.0.0",
     "react-native-smart-toast": "1.1.1",
     "react-native-switch": "^1.5.0",

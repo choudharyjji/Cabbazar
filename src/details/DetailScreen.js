@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import {AsyncStorage, FlatList, Image, ImageBackground, Modal, StatusBar, TouchableOpacity, View} from "react-native";
+import {
+    AsyncStorage, FlatList, Image, ImageBackground, Modal, StatusBar, TouchableHighlight, TouchableOpacity,
+    View,Platform,
+} from "react-native";
 import styles from "./detail.style";
 import Loader from "../components/Loader";
 import {Body, Button, Header, Icon, Left, Right, Text, Title} from "native-base";
@@ -46,7 +49,7 @@ class DetailScreen extends Component {
 
     async _getNumberValue(){
         const number = await AsyncStorage.getItem('number')
-        console.log('LoginToken',number);
+
         if(number == null){
 
         }else{
@@ -59,7 +62,7 @@ class DetailScreen extends Component {
     }
     async _getToken(){
         const token = await AsyncStorage.getItem('token')
-        console.log('LoginToken',token);
+
         if(token == null){
 
         }else{
@@ -190,7 +193,14 @@ class DetailScreen extends Component {
                 />
 
                 <Button style={{backgroundColor:'#f5593d',justifyContent:'center',alignItems:'center',alignSelf:'center',width:'90%',marginTop:10}}
-                        onPress={this.openPaymentModal.bind(this,fare.item.advanceAmount,fare.item.journeyPriceCb,fare.item._id)}>
+                        onPress={()=>{Platform.OS==='ios' ? this.props.navigation.navigate("PayScreen",
+                            {
+                                itinerary:this.state.itinerary,
+                                response :this.state.response,
+                                fareChart :this.state.fareChart,
+                                item: fare.item
+
+                            }):this.openPaymentModal(fare.item.advanceAmount,fare.item.journeyPriceCb,fare.item._id)}}>
                     <Text>Book Now</Text>
                 </Button>
 
@@ -214,7 +224,7 @@ class DetailScreen extends Component {
     }
 
     openPaymentModal(amount,amountCb,id){
-        console.log("Id: ",id)
+
         this.setState({
             advanceAmount:amount,
             paymentDialog:true,
@@ -247,7 +257,7 @@ class DetailScreen extends Component {
 
 
             CheckCoupon(data).then((res) => {
-                console.log("res: ", res.data)
+
                 if (res.status === 200) {
                     this.setState({
                         loading: false,
@@ -256,7 +266,9 @@ class DetailScreen extends Component {
                     if(res.data.isCouponApplied){
                         this.showToast(res.data.message)
                         this.setState({
-                            couponMessage:res.data.message
+                            couponMessage:res.data.message,
+                            coupon:res.data.couponCode,
+                            advanceAmount:this.state.advanceAmount
                         })
                     }else{
                         this.showToast(res.data.message)
@@ -289,15 +301,18 @@ class DetailScreen extends Component {
             loading: true,
         });
 
-        console.log("data: ",data)
+
 
         PlaceBooking(data,this.state.token).then((res) => {
-            console.log("res: ", res.data,res.data.notes[1])
+
             if (res.status === 200) {
                 this.setState({
                     loading: false,
                     bookingId:res.data.notes[1]
                 });
+                this.setState({
+                    advanceAmount:res.data.amount/100
+                })
 
                 this.openRazorPay(res.data)
 
@@ -315,7 +330,7 @@ class DetailScreen extends Component {
     bookingInitiated() {
 
         BookingInitiated(this.state.token,this.state.bookingId).then((res) => {
-            console.log("res: ", res.data)
+
             if (res.status === 200) {
                 this.setState({
                     loading: false,
@@ -372,7 +387,7 @@ class DetailScreen extends Component {
 
 
     render(){
-        console.log("Response : ",this.state.response);
+
         const {headerStyle,leftIconStyle,leftStyle,bodyStyle,titleStyle,rightIconStyle} = AppTheme;
         return(
             <View  style = {styles.container}>

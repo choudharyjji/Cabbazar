@@ -63,7 +63,7 @@ class Booking extends Component {
 
     }
 
-    openDetailBookingScreen(id,itinerary) {
+    openDetailBookingScreen(id,itinerary,status) {
         console.log("Pressed here ")
         this.props.navigation.navigate("BookingDetailScreen",{id:id,itinerary:itinerary})
     }
@@ -73,7 +73,7 @@ class Booking extends Component {
 
         return(
             <CardSection key={booking.index} style={styles.cardFare} >
-                <TouchableOpacity style={{width:"100%"}} onPress={()=>this.openDetailBookingScreen(booking.item._id,booking.item.itinerary)}>
+                <TouchableOpacity style={{width:"100%"}} onPress={()=>this.openDetailBookingScreen(booking.item._id,booking.item.itinerary,booking.item.paymentStatus)}>
                 {booking.item.isReturn?<Text style={{fontWeight:"bold",padding:5}}>Round Trip</Text>:<Text style={{fontWeight:"bold",padding:5}}>One Way</Text>}
 
                     <View style={{width:"100%",padding:5,flexDirection:"row"}}>

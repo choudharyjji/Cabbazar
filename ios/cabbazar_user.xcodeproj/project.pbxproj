@@ -37,6 +37,7 @@
 		2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E941DF850E9000B6D8A /* libRCTText-tvOS.a */; };
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
+		2D481317220C0B9000027C1D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D481316220C0B9000027C1D /* GoogleService-Info.plist */; };
 		2DCD641F21DDEF2300B16BC1 /* libRazorpayCheckout.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCD63F821DDEF1400B16BC1 /* libRazorpayCheckout.a */; };
 		2DCD642221DDEFC600B16BC1 /* Razorpay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCD642021DDEFC600B16BC1 /* Razorpay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2DCD954D1E0B4F2C00145EB5 /* cabbazar_userTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* cabbazar_userTests.m */; };
@@ -51,7 +52,6 @@
 		898BDF80FC104DBCB792FD0F /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15BDAA52DDEA48B3AA4E1F4F /* Roboto_medium.ttf */; };
 		8BF218D8DF8D07166D00A571 /* libPods-cabbazar_user-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E99F5E82A9B9D91D93E981E0 /* libPods-cabbazar_user-tvOS.a */; };
 		98608487A0D544799D3D8CC3 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA2A65FE218C4062B17CF27C /* SimpleLineIcons.ttf */; };
-		991A5C1821E35465007481DE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 991A5BEF21E35464007481DE /* GoogleService-Info.plist */; };
 		9969440521E0EB5300605BDC /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9969440421E0EB5300605BDC /* FIRAnalyticsConnector.framework */; };
 		9969440721E0EC8100605BDC /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9969440621E0EC8100605BDC /* FirebaseAnalytics.framework */; };
 		9969440921E0ED5500605BDC /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9969440821E0ED5500605BDC /* FirebaseInstanceID.framework */; };
@@ -412,6 +412,7 @@
 		2D02E4901E0B4A5D006451C7 /* cabbazar_user-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cabbazar_user-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D34833821F98939009DD6C8 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Pods/GooglePlaces/Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
+		2D481316220C0B9000027C1D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2DCD63F221DDEF1300B16BC1 /* RazorpayCheckout.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RazorpayCheckout.xcodeproj; path = "../node_modules/react-native-razorpay/ios/RazorpayCheckout.xcodeproj"; sourceTree = "<group>"; };
 		2DCD642021DDEFC600B16BC1 /* Razorpay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Razorpay.framework; path = "../node_modules/react-native-razorpay/ios/Razorpay.framework"; sourceTree = "<group>"; };
 		2DDD22C621DF3656000F0500 /* libPods-cabbazar_user.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-cabbazar_user.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -431,7 +432,6 @@
 		824D4D532DB45E96D93795FB /* libPods-cabbazar_user.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cabbazar_user.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8C51583069BB4D1684BBB454 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		991A5BEF21E35464007481DE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9969440421E0EB5300605BDC /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FIRAnalyticsConnector.framework; path = Pods/FirebaseAnalytics/FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
 		9969440621E0EC8100605BDC /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		9969440821E0ED5500605BDC /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
@@ -624,6 +624,7 @@
 		13B07FAE1A68108700A75B9A /* cabbazar_user */ = {
 			isa = PBXGroup;
 			children = (
+				2D481316220C0B9000027C1D /* GoogleService-Info.plist */,
 				2D02CA5C21DE01EE006E4293 /* cabbazar_user.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -765,7 +766,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				991A5BEF21E35464007481DE /* GoogleService-Info.plist */,
 				2DCD642021DDEFC600B16BC1 /* Razorpay.framework */,
 				13B07FAE1A68108700A75B9A /* cabbazar_user */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -1326,7 +1326,7 @@
 				13702984C94C48D2A52131CC /* MaterialIcons.ttf in Resources */,
 				B17B9B3795A74E4D89465794 /* Octicons.ttf in Resources */,
 				898BDF80FC104DBCB792FD0F /* Roboto_medium.ttf in Resources */,
-				991A5C1821E35465007481DE /* GoogleService-Info.plist in Resources */,
+				2D481317220C0B9000027C1D /* GoogleService-Info.plist in Resources */,
 				E4DE1BEB6A8C4CD1B9AD3923 /* Roboto.ttf in Resources */,
 				E51728E49FE649EE97E0A89E /* rubicon-icon-font.ttf in Resources */,
 				98608487A0D544799D3D8CC3 /* SimpleLineIcons.ttf in Resources */,

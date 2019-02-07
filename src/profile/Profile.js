@@ -30,9 +30,7 @@ class Profile extends Component {
 
     componentWillMount(){
 
-        this.setState({
-            loading:true,
-        });
+
 
         this._getNumberValue();
         this._getToken();
@@ -83,6 +81,10 @@ class Profile extends Component {
 
 
     getUser(token) {
+
+        this.setState({
+            loading:true,
+        });
 
         GetProfile(token).then((res) => {
             console.log("res: ", res.data)

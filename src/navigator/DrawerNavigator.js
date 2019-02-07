@@ -21,6 +21,7 @@ import DetailScreen from '../details/DetailScreen';
 import Booking from '../booking/Booking';
 import BookingDetailScreen from '../booking/BookingDetailScreen';
 import Profile from '../profile/Profile';
+import PayScreen from '../payment/PayScreen'
 
 const InnerStackNavigator = new createStackNavigator ({
     HomeScreen : {screen : HomeScreen ,navigationOptions : {
@@ -92,6 +93,9 @@ const DrawerNavigator = new createDrawerNavigator ({
           Booking : {screen : Booking, navigationOptions:{
             header : null
             }},
+             PayScreen : {screen : PayScreen, navigationOptions:{
+                        header : null
+                        }},
           BookingDetailScreen : {screen : BookingDetailScreen, navigationOptions:{
                 header : null
             }},

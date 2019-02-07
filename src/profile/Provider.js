@@ -14,6 +14,6 @@ export const GetProfile = (token) => {
             'Content-Type': 'application/json',
             'Authorization': `${token}`
         },
-        validateStatus: status => status >= 200 && status < 500, // default
+        validateStatus: status => status >= 200 && status <= 500, // default
     });
 };

@@ -1,6 +1,5 @@
 export default {
     container: {
-        paddingTop: 20,
         flex: 1
     },
     navItemStyle: {
@@ -23,7 +22,7 @@ export default {
         marginBottom:10,
         alignSelf:'center',
         position: 'absolute',
-        marginTop:20
+        marginTop:30
     },
     name:{
         alignSelf:'center',
