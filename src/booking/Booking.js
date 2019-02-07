@@ -65,7 +65,11 @@ class Booking extends Component {
 
     openDetailBookingScreen(id,itinerary,status) {
         console.log("Pressed here ")
-        this.props.navigation.navigate("BookingDetailScreen",{id:id,itinerary:itinerary})
+        if(status==="success") {
+            this.props.navigation.navigate("BookingDetailScreen", {id: id, itinerary: itinerary})
+        }else{
+
+        }
     }
 
 
