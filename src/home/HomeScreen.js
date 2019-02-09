@@ -75,7 +75,7 @@ class HomeScreen extends Component {
             firebase.notifications()
                 .displayNotification(notification);
 
-            this.props.navigation.navigate("Profile")
+
 
         });
 
@@ -94,7 +94,7 @@ class HomeScreen extends Component {
         if (notificationOpen) {
             const { title, body } = notificationOpen.notification;
 
-            this.props.navigation.navigate("Booking")
+
         }
         /*
         * Triggered for data only payload in foreground

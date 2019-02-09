@@ -8,6 +8,7 @@ import {CardSection} from "../components/CardSection";
 
 import Toast, {DURATION} from 'react-native-easy-toast';
 import {BookingDetail, BookingList} from "./Provider";
+import moment from "moment/moment";
 
 
 
@@ -124,12 +125,31 @@ class BookingDetailScreen extends Component {
 
                 <View style={styles.containerContent}>
                     <CardSection style={styles.cardFare}>
-                        {responseData.isReturn?<Text style={{fontWeight:"bold",padding:5}}>Round Trip</Text>:<Text style={{fontWeight:"bold",padding:5}}>One Way</Text>}
+                        {responseData.isReturn?<Text style={{fontWeight:"bold",padding:5}}>Round Trip ({responseData.carType})</Text>
+                            :<Text style={{fontWeight:"bold",padding:5}}>One Way ({responseData.carType})</Text>}
 
                         <View style={{width:"100%",padding:5,flexDirection:"row"}}>
                             <Text>Booking Id : </Text>
                             <Text style={{fontWeight:"bold",paddingLeft:5}}>{responseData.bookingId}</Text>
                         </View>
+
+                        <View style={{width:"100%",padding:5,flexDirection:"row"}}>
+                            <Text>Departure date/time : </Text>
+                            <Text style={{fontWeight:"bold",paddingLeft:5}}>
+                                {moment.unix(responseData.departureAt).format("DD-MM-YYYY HH:mm")}
+                            </Text>
+                        </View>
+
+                        {responseData.isReturn?
+                            <View style={{width:"100%",padding:5,flexDirection:"row"}}>
+                                <Text>Arrival date/time : </Text>
+                                <Text style={{fontWeight:"bold",paddingLeft:5}}>
+                                    {moment.unix(responseData.arrivalAt).format("DD-MM-YYYY HH:mm")}
+                                </Text>
+                            </View>
+                            :
+                            null
+                        }
 
                         <View style={{width:'100%',marginTop:10,height:0.5,backgroundColor:"#d3d3d3"}}>
 

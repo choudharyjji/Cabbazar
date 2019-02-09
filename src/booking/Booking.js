@@ -8,6 +8,7 @@ import {CardSection} from "../components/CardSection";
 
 import Toast, {DURATION} from 'react-native-easy-toast';
 import {BookingList} from "./Provider";
+import moment from "moment/moment";
 
 
 
@@ -63,6 +64,8 @@ class Booking extends Component {
 
     }
 
+
+
     openDetailBookingScreen(id,itinerary,status) {
         console.log("Pressed here ")
         if(status==="success") {
@@ -74,16 +77,36 @@ class Booking extends Component {
 
 
     renderFareItem = (booking) =>{
-
+        console.log("Booking: ",booking)
         return(
             <CardSection key={booking.index} style={styles.cardFare} >
                 <TouchableOpacity style={{width:"100%"}} onPress={()=>this.openDetailBookingScreen(booking.item._id,booking.item.itinerary,booking.item.paymentStatus)}>
-                {booking.item.isReturn?<Text style={{fontWeight:"bold",padding:5}}>Round Trip</Text>:<Text style={{fontWeight:"bold",padding:5}}>One Way</Text>}
+                {booking.item.isReturn?<Text style={{fontWeight:"bold",padding:5}}>Round Trip ({booking.item.carType})</Text>
+                    :<Text style={{fontWeight:"bold",padding:5}}>One Way ({booking.item.carType})</Text>}
 
                     <View style={{width:"100%",padding:5,flexDirection:"row"}}>
                         <Text>Booking Id : </Text>
                         <Text style={{fontWeight:"bold",paddingLeft:5}}>{booking.item.bookingId}</Text>
                     </View>
+
+                    <View style={{width:"100%",padding:5,flexDirection:"row"}}>
+                        <Text>Departure date/time : </Text>
+                        <Text style={{fontWeight:"bold",paddingLeft:5}}>
+                            {moment.unix(booking.item.departureAt).format("DD-MM-YYYY HH:mm")}
+                            </Text>
+                    </View>
+
+                    {booking.item.isReturn?
+                        <View style={{width:"100%",padding:5,flexDirection:"row"}}>
+                            <Text>Arrival date/time : </Text>
+                            <Text style={{fontWeight:"bold",paddingLeft:5}}>
+                                {moment.unix(booking.item.arrivalAt).format("DD-MM-YYYY HH:mm")}
+                                </Text>
+                        </View>
+                        :
+                       null
+                    }
+
 
                     <View style={{width:'100%',marginTop:10,height:0.5,backgroundColor:"#d3d3d3"}}>
 
