@@ -64,8 +64,6 @@ class Booking extends Component {
 
     }
 
-
-
     openDetailBookingScreen(id,itinerary,status) {
         console.log("Pressed here ")
         if(status==="success") {
