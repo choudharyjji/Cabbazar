@@ -55,6 +55,7 @@ class Booking extends Component {
         if(token == null){
 
         }else{
+
             this.getBookingHistory(token);
             this.setState({
                 token:token
@@ -64,9 +65,9 @@ class Booking extends Component {
 
     }
 
-    openDetailBookingScreen(id,itinerary,status) {
-        console.log("Pressed here ")
-        if(status==="success") {
+    openDetailBookingScreen(id,itinerary,status,bookingStatus) {
+
+        if(status==="success" && bookingStatus!=="pending") {
             this.props.navigation.navigate("BookingDetailScreen", {id: id, itinerary: itinerary})
         }else{
 
@@ -75,10 +76,28 @@ class Booking extends Component {
 
 
     renderFareItem = (booking) =>{
-        console.log("Booking: ",booking)
+        let colorStatus;
+        let colorPayment;
+
+        if(booking.item.status==="pending"){
+            colorStatus = "#EFCC00";
+        }else if(booking.item.status==="cancelled"){
+            colorStatus = "#EB0C14";
+        }else{
+            colorStatus = "#0F9200";
+
+        }
+
+        if(booking.item.paymentStatus==="initiated"){
+            colorPayment = "#EFCC00";
+        }else{
+            colorPayment = "#0F9200";
+        }
+
         return(
             <CardSection key={booking.index} style={styles.cardFare} >
-                <TouchableOpacity style={{width:"100%"}} onPress={()=>this.openDetailBookingScreen(booking.item._id,booking.item.itinerary,booking.item.paymentStatus)}>
+                <TouchableOpacity style={{width:"100%"}} onPress={()=>
+                    this.openDetailBookingScreen(booking.item._id,booking.item.itinerary,booking.item.paymentStatus,booking.item.status)}>
                 {booking.item.isReturn?<Text style={{fontWeight:"bold",padding:5}}>Round Trip ({booking.item.carType})</Text>
                     :<Text style={{fontWeight:"bold",padding:5}}>One Way ({booking.item.carType})</Text>}
 
@@ -120,9 +139,11 @@ class Booking extends Component {
                     )
                 })}
 
-                <View style={{backgroundColor:"black",justifyContent:"center",alignItems:"center",padding:5,position:"absolute",right:"-3%",top:"1%"
+                <View style={{backgroundColor:"black",padding:5,position:"absolute",right:"-3%",top:"1%"
                     ,borderTopLeftRadius:10,borderBottomLeftRadius:10}}>
-                    <Text style={{color:"white"}}>Payment: {booking.item.paymentStatus}</Text>
+                    <Text style={{color:colorStatus,fontSize:12,marginBottom:5,}}>Status: {booking.item.status.toUpperCase()}</Text>
+
+                    <Text style={{color:colorPayment,fontSize:12,fontWeight:"bold"}}>Payment: {booking.item.paymentStatus.toUpperCase()}</Text>
                 </View>
 
                 </TouchableOpacity>
@@ -166,7 +187,7 @@ class Booking extends Component {
 
     render(){
 
-        console.log(this.state.bookingList)
+
         const {headerStyle,leftIconStyle,leftStyle,bodyStyle,titleStyle,rightIconStyle} = AppTheme;
         return(
             <View  style = {styles.container}>

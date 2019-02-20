@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import {AsyncStorage, FlatList, Image, ImageBackground, Modal, StatusBar, TouchableOpacity, View} from "react-native";
+import {
+    AsyncStorage, FlatList, Image, ImageBackground, Modal, ScrollView, StatusBar, TouchableOpacity,
+    View
+} from "react-native";
 import styles from "./booking.style";
 import Loader from "../components/Loader";
 import {Body, Button, Header, Icon, Left, Right, Text, Title} from "native-base";
@@ -24,6 +27,10 @@ class BookingDetailScreen extends Component {
             responseData:'',
             token:'',
             mobile:'',
+            driverName:'',
+            driverNumber:'',
+            carName:'',
+            carNumber:'',
 
         }
 
@@ -81,10 +88,15 @@ class BookingDetailScreen extends Component {
         });
 
         BookingDetail(token,this.state.id).then((res) => {
-            console.log("Data",res.data)
+
             if (res.status === 200) {
+                console.log("res.data:",res.data.carId.registrationNumber)
                 this.setState({
                     responseData:res.data,
+                    driverName:res.data.driverId.name,
+                    driverNumber:res.data.driverId.phone,
+                    carName:res.data.carId.carNameId.brandId.brandName+" "+res.data. carId.carNameId.carName,
+                    carNumber:res.data.carId.registrationNumber,
                     loading: false,
 
                 });
@@ -122,6 +134,7 @@ class BookingDetailScreen extends Component {
                     <Right/>
                 </Header>
 
+                <ScrollView>
 
                 <View style={styles.containerContent}>
                     <CardSection style={styles.cardFare}>
@@ -169,6 +182,56 @@ class BookingDetailScreen extends Component {
                             ,borderTopLeftRadius:10,borderBottomLeftRadius:10}}>
                             <Text style={{color:"white"}}>Payment: {responseData.paymentStatus}</Text>
                         </View>
+
+
+                    </CardSection>
+
+                    <CardSection style={styles.cardFare}>
+
+
+                        <View style={{width:"100%",padding:5,flexDirection:"row"}}>
+                            <Text style={{fontWeight:"bold"}}>Driver Details: </Text>
+                        </View>
+
+                        <View style={{width:"100%",padding:5,flexDirection:"row"}}>
+                            <Text>Name : </Text>
+                            <Text style={{fontWeight:"bold",paddingLeft:5}}>
+                                {this.state.driverName}
+                            </Text>
+                        </View>
+
+                        <View style={{width:"100%",padding:5,flexDirection:"row"}}>
+                            <Text>Phone : </Text>
+                            <Text style={{fontWeight:"bold",paddingLeft:5}}>
+                                {this.state.driverNumber}
+                            </Text>
+                        </View>
+
+
+
+
+                        <View style={{width:'100%',marginTop:10,marginBottom:10,height:0.5,backgroundColor:"#d3d3d3"}}>
+
+                        </View>
+
+                        <View style={{width:"100%",padding:5,flexDirection:"row"}}>
+                            <Text style={{fontWeight:"bold"}}>Car Details: </Text>
+                        </View>
+
+                        <View style={{width:"100%",padding:5,flexDirection:"row"}}>
+                            <Text>Name : </Text>
+                            <Text style={{fontWeight:"bold",paddingLeft:5}}>
+                                {this.state.carName}
+                            </Text>
+                        </View>
+
+                        <View style={{width:"100%",padding:5,flexDirection:"row"}}>
+                            <Text>Registration Number : </Text>
+                            <Text style={{fontWeight:"bold",paddingLeft:5}}>
+                                {this.state.carNumber}
+                            </Text>
+                        </View>
+
 
 
                     </CardSection>
@@ -343,6 +406,7 @@ class BookingDetailScreen extends Component {
                     </CardSection>
 
                 </View>
+                </ScrollView>
 
                 <Toast
                     ref="toast"

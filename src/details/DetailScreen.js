@@ -179,7 +179,7 @@ class DetailScreen extends Component {
                     </View>
                 </View>
 
-                <TouchableOpacity style={{backgroundColor:'transparent',alignSelf:'center'}} onPress={this.onSelectItem.bind(this)}>
+                <TouchableOpacity style={{backgroundColor:'transparent',alignSelf:'center'}} onPress={()=>this.onSelectItem()}>
                     <Text style={{fontSize: 15,marginTop:5,color:'black',textDecorationLine: 'underline',fontWeight: 'bold'}}>Other Terms</Text>
                 </TouchableOpacity>
 
@@ -352,7 +352,7 @@ class DetailScreen extends Component {
     openRazorPay(data){
         let options = {
             description: 'Advance booking amount payment',
-            image: 'https://cabbazar.com/assets/img/logo/cabbazar.png',
+            image: 'https://cabbazar.com/assets/img/logo/featured-image.jpg',
             currency: 'INR',
             key: 'rzp_test_6KeUReJYTLhPt0',
             amount:data.amount ,
@@ -511,7 +511,7 @@ class DetailScreen extends Component {
                                     <Input
                                         keyboardType = 'default'
                                         placeholder = 'Coupon'
-                                        value = {this.state.phoneNumber}
+                                        value = {this.state.coupon}
                                         onChangeText = {coupon => this.setState({coupon:coupon.toUpperCase()})}
                                     />
                                 </View>

@@ -58,4 +58,12 @@ export default {
         paddingLeft: 5,
         paddingTop:3
     },
+    checkBoxStyle: {
+        width:"80%",
+        alignItems: 'flex-end',
+        height: 50,
+        margin: 5,
+
+
+    },
 }

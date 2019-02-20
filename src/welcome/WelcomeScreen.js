@@ -46,7 +46,7 @@ class WelComeScreen extends Component {
 
                 <View style = {styles.logoViewStyle}>
                     <Image  style={styles.logoStyle}
-                            source= {require('../../assets/splash.png')  } resizeMode="contain"  />
+                            source= {require('../../assets/ic_launcher.png')  } resizeMode="contain"  />
                 </View>
             </View>
         );

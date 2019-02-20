@@ -43,6 +43,14 @@ class Reset extends Component {
         await AsyncStorage.setItem('number',token)
     };
 
+    logInName = async (token) => {
+        await AsyncStorage.setItem('name',token)
+    };
+
+    logInEmail = async (token) => {
+        await AsyncStorage.setItem('email',token)
+    };
+
 
     checkUser() {
 
@@ -75,6 +83,8 @@ class Reset extends Component {
                             } else {
                                 this.logInToken(res.data.token);
                                 this.logInNumber(this.state.phoneNumber);
+                                this.logInName(res.data.details.name);
+                                this.logInEmail(res.data.details.email);
                                 this.setState({
                                     loading: false,
                                 });

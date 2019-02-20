@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import styles from "./login.style";
 import Loader from "../components/Loader";
-import {KeyboardAvoidingView, StatusBar, TextInput, View,AsyncStorage} from "react-native";
-import {Body, Header, Icon, Left, Right, Title} from "native-base";
+import {KeyboardAvoidingView, StatusBar, TextInput, View, AsyncStorage, TouchableOpacity} from "react-native";
+import {Body, Header, Icon, Left, Right, Text, Title} from "native-base";
 import AppTheme from "../components/AppTheme.style";
 import Button from '../components/Button'
 import {Input} from "../components/Input";
-import {CheckUser} from "./Provider";
-import Toast, {DURATION} from 'react-native-easy-toast'
+import {CheckUser, forgotPassword} from "./Provider";
+import Toast, {DURATION} from 'react-native-easy-toast';
+import { Dialog } from 'react-native-simple-dialogs';
+import {ResetPassword} from "../resetpassword/Provider";
 
 
 
@@ -20,6 +22,9 @@ class Password extends Component {
             password : '' ,
             phoneNumber : this.props.navigation.state.params.phoneNumber ,
             error : '',
+            dialog: false,
+            otp:'',
+            newPassword:''
         }
     }
 
@@ -68,6 +73,30 @@ class Password extends Component {
 
     }
 
+    forgetPassword(){
+        let data = {
+            phone:this.state.phoneNumber
+        }
+
+        forgotPassword(data).then((res) => {
+            if (res.status === 200) {
+
+                this.setState({
+                    loading: false,
+                    dialog:true
+                });
+                this.showToast(res.data.message)
+            } else {
+                this.showToast(res.data.message)
+                this.setState({
+                    loading: false,
+                })
+            }
+
+        });
+
+    }
+
     logInToken = async (token) => {
         await AsyncStorage.setItem('token',token)
     };
@@ -85,6 +114,61 @@ class Password extends Component {
     };
 
 
+    closeModal(){
+        this.setState({
+
+            dialog:false,
+
+
+        })
+    }
+
+    resetPassword() {
+
+        if(this.state.otp!=='') {
+            if(this.state.newPassword!=='') {
+                console.log("PAssword: ",this.state.newPassword.length)
+                if(this.state.newPassword.length>6) {
+
+                    this.setState({
+                        loading: true,
+                    });
+
+                    let data ={
+                        phone:this.state.phoneNumber,
+                        otp:this.state.otp,
+                        password:this.state.newPassword
+                    };
+
+                    console.log("Data: ",data);
+                    ResetPassword(data).then((res) => {
+                        if (res.status === 200) {
+                            console.log("res: ", res.data)
+                            this.setState({
+                                loading: false,
+                                dialog:false
+                            });
+                            this.showToast(res.data.message)
+
+                        } else {
+                            this.showToast(res.data.message)
+                            this.setState({
+                                loading: false,
+                            })
+                        }
+
+                    });
+                }else{
+                    alert("password is week");
+                }
+            }else{
+                alert("Please enter password");
+            }
+        }else{
+            alert("Please enter OTP");
+        }
+
+    }
 
     render(){
         const {headerStyle,leftIconStyle,leftStyle,bodyStyle,titleStyle,rightIconStyle} = AppTheme;
@@ -119,7 +203,56 @@ class Password extends Component {
                         </Button>
                     </View>
 
+                    <View style={styles.checkBoxStyle}>
+
+                        <Text style={{color:'blue',textDecorationLine: 'underline',padding:10,textAlign:'right'}}
+                            onPress={()=>this.forgetPassword()}>ForgotPassword</Text>
+
+                    </View>
+
                 </View>
+
+                <Dialog
+                    visible={this.state.dialog}
+                    onTouchOutside={() => this.setState({dialog: false})} >
+                    <View style={{height:200}}>
+                        <View style={{flexDirection:'row'}}>
+                            <Text style={{flex:9,marginTop:5,fontSize:20}}>Reset Password</Text>
+                            <Icon style={{flex:1,backgroundColor:'transparent'}} name = 'ios-close' onPress = {()=>this.closeModal()}/>
+                        </View>
+
+                       <View style={{paddingTop:5,justifyContent:"center",alignItems:"center"}}>
+                                <View style={[styles.SectionStyle,{width:"90%"}]}>
+                                    <Input
+                                        maxLength={4}
+                                        keyboardType = 'phone-pad'
+                                        placeholder = 'Otp'
+                                        value = {this.state.otp}
+                                        onChangeText = {otp => this.setState({otp:otp})}
+                                    />
+                                </View>
+
+                               <View style={[styles.SectionStyle,{width:"90%"}]}>
+                                   <Input
+                                       keyboardType = 'default'
+                                       placeholder = 'New Password'
+                                       value = {this.state.newPassword}
+                                       onChangeText = {newPassword => this.setState({newPassword:newPassword})}
+                                   />
+                               </View>
+                       </View>
+
+                        <TouchableOpacity style={{
+                            height:50,backgroundColor:'#000000',justifyContent:'center',alignItems:'center',alignSelf:'center',width:'100%',marginTop:10,
+                        borderRadius:5}}
+                                onPress={()=>this.resetPassword()}>
+                            <Text style={{color:"white"}}>Reset</Text>
+                        </TouchableOpacity>
+
+
+
+                    </View>
+                </Dialog>
                 <Toast
                     ref="toast"
                     style={{backgroundColor:'black',padding:5}}

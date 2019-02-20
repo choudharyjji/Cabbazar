@@ -245,7 +245,7 @@ class PayScreen extends Component {
     openRazorPay(data){
         let options = {
             description: 'Advance booking amount payment',
-            image: 'https://cabbazar.com/assets/img/logo/cabbazar.png',
+            image: 'https://cabbazar.com/assets/img/logo/featured-image.jpg',
             currency: 'INR',
             key: 'rzp_test_6KeUReJYTLhPt0',
             amount:data.amount ,

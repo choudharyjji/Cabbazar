@@ -7,7 +7,8 @@ import {
     FlatList,
     ActivityIndicator,
     TouchableHighlight,
-    StatusBar, TextInput, TouchableOpacity, ScrollView, AsyncStorage
+    StatusBar, TextInput, TouchableOpacity, ScrollView, AsyncStorage,
+    BackHandler
 } from "react-native";
 import {Header, Left, Right, Icon, Body, Title, Item, Input, Content} from "native-base";
 import styles from './home.style';
@@ -49,6 +50,7 @@ class HomeScreen extends Component {
     componentWillMount(){
 
             this._getNumberValue();
+        BackHandler.addEventListener('hardwareBackPress', HomeScreen.handleBackButtonClick);
             //  this.locationData();
 
 
@@ -110,6 +112,11 @@ class HomeScreen extends Component {
         this.notificationListener();
         this.notificationOpenedListener();
         this.messageListener();
+        BackHandler.removeEventListener('hardwareBackPress', HomeScreen.handleBackButtonClick);
+    }
+
+    static handleBackButtonClick() {
+        BackHandler.exitApp()
     }
 
     openSearchModal(trip) {

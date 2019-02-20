@@ -33,7 +33,7 @@ class SideMenu extends Component {
 
     async _getNumberValue(){
         const name = await AsyncStorage.getItem('name')
-        console.log('LoginName',name);
+        console.log('LoginName in ',name);
         if(name == null){
 
         }else{
@@ -135,13 +135,19 @@ class SideMenu extends Component {
             { cancelable: false }
         )
     }
-    onPressOk(){
-        AsyncStorage.removeItem('token', (err) => {
-            console.log('KeyRemoved')
-        });
-        this.props.navigation.navigate('Login');
 
+    async onPressOk() {
+        try {
+            await AsyncStorage.removeItem('token');
+            await AsyncStorage.removeItem('number');
+            await AsyncStorage.removeItem('name');
+            await AsyncStorage.removeItem('email');
+            this.props.navigation.navigate('Login');
+        } catch (error) {
+
+        }
     }
+
 }
 
 SideMenu.propTypes = {

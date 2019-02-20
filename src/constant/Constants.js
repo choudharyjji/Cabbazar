@@ -4,6 +4,7 @@ export const BASE = "http://api.stage.cabbazar.com/";
 
 export const LOGIN = BASE + "user/login";
 export const REGISTER = BASE + 'user';
+export const FORGOT = BASE + 'user/forgot';
 export const RESET = BASE + 'user/reset_password';
 export const VERIFY_OTP = BASE + 'user/verify_phone';
 export const GET_PRICES = BASE + 'fare/estimate';

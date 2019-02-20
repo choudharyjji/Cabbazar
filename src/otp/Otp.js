@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styles from "./otp.style";
 import Loader from "../components/Loader";
-import {KeyboardAvoidingView, StatusBar, TextInput, View} from "react-native";
+import {AsyncStorage, KeyboardAvoidingView, StatusBar, TextInput, View} from "react-native";
 import {Body, Header, Icon, Left, Right, Title} from "native-base";
 import AppTheme from "../components/AppTheme.style";
 import Button from '../components/Button'
@@ -36,6 +36,23 @@ class Otp extends Component {
         });
     }
 
+    logInToken = async (token) => {
+        await AsyncStorage.setItem('token',token)
+    };
+
+    logInNumber = async (token) => {
+        await AsyncStorage.setItem('number',token)
+    };
+
+    logInName = async (token) => {
+        await AsyncStorage.setItem('name',token)
+    };
+
+    logInEmail = async (token) => {
+        await AsyncStorage.setItem('email',token)
+    };
+
+
 
     checkUser() {
         if(this.state.otp!==''){
@@ -63,6 +80,10 @@ class Otp extends Component {
                             this.showToast(res.data.message)
                         }else{
                             if(this.state.from==="Register") {
+                                this.logInToken(res.data.token);
+                                this.logInNumber(this.state.phoneNumber);
+                                this.logInName(res.data.details.name);
+                                this.logInEmail(res.data.details.email);
                                 this.props.navigation.navigate("HomeScreen", {phoneNumber: this.state.phoneNumber})
                             }
                         }

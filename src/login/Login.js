@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import styles from "./login.style";
 import Loader from "../components/Loader";
-import {KeyboardAvoidingView, StatusBar, TextInput, View} from "react-native";
+import {BackHandler, KeyboardAvoidingView, StatusBar, TextInput, View} from "react-native";
 import {Body, Header, Icon, Left, Right, Title} from "native-base";
 import AppTheme from "../components/AppTheme.style";
 import Button from '../components/Button'
 import {Input} from "../components/Input";
 import {CheckUser} from "./Provider";
 import Toast, {DURATION} from 'react-native-easy-toast'
+import HomeScreen from "../home/HomeScreen";
 
 
 
@@ -26,8 +27,18 @@ class Login extends Component {
 
 
     componentWillMount(){
-
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
     }
+
+    componentWillUnmount() {
+
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
+    }
+
+     handleBackButtonClick() {
+        BackHandler.exitApp()
+    }
+
 
     mobileValidate(phoneNumber) {
         const reg = /^[0]?[789]\d{9}$/;
@@ -71,8 +82,10 @@ class Login extends Component {
                         });
                         if(res.data.status==="new"){
                             this.props.navigation.navigate("Register",{phoneNumber: this.state.phoneNumber})
+
                         }else if(res.data.status==="not_verified"){
                             this.showToast(res.data.message)
+                            this.props.navigation.navigate("Reset",{phoneNumber: this.state.phoneNumber})
 
                         }else if(res.data.status==="existing"){
                             this.props.navigation.navigate("Password",{phoneNumber: this.state.phoneNumber})

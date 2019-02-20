@@ -55,13 +55,13 @@ class Register extends Component {
 
         if (password.length>6) {
             this.setState({
-                passwordValidate: false,
+                passwordValidate: true,
                 password: password,
             });
             return false;
         } else {
             this.setState({
-                passwordValidate: true,
+                passwordValidate: false,
                 password: password,
             });
             return true;
