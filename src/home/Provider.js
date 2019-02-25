@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-    GET_PRICES,CREATE_VISITOR,SLACK_USER
+    GET_PRICES,CREATE_VISITOR,SLACK_VISITOR
 } from '../constant/Constants'; // endpoint
 
 
@@ -17,6 +17,7 @@ export const GetPrices = (data) => {
 };
 
 export const CreateVisitor = (data) => {
+
     return axios({
         method: 'post',
         url: CREATE_VISITOR,
@@ -30,10 +31,10 @@ export const CreateVisitor = (data) => {
 
 
 export const SlackCall = (data) => {
+    console.log("Data: ",data)
     return axios({
-        method: 'get',
-        url: SLACK_USER.replace("_data",data),
-        data:data,
+        method: 'post',
+        url: SLACK_VISITOR.replace(':_data',data),
         headers: {
             'Content-Type': 'application/json',
         },

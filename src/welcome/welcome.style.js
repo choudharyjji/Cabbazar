@@ -2,14 +2,18 @@ export default {
     container: {
         flex: 1,
         justifyContent: 'center',
+        backgroundColor: 'black',
         alignItems: 'center',
-        backgroundColor:"black"
     },
+    logoViewStyle :{
 
+        "width" : "100%",
+
+    },
     logoStyle:{
-        width:"80%",
         height:200,
-
+        alignSelf: 'center',
+        "width" : "80%",
         //    height: Dimensions.get('window').height,
         margin: 0
 
@@ -17,9 +21,9 @@ export default {
 
     textStyle:{
         color:"white",
-        fontWeight:'bold',
-        fontSize:20
-
+        fontSize:20,
+        textAlign:"center",
+        fontWeight:'bold'
     }
 
 

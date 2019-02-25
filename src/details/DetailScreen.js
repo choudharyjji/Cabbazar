@@ -11,9 +11,13 @@ import {CardSection} from "../components/CardSection";
 import { Dialog } from 'react-native-simple-dialogs';
 import {Input} from "../components/Input";
 import {CheckCoupon,PlaceBooking,BookingInitiated} from "./Provider";
+import {CreateVisitor,SlackCall} from "../home/Provider";
 import Toast, {DURATION} from 'react-native-easy-toast';
 import RazorpayCheckout from 'react-native-razorpay';
 import moment from "moment";
+import {
+    RAZAR_PAY_KEY_LIVE,RAZAR_PAY_KEY_TEST
+} from '../constant/Constants';
 
 
 
@@ -36,7 +40,10 @@ class DetailScreen extends Component {
             couponMessage:'',
             cardId:'',
             token:'',
-            bookingId:''
+            bookingId:'',
+            name:'',
+            email:'',
+            carType:'',
         }
 
     }
@@ -48,8 +55,9 @@ class DetailScreen extends Component {
     }
 
     async _getNumberValue(){
-        const number = await AsyncStorage.getItem('number')
-
+        const number = await AsyncStorage.getItem('number');
+        const name =  await AsyncStorage.getItem('name');
+        const email = await AsyncStorage.getItem('email');
         if(number == null){
 
         }else{
@@ -200,7 +208,7 @@ class DetailScreen extends Component {
                                 fareChart :this.state.fareChart,
                                 item: fare.item
 
-                            }):this.openPaymentModal(fare.item.advanceAmount,fare.item.journeyPriceCb,fare.item._id)}}>
+                            }):this.openPaymentModal(fare.item,fare.item.advanceAmount,fare.item.journeyPriceCb,fare.item._id)}}>
                     <Text>Book Now</Text>
                 </Button>
 
@@ -223,13 +231,14 @@ class DetailScreen extends Component {
         })
     }
 
-    openPaymentModal(amount,amountCb,id){
-
+    openPaymentModal(fare,amount,amountCb,id){
+        console.log("Fare Item : ",fare)
         this.setState({
             advanceAmount:amount,
             paymentDialog:true,
             amountCb:amountCb,
-            carId:id
+            carId:id,
+            carType:fare.carType
         })
     }
 
@@ -314,6 +323,9 @@ class DetailScreen extends Component {
                     advanceAmount:res.data.amount/100
                 })
 
+
+                this.creatVisitorLead(res.data);
+
                 this.openRazorPay(res.data)
 
             } else {
@@ -324,6 +336,46 @@ class DetailScreen extends Component {
             }
 
         });
+    }
+
+    creatVisitorLead(data) {
+
+        let arrival ="";
+
+        if(this.state.response.details.isReturn){
+            arrival = " | Arrival: "+ moment.unix(this.state.response.details.arrivalAt).format("DD-MM-YYYY HH:mm");
+        }else{
+            arrival ="";
+        }
+        let address="";
+        this.state.itinerary.map((data,index)=>{
+            address = address+data.address+" / "
+        });
+        let slackData='Mobile App | Departure : ' +moment.unix(this.state.response.details.departureAt).format("DD-MM-YYYY HH:mm") + arrival +
+            " | Phone: "+ data.phone +" | Itinerary: "+ address + ' | Revenue : ' + this.state.advanceAmount;
+
+
+
+        let visitor={
+            name: data.name,
+            phone: data.phone,
+            email: data.email,
+            carType:this.state.fareChart.carType,
+            departureAt: this.state.response.details.departureAt,
+            arrivalAt:  this.state.response.details.arrivalAt,
+            isReturn: this.state.response.details.isReturn ,
+            itinerary: this.state.itinerary,
+            visitorType: 'lead'
+        };
+
+        CreateVisitor(visitor).then((res) =>{
+            console.log("PayScreen: ", res)
+        });
+
+        SlackCall(slackData).then((res) =>{
+            console.log("PayScreen: ", res)
+        });
+
     }
 
 
@@ -354,7 +406,7 @@ class DetailScreen extends Component {
             description: 'Advance booking amount payment',
             image: 'https://cabbazar.com/assets/img/logo/featured-image.jpg',
             currency: 'INR',
-            key: 'rzp_test_6KeUReJYTLhPt0',
+            key: RAZAR_PAY_KEY_LIVE,
             amount:data.amount ,
             name: 'Cab Bazar LLP',
             notes:data.notes,
@@ -382,6 +434,8 @@ class DetailScreen extends Component {
             alert(`Error: ${error.code} | ${error.description}`);
         });
     }
+
+
 
 
 
@@ -414,54 +468,54 @@ class DetailScreen extends Component {
                 </View>
 
 
-                    <CardSection style={styles.cardStyle}>
+                <CardSection style={styles.cardStyle}>
 
-                        <View style={{width:'95%'}}>
-                            <View style={{flexDirection:'row'}}>
+                    <View style={{width:'95%'}}>
+                        <View style={{flexDirection:'row'}}>
 
-                                <Text style={{flex:1}}>
-                                    Pickup Date / Time:
-                                </Text>
+                            <Text style={{flex:1}}>
+                                Pickup Date / Time:
+                            </Text>
 
-                                <Text style={{flex:1,textAlign:"right",fontWeight:'bold'}}>
-                                    {moment.unix(this.state.response.details.departureAt).format("DD-MM-YYYY HH:mm")}
-                                </Text>
+                            <Text style={{flex:1,textAlign:"right",fontWeight:'bold'}}>
+                                {moment.unix(this.state.response.details.departureAt).format("DD-MM-YYYY HH:mm")}
+                            </Text>
 
-                            </View>
                         </View>
+                    </View>
 
-                        {this.state.response.details.isReturn?
-                            <View style={{width:'95%',marginTop:10}}>
-                                <View style={{flexDirection:'row'}}>
-
-                                    <Text style={{flex:1}}>
-                                        Return Date:
-                                    </Text>
-
-                                    <Text style={{flex:1,textAlign:"right",fontWeight:'bold'}}>
-                                        {moment.unix(this.state.response.details.arrivalAt).format("YYYY-MM-DD HH:mm")}
-                                    </Text>
-
-                                </View>
-                            </View>
-                            : null}
-
-
+                    {this.state.response.details.isReturn?
                         <View style={{width:'95%',marginTop:10}}>
                             <View style={{flexDirection:'row'}}>
 
                                 <Text style={{flex:1}}>
-                                   Journey Type:
+                                    Return Date:
                                 </Text>
 
                                 <Text style={{flex:1,textAlign:"right",fontWeight:'bold'}}>
-                                    {this.state.response.details.isReturn?"Round Way":"One Way"}
+                                    {moment.unix(this.state.response.details.arrivalAt).format("YYYY-MM-DD HH:mm")}
                                 </Text>
 
                             </View>
                         </View>
+                        : null}
 
-                    </CardSection>
+
+                    <View style={{width:'95%',marginTop:10}}>
+                        <View style={{flexDirection:'row'}}>
+
+                            <Text style={{flex:1}}>
+                                Journey Type:
+                            </Text>
+
+                            <Text style={{flex:1,textAlign:"right",fontWeight:'bold'}}>
+                                {this.state.response.details.isReturn?"Round Way":"One Way"}
+                            </Text>
+
+                        </View>
+                    </View>
+
+                </CardSection>
 
 
                 <View style={styles.containerContent}>
@@ -516,11 +570,11 @@ class DetailScreen extends Component {
                                     />
                                 </View>
 
-                            <Button style={{flex:3,backgroundColor:'#f5593d',justifyContent:'center',alignItems:'center',alignSelf:'center',width:'100%',marginTop:10,height:40}}
-                                    onPress={()=>this.goCoupon()}>
-                                <Text>Apply</Text>
-                            </Button>
-                        </View>:
+                                <Button style={{flex:3,backgroundColor:'#f5593d',justifyContent:'center',alignItems:'center',alignSelf:'center',width:'100%',marginTop:10,height:40}}
+                                        onPress={()=>this.goCoupon()}>
+                                    <Text>Apply</Text>
+                                </Button>
+                            </View>:
                             <View style={{width:'100%', justifyContent:'center',alignItems:'center',height:100}}>
                                 <Text style={{fontSize:20,fontWeight:'bold',color:'#01c501',textAlign:'center'}}>{this.state.couponMessage}</Text>
                             </View>
@@ -529,7 +583,7 @@ class DetailScreen extends Component {
 
 
                         <Button style={{backgroundColor:'#f5593d',justifyContent:'center',alignItems:'center',alignSelf:'center',width:'100%',marginTop:10}}
-                            onPress={()=>this.placeBooking()}>
+                                onPress={()=>this.placeBooking()}>
                             <Text>Pay &#8377;{this.state.advanceAmount} advance and Book</Text>
                         </Button>
 

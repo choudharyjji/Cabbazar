@@ -106,11 +106,17 @@ class Password extends Component {
     };
 
     logInName = async (token) => {
+
         await AsyncStorage.setItem('name',token)
     };
 
     logInEmail = async (token) => {
-        await AsyncStorage.setItem('email',token)
+        console.log(token)
+        if(token!==null) {
+            await AsyncStorage.setItem('email', token)
+        }else{
+            await AsyncStorage.setItem('email', "")
+        }
     };
 
 
@@ -186,7 +192,7 @@ class Password extends Component {
                     <Right/>
 
                 </Header>
-                <View style={styles.containerContent}>
+                <View style={styles.containerPassContent}>
                     <View style={styles.SectionStyle}>
                         <Icon style={styles.searchIcon} name="ios-lock" size={20} color="#000"/>
                         <Input
@@ -206,7 +212,7 @@ class Password extends Component {
                     <View style={styles.checkBoxStyle}>
 
                         <Text style={{color:'blue',textDecorationLine: 'underline',padding:10,textAlign:'right'}}
-                            onPress={()=>this.forgetPassword()}>ForgotPassword</Text>
+                              onPress={()=>this.forgetPassword()}>ForgotPassword</Text>
 
                     </View>
 
@@ -221,31 +227,31 @@ class Password extends Component {
                             <Icon style={{flex:1,backgroundColor:'transparent'}} name = 'ios-close' onPress = {()=>this.closeModal()}/>
                         </View>
 
-                       <View style={{paddingTop:5,justifyContent:"center",alignItems:"center"}}>
-                                <View style={[styles.SectionStyle,{width:"90%"}]}>
-                                    <Input
-                                        maxLength={4}
-                                        keyboardType = 'phone-pad'
-                                        placeholder = 'Otp'
-                                        value = {this.state.otp}
-                                        onChangeText = {otp => this.setState({otp:otp})}
-                                    />
-                                </View>
+                        <View style={{paddingTop:5,justifyContent:"center",alignItems:"center"}}>
+                            <View style={[styles.SectionStyle,{width:"90%"}]}>
+                                <Input
+                                    maxLength={4}
+                                    keyboardType = 'phone-pad'
+                                    placeholder = 'Otp'
+                                    value = {this.state.otp}
+                                    onChangeText = {otp => this.setState({otp:otp})}
+                                />
+                            </View>
 
-                               <View style={[styles.SectionStyle,{width:"90%"}]}>
-                                   <Input
-                                       keyboardType = 'default'
-                                       placeholder = 'New Password'
-                                       value = {this.state.newPassword}
-                                       onChangeText = {newPassword => this.setState({newPassword:newPassword})}
-                                   />
-                               </View>
-                       </View>
+                            <View style={[styles.SectionStyle,{width:"90%"}]}>
+                                <Input
+                                    keyboardType = 'default'
+                                    placeholder = 'New Password'
+                                    value = {this.state.newPassword}
+                                    onChangeText = {newPassword => this.setState({newPassword:newPassword})}
+                                />
+                            </View>
+                        </View>
 
                         <TouchableOpacity style={{
                             height:50,backgroundColor:'#000000',justifyContent:'center',alignItems:'center',alignSelf:'center',width:'100%',marginTop:10,
-                        borderRadius:5}}
-                                onPress={()=>this.resetPassword()}>
+                            borderRadius:5}}
+                                          onPress={()=>this.resetPassword()}>
                             <Text style={{color:"white"}}>Reset</Text>
                         </TouchableOpacity>
 

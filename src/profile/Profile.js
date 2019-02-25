@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {
-    Alert, AsyncStorage, FlatList, Image, ImageBackground, Modal, StatusBar, TouchableOpacity,
+    Alert, AsyncStorage, FlatList, Image, ImageBackground, Modal, ScrollView, StatusBar, TouchableOpacity,
     View
 } from "react-native";
 import styles from "./profile.style";
@@ -126,16 +126,15 @@ class Profile extends Component {
                     <Right/>
                 </Header>
 
-                <ScrollView>
+                <ScrollView style={{marginBottom:30}}>
+                    <View style={styles.containerContent}>
 
-                <View style={styles.containerContent}>
+                        <CardSection style={styles.cardStyle}>
 
-                    <CardSection style={[styles.cardStyle,{paddingBottom:30}]}>
-
-                        <Image style={styles.avatar} source={{uri: 'https://bootdey.com/img/Content/avatar/avatar6.png'}}/>
+                            <Image style={styles.avatar} source={{uri: 'https://bootdey.com/img/Content/avatar/avatar6.png'}}/>
 
 
-                        <View style={{width:'100%',marginTop:10,padding:5}}>
+                            <View style={{width:'100%',marginTop:10,padding:5}}>
                                 <Text style={{fontSize:12,color:"#d4d4d4"}}>
                                     Name
                                 </Text>
@@ -144,61 +143,62 @@ class Profile extends Component {
                                     {profile.name}
                                 </Text>
                                 <View style={{width:"100%",height:0.5,backgroundColor:"#d3d3d3",marginTop:3}}/>
-                        </View>
+                            </View>
 
-                        <View style={{width:'100%',marginTop:10,padding:5}}>
-                            <Text style={{fontSize:12,color:"#d4d4d4"}}>
-                                Rating
-                            </Text>
+                            <View style={{width:'100%',marginTop:10,padding:5}}>
+                                <Text style={{fontSize:12,color:"#d4d4d4"}}>
+                                    Rating
+                                </Text>
 
-                            <Text style={{marginTop:5}}>
-                                {profile.rating}
-                            </Text>
-                            <View style={{width:"100%",height:0.5,backgroundColor:"#d3d3d3",marginTop:3}}/>
-                        </View>
+                                <Text style={{marginTop:5}}>
+                                    {profile.rating}
+                                </Text>
+                                <View style={{width:"100%",height:0.5,backgroundColor:"#d3d3d3",marginTop:3}}/>
+                            </View>
 
-                        <View style={{width:'100%',marginTop:10,padding:5}}>
-                            <Text style={{fontSize:12,color:"#d4d4d4"}}>
-                                Email
-                            </Text>
+                            <View style={{width:'100%',marginTop:10,padding:5}}>
+                                <Text style={{fontSize:12,color:"#d4d4d4"}}>
+                                    Email
+                                </Text>
 
-                            <Text style={{marginTop:5}}>
-                                {profile.email}
-                            </Text>
-                            <View style={{width:"100%",height:0.5,backgroundColor:"#d3d3d3",marginTop:3}}/>
-                        </View>
+                                <Text style={{marginTop:5}}>
+                                    {profile.email}
+                                </Text>
+                                <View style={{width:"100%",height:0.5,backgroundColor:"#d3d3d3",marginTop:3}}/>
+                            </View>
 
-                        <View style={{width:'100%',marginTop:10,padding:5}}>
-                            <Text style={{fontSize:12,color:"#d4d4d4"}}>
-                                Mobile
-                            </Text>
+                            <View style={{width:'100%',marginTop:10,padding:5}}>
+                                <Text style={{fontSize:12,color:"#d4d4d4"}}>
+                                    Mobile
+                                </Text>
 
-                            <Text style={{marginTop:5}}>
-                                {profile.phone}
-                            </Text>
-                            <View style={{width:"100%",height:0.5,backgroundColor:"#d3d3d3",marginTop:3}}/>
-                        </View>
+                                <Text style={{marginTop:5}}>
+                                    {profile.phone}
+                                </Text>
+                                <View style={{width:"100%",height:0.5,backgroundColor:"#d3d3d3",marginTop:3}}/>
+                            </View>
 
-                        <View style={{width:'100%',marginTop:10,padding:5}}>
-                            <Text style={{fontSize:12,color:"#d4d4d4"}}>
-                                Password
-                            </Text>
+                            <View style={{width:'100%',marginTop:10,padding:5}}>
+                                <Text style={{fontSize:12,color:"#d4d4d4"}}>
+                                    Password
+                                </Text>
 
-                            <Text style={{marginTop:5}}>
-                                **************
-                            </Text>
-                            <View style={{width:"100%",height:0.5,backgroundColor:"#d3d3d3",marginTop:3}}/>
-                        </View>
+                                <Text style={{marginTop:5}}>
+                                    **************
+                                </Text>
+                                <View style={{width:"100%",height:0.5,backgroundColor:"#d3d3d3",marginTop:3}}/>
+                            </View>
 
-                        <Button style={{backgroundColor:'#f5593d',justifyContent:'center',alignItems:'center',alignSelf:'center',width:'90%',marginTop:30}}
-                                onPress={()=>this.onClickLogout()}>
-                            <Text>Logout</Text>
-                        </Button>
-                    </CardSection>
+                            <Button style={{backgroundColor:'#f5593d',justifyContent:'center',alignItems:'center',alignSelf:'center',width:'90%',marginTop:10,
+                                marginBottom:10}}
+                                    onPress={()=>this.onClickLogout()}>
+                                <Text>Logout</Text>
+                            </Button>
+                        </CardSection>
 
-                </View>
-
+                    </View>
                 </ScrollView>
+
 
                 <Toast
                     ref="toast"
@@ -214,6 +214,7 @@ class Profile extends Component {
 
 
             </View>
+
         )
     }
 
@@ -230,6 +231,15 @@ class Profile extends Component {
     }
     onPressOk(){
         AsyncStorage.removeItem('token', (err) => {
+            console.log('KeyRemoved')
+        });
+        AsyncStorage.removeItem('name', (err) => {
+            console.log('KeyRemoved')
+        });
+        AsyncStorage.removeItem('email', (err) => {
+            console.log('KeyRemoved')
+        });
+        AsyncStorage.removeItem('number', (err) => {
             console.log('KeyRemoved')
         });
         this.props.navigation.navigate('Login');

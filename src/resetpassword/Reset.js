@@ -48,7 +48,12 @@ class Reset extends Component {
     };
 
     logInEmail = async (token) => {
-        await AsyncStorage.setItem('email',token)
+        console.log(token)
+        if(token!==null) {
+            await AsyncStorage.setItem('email', token)
+        }else{
+            await AsyncStorage.setItem('email', "")
+        }
     };
 
 

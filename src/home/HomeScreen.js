@@ -18,7 +18,7 @@ import DatePicker from "react-native-datepicker";
 import {GoogleAutoComplete} from 'react-native-google-autocomplete';
 import Button from '../components/Button'
 import moment from "moment";
-import {GetPrices} from "./Provider";
+import {CreateVisitor, GetPrices,SlackCall} from "./Provider";
 import Toast, {DURATION} from 'react-native-easy-toast';
 import LocationItem from '../components/LocationItem';
 import firebase, {Notification, NotificationOpen} from "react-native-firebase";
@@ -49,9 +49,9 @@ class HomeScreen extends Component {
     }
     componentWillMount(){
 
-            this._getNumberValue();
+        this._getNumberValue();
         BackHandler.addEventListener('hardwareBackPress', HomeScreen.handleBackButtonClick);
-            //  this.locationData();
+        //  this.locationData();
 
 
     }
@@ -125,7 +125,7 @@ class HomeScreen extends Component {
 
                 let loc ={
                     address: place.name,
-                        location: {
+                    location: {
                         lat: place.latitude,
                         lng: place.longitude
                     }
@@ -171,7 +171,7 @@ class HomeScreen extends Component {
             fcmToken = await firebase.messaging().getToken();
             if (fcmToken) {
                 // user has a device token
-                console.log("Token: ",fcmToken)
+
                 await AsyncStorage.setItem('fcmToken', fcmToken);
             }
         }
@@ -220,11 +220,11 @@ class HomeScreen extends Component {
                 departureAt: (moment(this.state.pickDate.toString()).unix()),
                 arrivalAt: null,
                 phone: this.state.mobile,
-                visitorType: 'visitor'
+                visitorType:'visitor'
             };
 
             this.getPrices(data);
-
+            this.createVisitor(data)
         }else{
             if(this.state.returnDate!=='') {
 
@@ -234,11 +234,11 @@ class HomeScreen extends Component {
                     departureAt: (moment(this.state.pickDate.toString()).unix()),
                     arrivalAt: (moment(this.state.returnDate.toString()).unix() + 86399),
                     phone: this.state.mobile,
-                    visitorType: 'visitor'
+                    visitorType:'visitor'
                 };
 
                 this.getPrices(data);
-                this.createVisitor(data);
+                this.createVisitor(data)
             }else{
 
                 alert("Please enter return date")
@@ -253,6 +253,27 @@ class HomeScreen extends Component {
     }
 
     createVisitor(data) {
+        let arrival ="";
+
+        if(data.isReturn){
+            arrival = " | Arrival: "+ moment.unix(data.arrivalAt).format("DD-MM-YYYY HH:mm");
+        }else{
+            arrival ="";
+        }
+        let address="";
+        data.itinerary.map((data,index)=>{
+            address = address+data.address+" / "
+        });
+        let slackData='Mobile App | Departure : ' +moment.unix(data.departureAt).format("DD-MM-YYYY HH:mm") + arrival + " | Phone: "+ data.phone +" | Itinerary: "+
+            address;
+
+        CreateVisitor(data).then((res) =>{
+
+        });
+
+        SlackCall(slackData).then((res) =>{
+
+        });
 
 
     }
@@ -272,6 +293,7 @@ class HomeScreen extends Component {
                 this.setState({
                     loading: false,
                 })
+                console.log("Rewsponse in getPrice: ",res)
                 this.props.navigation.navigate("DetailScreen",{itinerary:res.data.details.itinerary,response:res.data,fareChart:res.data.fareChart})
             }else {
                 this.showToast(res.data.message)
@@ -324,8 +346,8 @@ class HomeScreen extends Component {
 
         return (
             <View  style = {styles.container}>
-            
-           <StatusBar hidden />
+
+                <StatusBar hidden />
                 <Loader loading={this.state.loading} />
                 <Header style = {headerStyle}   >
                     <Left style = {leftStyle}>
@@ -341,9 +363,11 @@ class HomeScreen extends Component {
 
                     </Right>
                 </Header>
-                <View style={{flex:.7,backgroundColor:'white'}} >
+                <View style={{flex:.7,backgroundColor:'white',elevation:3,shadowOffset:{  width: 1,  height: 1 },
+                    shadowColor: 'rgba(0,0,0,0.5)',
+                    shadowOpacity: 1.0}} >
                     <View style={{flexDirection:'row',flex:1}}>
-                        <TouchableOpacity style={{width:"50%",height:'100%',justifyContent:'center',alignItems:'center'}}
+                        <TouchableOpacity style={{width:"50%",height:'100%',justifyContent:'center',alignItems:'center',borderRightWidth:1,borderColor:"gray"}}
                                           onPress={()=>this.setState({oneWay:false})}>
                             <View style={{width:"100%",height:'100%',justifyContent:'center',alignItems:'center',backgroundColor:!this.state.oneWay?"#d3d3d3":'white'}}>
                                 <Text>Round Trip</Text>
@@ -356,15 +380,17 @@ class HomeScreen extends Component {
                             </View>
                         </TouchableOpacity>
                     </View>
+
                 </View>
-                <View style={{height:10,backgroundColor:'white'}}>
+                <View style={{height:10,backgroundColor:'white',marginBottom:2}}>
                     <View style={{flexDirection:'row',flex:1}}>
-                        <View style={{width:"50%",height:'100%',justifyContent:'center',alignItems:'center', backgroundColor:!this.state.oneWay?'rgb(204,162,80)':'white'}}>
+                        <View style={{width:"50%",height:'100%',justifyContent:'center',alignItems:'center',borderColor:"gray",borderRightWidth:1, backgroundColor:!this.state.oneWay?'rgb(204,162,80)':'white'}}>
                         </View>
                         <View style={{width:"50%",height:'100%',justifyContent:'center',alignItems:'center',backgroundColor:!this.state.oneWay?'white':'rgb(204,162,80)'}}>
                         </View>
                     </View>
                 </View>
+
 
                 {this.state.oneWay?
                     <View style={styles.containerScroll}>
@@ -415,7 +441,7 @@ class HomeScreen extends Component {
                                     </View>}
 
                                 {this.state.itineraryOneWay.length===2?
-                                null: <View>
+                                    null: <View>
                                         <Text style={[styles.text,{marginLeft:5}]}>Destination:</Text>
                                         <View style={styles.SectionStyle}>
                                             <Icon style={styles.searchIcon} name="ios-pin" size={20} color="#000"/>
@@ -517,31 +543,31 @@ class HomeScreen extends Component {
                                     null
 
                                     :<View>
-                                    <Text style={[styles.text,{marginLeft:5}]}>Pickup Location:</Text>
-                                    <View style={styles.SectionStyle}>
-                                        <Icon style={styles.searchIcon} name="ios-pin" size={20} color="#000"/>
-                                        <TouchableOpacity
-                                            style={styles.inputPlace}
-                                            onPress={() => this.openSearchModal(2)}
-                                        >
-                                            <Text style={{color:"#d3d3d3"}}>Pickup Location</Text>
-                                        </TouchableOpacity>
-                                    </View>
+                                        <Text style={[styles.text,{marginLeft:5}]}>Pickup Location:</Text>
+                                        <View style={styles.SectionStyle}>
+                                            <Icon style={styles.searchIcon} name="ios-pin" size={20} color="#000"/>
+                                            <TouchableOpacity
+                                                style={styles.inputPlace}
+                                                onPress={() => this.openSearchModal(2)}
+                                            >
+                                                <Text style={{color:"#d3d3d3"}}>Pickup Location</Text>
+                                            </TouchableOpacity>
+                                        </View>
                                     </View>}
 
                                 {this.state.itineraryRoundWay.length>=2?
                                     null:
                                     <View>
                                         <Text style={[styles.text,{marginLeft:5}]}>Destination:</Text>
-                                    <View style={styles.SectionStyle}>
-                                        <Icon style={styles.searchIcon} name="ios-pin" size={20} color="#000"/>
-                                        <TouchableOpacity
-                                            style={styles.inputPlace}
-                                            onPress={() => this.openSearchModal(2)}
-                                        >
-                                            <Text style={{color:"#d3d3d3"}}>Destination</Text>
-                                        </TouchableOpacity>
-                                    </View>
+                                        <View style={styles.SectionStyle}>
+                                            <Icon style={styles.searchIcon} name="ios-pin" size={20} color="#000"/>
+                                            <TouchableOpacity
+                                                style={styles.inputPlace}
+                                                onPress={() => this.openSearchModal(2)}
+                                            >
+                                                <Text style={{color:"#d3d3d3"}}>Destination</Text>
+                                            </TouchableOpacity>
+                                        </View>
                                     </View>
                                 }
 

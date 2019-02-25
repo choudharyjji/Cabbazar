@@ -66,8 +66,9 @@ class Booking extends Component {
     }
 
     openDetailBookingScreen(id,itinerary,status,bookingStatus) {
+        console.log("Bookingstatus : ",bookingStatus)
 
-        if(status==="success" && bookingStatus!=="pending") {
+        if(status==="success" && (bookingStatus!=="pending" && bookingStatus!=="cancelled")) {
             this.props.navigation.navigate("BookingDetailScreen", {id: id, itinerary: itinerary})
         }else{
 
@@ -98,19 +99,19 @@ class Booking extends Component {
             <CardSection key={booking.index} style={styles.cardFare} >
                 <TouchableOpacity style={{width:"100%"}} onPress={()=>
                     this.openDetailBookingScreen(booking.item._id,booking.item.itinerary,booking.item.paymentStatus,booking.item.status)}>
-                {booking.item.isReturn?<Text style={{fontWeight:"bold",padding:5}}>Round Trip ({booking.item.carType})</Text>
-                    :<Text style={{fontWeight:"bold",padding:5}}>One Way ({booking.item.carType})</Text>}
+                    {booking.item.isReturn?<Text style={{fontWeight:"bold",padding:5}}>Round Trip ({booking.item.carType})</Text>
+                        :<Text style={{fontWeight:"bold",padding:5}}>One Way ({booking.item.carType})</Text>}
 
-                    <View style={{width:"100%",padding:5,flexDirection:"row"}}>
-                        <Text>Booking Id : </Text>
-                        <Text style={{fontWeight:"bold",paddingLeft:5}}>{booking.item.bookingId}</Text>
+                    <View style={{width:"100%",marginTop:10,padding:5,flexDirection:"row"}}>
+                        <Text style={{flex:1}}>Booking Id : </Text>
+                        <Text style={{fontWeight:"bold",paddingLeft:5,flex:1}}>{booking.item.bookingId}</Text>
                     </View>
 
                     <View style={{width:"100%",padding:5,flexDirection:"row"}}>
                         <Text style={{flex:1}}>Departure date/time : </Text>
                         <Text style={{fontWeight:"bold",paddingLeft:5,flex:1}}>
                             {moment.unix(booking.item.departureAt).format("DD-MM-YYYY HH:mm")}
-                            </Text>
+                        </Text>
                     </View>
 
                     {booking.item.isReturn?
@@ -118,10 +119,10 @@ class Booking extends Component {
                             <Text style={{flex:1}}>Arrival date/time : </Text>
                             <Text style={{fontWeight:"bold",paddingLeft:5,flex:1}}>
                                 {moment.unix(booking.item.arrivalAt).format("DD-MM-YYYY HH:mm")}
-                                </Text>
+                            </Text>
                         </View>
                         :
-                       null
+                        null
                     }
 
 
@@ -130,21 +131,21 @@ class Booking extends Component {
                     </View>
 
 
-                {booking.item.itinerary.map((place,index)=>{
-                    return(
-                        <View style={{padding:5,width:"100%",flexDirection:"row",alignItems:"center"}} key={index}>
-                            {index===0?<Icon name = 'ios-locate' style={{color:"green"}} />:<Icon name = 'ios-locate' style={{color:"red"}} />}
-                            <Text style={{paddingLeft:5}}>{place.address}</Text>
-                        </View>
-                    )
-                })}
+                    {booking.item.itinerary.map((place,index)=>{
+                        return(
+                            <View style={{padding:5,width:"100%",flexDirection:"row",alignItems:"center"}} key={index}>
+                                {index===0?<Icon name = 'ios-locate' style={{color:"green"}} />:<Icon name = 'ios-locate' style={{color:"red"}} />}
+                                <Text style={{paddingLeft:5}}>{place.address}</Text>
+                            </View>
+                        )
+                    })}
 
-                <View style={{backgroundColor:"black",padding:5,position:"absolute",right:"-3%",top:"1%"
-                    ,borderTopLeftRadius:10,borderBottomLeftRadius:10}}>
-                    <Text style={{color:colorStatus,fontSize:12,marginBottom:5,}}>Status: {booking.item.status.toUpperCase()}</Text>
+                    <View style={{backgroundColor:"black",padding:5,position:"absolute",right:"-3%",top:"1%"
+                        ,borderTopLeftRadius:10,borderBottomLeftRadius:10}}>
+                        <Text style={{color:colorStatus,fontSize:12,marginBottom:5,}}>Status: {booking.item.status.toUpperCase()}</Text>
 
-                    <Text style={{color:colorPayment,fontSize:12,fontWeight:"bold"}}>Payment: {booking.item.paymentStatus.toUpperCase()}</Text>
-                </View>
+                        <Text style={{color:colorPayment,fontSize:12,fontWeight:"bold"}}>Payment: {booking.item.paymentStatus.toUpperCase()}</Text>
+                    </View>
 
                 </TouchableOpacity>
             </CardSection>

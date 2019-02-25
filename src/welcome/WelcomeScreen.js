@@ -7,17 +7,49 @@ import {
     Image,
     StatusBar,
     AsyncStorage,
-    Dimensions
+    Dimensions,
+    Animated
 } from "react-native";
 import styles from './welcome.style'
 
 class WelComeScreen extends Component {
 
+    constructor(props){
+        super(props);
+        this.state= {
+            opacity:new Animated.Value(0),
+            fadeIn: new Animated.Value(0),
+        }
+    }
+
+    fadeIn() {
+        this.state.fadeIn.setValue(0)
+        Animated.timing(
+            this.state.fadeIn,
+            {
+                toValue: 1,
+                duration: 2000,
+            }
+        ).start();
+    }
+
+    onLoad=()=>{
+        Animated.timing(this.state.opacity,{
+            toValue:1,
+            duration:3000,
+            useNativeDriver:true,
+        }).start();
+    }
+
 
     componentWillMount() {
-         setTimeout(() => {
-             this._getStorageValue();
-            }, 3000);
+        setTimeout(() => {
+            this._getStorageValue();
+        }, 3000);
+
+        setTimeout(() => {
+            this.fadeIn();
+        }, 1000);
 
     }
 
@@ -44,12 +76,27 @@ class WelComeScreen extends Component {
             <View style={styles.container}>
                 <StatusBar hidden />
 
+                <View style = {styles.logoViewStyle}>
+                    <Animated.Image  onLoad={this.onLoad} style={[styles.logoStyle,
+                        {opacity:this.state.opacity,
+                            transform:[{
+                                scale:this.state.opacity.interpolate({
+                                    inputRange:[0,1],
+                                    outputRange:[0.85,1]
+                                })
+                            }]
+                        }]}
+                                     source= {require('../../assets/logo_new.png')  } resizeMode="contain"  />
 
-                    <Image  style={[styles.logoStyle]}
-                            source= {require('../../assets/logo_new.png')  } resizeMode="contain"  />
+                    <Animated.View
+                        style={{opacity: this.state.fadeIn}}
+                    >
+                        <View>
+                            <Text style={styles.textStyle}>User App</Text>
+                        </View>
+                    </Animated.View>
 
-                    <Text style={styles.textStyle}>User App</Text>
-
+                </View>
             </View>
         );
     }

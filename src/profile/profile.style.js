@@ -34,6 +34,7 @@ export default {
     },
 
     cardStyle:{
+        paddingBottom:20,
         marginTop:10,
         padding:10,
         width:'95%',

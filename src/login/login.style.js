@@ -5,16 +5,14 @@ export default {
     containerContent: {
         flex: 1,
         alignItems: 'center',
-        justifyContent:'center',
         backgroundColor: '#F5FCFF',
     },
-
-    containerContent2:{
+    containerPassContent: {
         flex: 1,
-        backgroundColor: '#F5FCFF',
         alignItems: 'center',
+        justifyContent: "center",
+        backgroundColor: '#F5FCFF',
     },
-
     input: {
         margin: 5,
         paddingLeft:"2%",

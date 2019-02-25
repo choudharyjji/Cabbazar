@@ -115,7 +115,7 @@ class Login extends Component {
                 <StatusBar hidden />
                 <Loader loading={this.state.loading} />
 
-                <View style={styles.containerContent2}>
+                <View style={styles.containerContent}>
                     <View style={{alignItems:"center",marginTop:"15%"}}>
                         <View style={{height:100,width:100,borderRadius:100/2,backgroundColor:'black',justifyContent:"center",alignItems:'center'}}>
                             <Image  style={{height:40}} source={require("../../assets/logo_new.png")} resizeMode="contain" />
@@ -152,6 +152,13 @@ class Login extends Component {
                     opacity={0.8}
                     textStyle={{color:'white'}}
                 />
+
+                <KeyboardAvoidingView
+                    resetScrollToCoords={{ x: 0, y: 0 }}
+                    contentContainerStyle={styles.container}
+                    scrollEnabled={false}
+                >
+                </KeyboardAvoidingView>
             </View>
         )
 

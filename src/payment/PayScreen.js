@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {
-    AsyncStorage, FlatList, Image, ImageBackground, Modal, ScrollView, StatusBar, TouchableHighlight, TouchableOpacity,
+    AsyncStorage, FlatList, Image, ImageBackground, KeyboardAvoidingView, Modal, ScrollView, StatusBar,
+    TouchableHighlight, TouchableOpacity,
     View
 } from "react-native";
 import styles from "../details/detail.style";
@@ -13,6 +14,10 @@ import {Input} from "../components/Input";
 import {CheckCoupon,PlaceBooking,BookingInitiated} from "../details/Provider";
 import Toast, {DURATION} from 'react-native-easy-toast';
 import RazorpayCheckout from 'react-native-razorpay';
+import {CreateVisitor,SlackCall} from "../home/Provider";
+import {
+    RAZAR_PAY_KEY_LIVE,RAZAR_PAY_KEY_TEST
+} from '../constant/Constants';
 import moment from "moment";
 
 
@@ -207,7 +212,9 @@ class PayScreen extends Component {
                     bookingId:res.data.notes[1]
                 });
 
-                this.openRazorPay(res.data)
+                this.openRazorPay(res.data);
+                this.creatVisitorLead(res.data);
+
 
             } else {
                 this.showToast(res.data.message)
@@ -217,6 +224,46 @@ class PayScreen extends Component {
             }
 
         });
+    }
+
+    creatVisitorLead(data) {
+        console.log("Response in payscreen : ",this.state.response)
+        let arrival ="";
+
+        if(this.state.response.details.isReturn){
+            arrival = " | Arrival: "+ moment.unix(this.state.response.details.arrivalAt).format("DD-MM-YYYY HH:mm");
+        }else{
+            arrival ="";
+        }
+        let address="";
+        this.state.itinerary.map((data,index)=>{
+            address = address+data.address+" / "
+        });
+        let slackData='Mobile App | Departure : ' +moment.unix(this.state.response.details.departureAt).format("DD-MM-YYYY HH:mm") + arrival +
+            " | Phone: "+ data.phone +" | Itinerary: "+ address + ' | Revenue : ' + this.state.advanceAmount;
+
+        let visitor={
+            name: data.name,
+            phone: data.phone,
+            email: data.email,
+            carType:this.state.fareChart.carType,
+            departureAt: this.state.response.details.departureAt,
+            arrivalAt:  this.state.response.details.arrivalAt,
+            isReturn: this.state.response.details.isReturn ,
+            itinerary: this.state.itinerary,
+            visitorType: 'lead'
+        }
+
+        CreateVisitor(visitor).then((res) =>{
+            console.log("PayScreen: ",res)
+        });
+
+        SlackCall(slackData).then((res) =>{
+            console.log("PayScreen: ", res)
+        });
+
+
+
     }
 
 
@@ -247,7 +294,7 @@ class PayScreen extends Component {
             description: 'Advance booking amount payment',
             image: 'https://cabbazar.com/assets/img/logo/featured-image.jpg',
             currency: 'INR',
-            key: 'rzp_test_6KeUReJYTLhPt0',
+            key: RAZAR_PAY_KEY_LIVE,
             amount:data.amount ,
             name: 'Cab Bazar LLP',
             notes:data.notes,
@@ -300,7 +347,7 @@ class PayScreen extends Component {
                     <Left style = {leftStyle}>
                         <Icon style={leftIconStyle} name = 'ios-arrow-back' onPress = {()=>
                             this.props.navigation.navigate("DetailScreen",{itinerary:this.state.itinerary,response:this.state.response,fareChart:this.state.fareChart})}
-                            />
+                        />
                     </Left>
                     <Body style = {{flex:3 , justifyContent : 'center'}}>
                     <Title style={titleStyle}>Confirm and Pay</Title>
@@ -310,130 +357,130 @@ class PayScreen extends Component {
 
                 <View style={styles.containerContent}>
                     <ScrollView>
-                    <CardSection  style={styles.cardFare}>
+                        <CardSection  style={styles.cardFare}>
 
 
-                        <Image source={image} style={{height:100,width:250,marginTop:'5%'}}/>
+                            <Image source={image} style={{height:100,width:250,marginTop:'5%'}}/>
 
-                        <ImageBackground source={require('../../assets/offer-badge.png')} style={{height:70,width:70,position:'absolute',top:'5%',left:'7%',justifyContent:'center',alignItems:'center'}}>
-                            <Text style={{alignSelf:'center',fontWeight: 'bold',fontSize: 20,color:'white'}}>{this.state.fare.offerPercentage}%</Text>
-                            <Text style={{alignSelf:'center',fontWeight: 'bold',fontSize: 17,color:'white'}}>OFF</Text>
-                        </ImageBackground>
+                            <ImageBackground source={require('../../assets/offer-badge.png')} style={{height:70,width:70,position:'absolute',top:'5%',left:'7%',justifyContent:'center',alignItems:'center'}}>
+                                <Text style={{alignSelf:'center',fontWeight: 'bold',fontSize: 20,color:'white'}}>{this.state.fare.offerPercentage}%</Text>
+                                <Text style={{alignSelf:'center',fontWeight: 'bold',fontSize: 17,color:'white'}}>OFF</Text>
+                            </ImageBackground>
 
-                        <Text style={{textDecorationLine: 'line-through', textDecorationStyle: 'solid',color:"red",fontSize: 20}}>&#8377;{price.toFixed(0)}</Text>
+                            <Text style={{textDecorationLine: 'line-through', textDecorationStyle: 'solid',color:"red",fontSize: 20}}>&#8377;{price.toFixed(0)}</Text>
 
-                        <Text style={{color:"#01c501",fontSize: 25,fontWeight: 'bold'}}>&#8377;{this.state.fare.estimatedPriceCb}</Text>
-                        <Text style={{color:"#51bcda",fontSize: 15,fontWeight: 'bold'}}>{this.state.fare.carType.toUpperCase()}(AC)</Text>
+                            <Text style={{color:"#01c501",fontSize: 25,fontWeight: 'bold'}}>&#8377;{this.state.fare.estimatedPriceCb}</Text>
+                            <Text style={{color:"#51bcda",fontSize: 15,fontWeight: 'bold'}}>{this.state.fare.carType.toUpperCase()}(AC)</Text>
 
-                        <Text style={{fontSize: 20,marginTop:5}}>{cars}</Text>
+                            <Text style={{fontSize: 20,marginTop:5}}>{cars}</Text>
 
-                        <View
-                            style={{
-                                borderBottomColor: '#f1eae0',
-                                borderBottomWidth: 1,
-                                width:'90%',
-                                marginTop:10
-                            }}
-                        />
+                            <View
+                                style={{
+                                    borderBottomColor: '#f1eae0',
+                                    borderBottomWidth: 1,
+                                    width:'90%',
+                                    marginTop:10
+                                }}
+                            />
 
-                        <View style={{width:'90%',marginTop:10}}>
-                            <View style={{flexDirection:'row'}}>
+                            <View style={{width:'90%',marginTop:10}}>
+                                <View style={{flexDirection:'row'}}>
 
-                                <Text style={{flex:1}}>
-                                    Included KM
-                                </Text>
+                                    <Text style={{flex:1}}>
+                                        Included KM
+                                    </Text>
 
-                                <Text style={{flex:1,textAlign:"right"}}>
-                                    {this.state.fare.includedKm}Km
-                                </Text>
+                                    <Text style={{flex:1,textAlign:"right"}}>
+                                        {this.state.fare.includedKm}Km
+                                    </Text>
 
-                            </View>
-                        </View>
-                        <View style={{width:'90%',marginTop:10}}>
-                            <View style={{flexDirection:'row'}}>
-
-                                <Text style={{flex:1}}>
-                                    Extra Fare/KM
-                                </Text>
-
-                                <Text style={{flex:1,textAlign:"right"}}>
-                                    &#8377;{this.state.response.details.isReturn?this.state.fare.oneWayPricePerKmCb:this.state.fare.roundTripPricePerKmCb}/km
-                                </Text>
-
-                            </View>
-                        </View>
-                        <View style={{width:'90%',marginTop:10}}>
-                            <View style={{flexDirection:'row'}}>
-
-                                <Text style={{flex:1}}>
-                                    Driver Charges
-                                </Text>
-
-                                <Text style={{flex:1,textAlign:"right"}}>
-                                    Included
-                                </Text>
-
-                            </View>
-                        </View>
-
-                        <TouchableOpacity style={{backgroundColor:'transparent',alignSelf:'center'}} onPress={this.onSelectItem.bind(this)}>
-                            <Text style={{fontSize: 15,marginTop:5,color:'black',textDecorationLine: 'underline',fontWeight: 'bold'}}>Other Terms</Text>
-                        </TouchableOpacity>
-
-                        <View
-                            style={{
-                                borderBottomColor: '#f1eae0',
-                                borderBottomWidth: 1,
-                                width:'90%',
-                                marginTop:5
-                            }}
-                        />
-
-
-                        {!this.state.couponApplied?<View style={{flexDirection:'row',paddingTop:5}}>
-
-                                <View style={styles.SectionStyle}>
-                                    <Input
-                                        keyboardType = 'default'
-                                        placeholder = 'Coupon'
-                                        value = {this.state.phoneNumber}
-                                        onChangeText = {coupon => this.setState({coupon:coupon.toUpperCase()})}
-                                    />
                                 </View>
-
-                                <Button style={{flex:3,backgroundColor:'#f5593d',justifyContent:'center',alignItems:'center',alignSelf:'center',width:'100%',marginTop:10,height:40}}
-                                        onPress={()=>this.goCoupon()}>
-                                    <Text>Apply</Text>
-                                </Button>
-                            </View>:
-                            <View style={{width:'100%', justifyContent:'center',alignItems:'center',height:100}}>
-                                <Text style={{fontSize:20,fontWeight:'bold',color:'#01c501',textAlign:'center'}}>{this.state.couponMessage}</Text>
                             </View>
-                        }
+                            <View style={{width:'90%',marginTop:10}}>
+                                <View style={{flexDirection:'row'}}>
+
+                                    <Text style={{flex:1}}>
+                                        Extra Fare/KM
+                                    </Text>
+
+                                    <Text style={{flex:1,textAlign:"right"}}>
+                                        &#8377;{this.state.response.details.isReturn?this.state.fare.oneWayPricePerKmCb:this.state.fare.roundTripPricePerKmCb}/km
+                                    </Text>
+
+                                </View>
+                            </View>
+                            <View style={{width:'90%',marginTop:10}}>
+                                <View style={{flexDirection:'row'}}>
+
+                                    <Text style={{flex:1}}>
+                                        Driver Charges
+                                    </Text>
+
+                                    <Text style={{flex:1,textAlign:"right"}}>
+                                        Included
+                                    </Text>
+
+                                </View>
+                            </View>
+
+                            <TouchableOpacity style={{backgroundColor:'transparent',alignSelf:'center'}} onPress={this.onSelectItem.bind(this)}>
+                                <Text style={{fontSize: 15,marginTop:5,color:'black',textDecorationLine: 'underline',fontWeight: 'bold'}}>Other Terms</Text>
+                            </TouchableOpacity>
+
+                            <View
+                                style={{
+                                    borderBottomColor: '#f1eae0',
+                                    borderBottomWidth: 1,
+                                    width:'90%',
+                                    marginTop:5
+                                }}
+                            />
+
+
+                            {!this.state.couponApplied?<View style={{flexDirection:'row',paddingTop:5}}>
+
+                                    <View style={styles.SectionStyle}>
+                                        <Input
+                                            keyboardType = 'default'
+                                            placeholder = 'Coupon'
+                                            value = {this.state.phoneNumber}
+                                            onChangeText = {coupon => this.setState({coupon:coupon.toUpperCase()})}
+                                        />
+                                    </View>
+
+                                    <Button style={{flex:3,backgroundColor:'#f5593d',justifyContent:'center',alignItems:'center',alignSelf:'center',width:'100%',marginTop:10,height:40}}
+                                            onPress={()=>this.goCoupon()}>
+                                        <Text>Apply</Text>
+                                    </Button>
+                                </View>:
+                                <View style={{width:'100%', justifyContent:'center',alignItems:'center',height:100}}>
+                                    <Text style={{fontSize:20,fontWeight:'bold',color:'#01c501',textAlign:'center'}}>{this.state.couponMessage}</Text>
+                                </View>
+                            }
 
 
 
-                        <Button style={{backgroundColor:'#f5593d',justifyContent:'center',alignItems:'center',alignSelf:'center',width:'100%',marginTop:10}}
-                                onPress={()=>{
+                            <Button style={{backgroundColor:'#f5593d',justifyContent:'center',alignItems:'center',alignSelf:'center',width:'100%',marginTop:10}}
+                                    onPress={()=>{
 
-                                    RazorpayCheckout.open(this.state.options).then((data) => {
-                                        // handle success
-                                       this.bookingInitiated();
-                                    }).catch((error) => {
-                                        // handle failure
-                                        alert(`Error: ${error.code} | ${error.description}`);
-                                    });
+                                        RazorpayCheckout.open(this.state.options).then((data) => {
+                                            // handle success
+                                            this.bookingInitiated();
+                                        }).catch((error) => {
+                                            // handle failure
+                                            alert(`Error: ${error.code} | ${error.description}`);
+                                        });
 
-                                }}>
-                            <Text>Pay &#8377;{this.state.advanceAmount} advance and Book</Text>
-                        </Button>
-
-
+                                    }}>
+                                <Text>Pay &#8377;{this.state.advanceAmount} advance and Book</Text>
+                            </Button>
 
 
 
 
-                    </CardSection>
+
+
+                        </CardSection>
                     </ScrollView>
                 </View>
 
@@ -472,7 +519,12 @@ class PayScreen extends Component {
                     opacity={0.8}
                     textStyle={{color:'white'}}
                 />
-
+                <KeyboardAvoidingView
+                    resetScrollToCoords={{ x: 0, y: 0 }}
+                    contentContainerStyle={styles.container}
+                    scrollEnabled={false}
+                >
+                </KeyboardAvoidingView>
 
 
             </View>
