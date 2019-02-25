@@ -19,7 +19,7 @@ export const GetPrices = (data) => {
 export const CreateVisitor = (data) => {
     return axios({
         method: 'post',
-        url: GET_PRICES,
+        url: CREATE_VISITOR,
         data:data,
         headers: {
             'Content-Type': 'application/json',
@@ -31,8 +31,8 @@ export const CreateVisitor = (data) => {
 
 export const SlackCall = (data) => {
     return axios({
-        method: 'post',
-        url: GET_PRICES,
+        method: 'get',
+        url: SLACK_USER.replace("_data",data),
         data:data,
         headers: {
             'Content-Type': 'application/json',

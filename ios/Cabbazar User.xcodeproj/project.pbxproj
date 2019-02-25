@@ -11,10 +11,9 @@
 		00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
-		00E356F31AD99517003FC87E /* cabbazar_userTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* cabbazar_userTests.m */; };
+		00E356F31AD99517003FC87E /* Cabbazar UserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* Cabbazar UserTests.m */; };
 		11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
-		13702984C94C48D2A52131CC /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EB4CAC4E9F07474C99026809 /* MaterialIcons.ttf */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -23,8 +22,6 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		255EA6A8C86F48908C61FBCD /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0F03192055B4F7AA675F6DD /* Zocial.ttf */; };
-		28E94477832E45F11C63B961 /* libPods-cabbazar_user.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 824D4D532DB45E96D93795FB /* libPods-cabbazar_user.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -36,36 +33,12 @@
 		2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E941DF850E9000B6D8A /* libRCTText-tvOS.a */; };
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
-		2D481317220C0B9000027C1D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D481316220C0B9000027C1D /* GoogleService-Info.plist */; };
-		2DCD641F21DDEF2300B16BC1 /* libRazorpayCheckout.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCD63F821DDEF1400B16BC1 /* libRazorpayCheckout.a */; };
-		2DCD642221DDEFC600B16BC1 /* Razorpay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCD642021DDEFC600B16BC1 /* Razorpay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2DCD954D1E0B4F2C00145EB5 /* cabbazar_userTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* cabbazar_userTests.m */; };
-		2DDD22C421DF3579000F0500 /* Razorpay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCD642021DDEFC600B16BC1 /* Razorpay.framework */; };
-		2DDD22C521DF35D5000F0500 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCD63E021DDDF8000B16BC1 /* libRNFirebase.a */; };
-		2DDED7C2D4E04641BFE3FBA0 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61BD8014C39949E2BA24A0C2 /* Entypo.ttf */; };
+		2DCD954D1E0B4F2C00145EB5 /* Cabbazar UserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* Cabbazar UserTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
-		3954694714734357D8FE88B2 /* libPods-cabbazar_user-cabbazar_user-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C630F27DDFB7903DF62591DF /* libPods-cabbazar_user-cabbazar_user-tvOS.a */; };
-		42D93018D8A64C42B2F04D1D /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0397EDCD37CC4D3BA79D5E0F /* Foundation.ttf */; };
-		546B81553149445A9608BF62 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 169369C0BC2144F895005F76 /* Feather.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		898BDF80FC104DBCB792FD0F /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15BDAA52DDEA48B3AA4E1F4F /* Roboto_medium.ttf */; };
-		8BF218D8DF8D07166D00A571 /* libPods-cabbazar_user-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E99F5E82A9B9D91D93E981E0 /* libPods-cabbazar_user-tvOS.a */; };
-		98608487A0D544799D3D8CC3 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA2A65FE218C4062B17CF27C /* SimpleLineIcons.ttf */; };
-		9969440521E0EB5300605BDC /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9969440421E0EB5300605BDC /* FIRAnalyticsConnector.framework */; };
-		9969440721E0EC8100605BDC /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9969440621E0EC8100605BDC /* FirebaseAnalytics.framework */; };
-		9969440921E0ED5500605BDC /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9969440821E0ED5500605BDC /* FirebaseInstanceID.framework */; };
-		9969440B21E0EE2400605BDC /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9969440A21E0EE2400605BDC /* GoogleAppMeasurement.framework */; };
-		A15DCB1C05DC4477BF482861 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E76E5D9B0ABF45A29F307901 /* EvilIcons.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		B17B9B3795A74E4D89465794 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE1C51A845DB4F5BA7724F20 /* Octicons.ttf */; };
-		BC44790DC41447DEBD260B0A /* libRNGooglePlaces.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD2E075C09341A3B4363680 /* libRNGooglePlaces.a */; };
-		C4401FC5747F0A9713097E09 /* libPods-cabbazar_userTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CFD394B740607129C6E52FF /* libPods-cabbazar_userTests.a */; };
-		C8F1B973DE604B338418A067 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C51583069BB4D1684BBB454 /* Ionicons.ttf */; };
-		CA613A753A5EA77487DAA876 /* libPods-cabbazar_user-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B6FD523E167A479E11B8BD /* libPods-cabbazar_user-tvOSTests.a */; };
-		D42FED55D38E43C896765B51 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 46AB42F215FB441FA3DC891F /* MaterialCommunityIcons.ttf */; };
-		E4DE1BEB6A8C4CD1B9AD3923 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C64E1671C25D4C4F9F2B5646 /* Roboto.ttf */; };
-		E51728E49FE649EE97E0A89E /* rubicon-icon-font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4B4313A360DA404B869B62E3 /* rubicon-icon-font.ttf */; };
-		F6BFDFDD5DB84F0DA85C7FCA /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B98BB87A1C284B708830EA66 /* FontAwesome.ttf */; };
+		41DC56F971814BEFA04020C3 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B45DB0F12D462E9D9B6C84 /* libRNFirebase.a */; };
+		82D8EE8F83D44C6AB26BBC86 /* libRNGooglePlaces.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAE01419E244447184C174B4 /* libRNGooglePlaces.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,7 +82,7 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = cabbazar_user;
+			remoteInfo = Cabbazar User;
 		};
 		139105C01AF99BAD00B5F7CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -137,7 +110,7 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "cabbazar_user-tvOS";
+			remoteInfo = "Cabbazar User-tvOS";
 		};
 		2D16E6711FA4F8DC00B85C8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -159,27 +132,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 3DBE0D0D1F3B181C0099AA32;
 			remoteInfo = "fishhook-tvOS";
-		};
-		2D3482FE21F985EF009DD6C8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 44F9D7CF478B4200AF486B20 /* RNGooglePlaces.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNGooglePlaces;
-		};
-		2DCD63DF21DDDF8000B16BC1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B556FA02F9904AAA867C1563 /* RNFirebase.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNFirebase;
-		};
-		2DCD63F721DDEF1400B16BC1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2DCD63F221DDEF1300B16BC1 /* RazorpayCheckout.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RazorpayCheckout;
 		};
 		2DF0FFDE2056DD460020B375 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -365,20 +317,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		997587CE21D4FC0100E1BD27 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				2DCD642221DDEFC600B16BC1 /* Razorpay.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTActionSheet.xcodeproj; path = "../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj"; sourceTree = "<group>"; };
@@ -386,71 +324,30 @@
 		00C302BB1ABCB91800DB3ED1 /* RCTImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTImage.xcodeproj; path = "../node_modules/react-native/Libraries/Image/RCTImage.xcodeproj"; sourceTree = "<group>"; };
 		00C302D31ABCB9D200DB3ED1 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "../node_modules/react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = "<group>"; };
 		00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* cabbazar_userTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cabbazar_userTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* Cabbazar UserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cabbazar UserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* cabbazar_userTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = cabbazar_userTests.m; sourceTree = "<group>"; };
-		0397EDCD37CC4D3BA79D5E0F /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/native-base/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
-		07A7D6FA5962598800191990 /* Pods-cabbazar_userTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cabbazar_userTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cabbazar_userTests/Pods-cabbazar_userTests.debug.xcconfig"; sourceTree = "<group>"; };
-		0F1360D4F53E4B2BF1426935 /* Pods-cabbazar_user-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cabbazar_user-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-cabbazar_user-tvOS/Pods-cabbazar_user-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* Cabbazar UserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cabbazar UserTests.m; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* cabbazar_user.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cabbazar_user.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = cabbazar_user/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = cabbazar_user/AppDelegate.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* Cabbazar User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cabbazar User.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Cabbazar User/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Cabbazar User/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = cabbazar_user/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = cabbazar_user/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = cabbazar_user/main.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Cabbazar User/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Cabbazar User/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Cabbazar User/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		14B6FD523E167A479E11B8BD /* libPods-cabbazar_user-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cabbazar_user-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		15BDAA52DDEA48B3AA4E1F4F /* Roboto_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto_medium.ttf; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; };
-		169369C0BC2144F895005F76 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/native-base/Fonts/Feather.ttf"; sourceTree = "<group>"; };
-		2B3D458F55DC67BBA4A4D4B1 /* Pods-cabbazar_user-cabbazar_user-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cabbazar_user-cabbazar_user-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cabbazar_user-cabbazar_user-tvOS/Pods-cabbazar_user-cabbazar_user-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		2D02CA5C21DE01EE006E4293 /* cabbazar_user.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = cabbazar_user.entitlements; path = cabbazar_user/cabbazar_user.entitlements; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* cabbazar_user-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cabbazar_user-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* cabbazar_user-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cabbazar_user-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E47B1E0B4A5D006451C7 /* Cabbazar User-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cabbazar User-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* Cabbazar User-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cabbazar User-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D34833821F98939009DD6C8 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Pods/GooglePlaces/Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
-		2D481316220C0B9000027C1D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2DCD63F221DDEF1300B16BC1 /* RazorpayCheckout.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RazorpayCheckout.xcodeproj; path = "../node_modules/react-native-razorpay/ios/RazorpayCheckout.xcodeproj"; sourceTree = "<group>"; };
-		2DCD642021DDEFC600B16BC1 /* Razorpay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Razorpay.framework; path = "../node_modules/react-native-razorpay/ios/Razorpay.framework"; sourceTree = "<group>"; };
-		2DDD22C621DF3656000F0500 /* libPods-cabbazar_user.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-cabbazar_user.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DDD22C821DF3672000F0500 /* libPods-cabbazar_user.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-cabbazar_user.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DDD22CA21DF38F5000F0500 /* libPods-cabbazar_user.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-cabbazar_user.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3300F8D97E9DAF0156B18E06 /* Pods-cabbazar_userTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cabbazar_userTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-cabbazar_userTests/Pods-cabbazar_userTests.release.xcconfig"; sourceTree = "<group>"; };
-		44F9D7CF478B4200AF486B20 /* RNGooglePlaces.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGooglePlaces.xcodeproj; path = "../node_modules/react-native-google-places/ios/RNGooglePlaces.xcodeproj"; sourceTree = "<group>"; };
-		46AB42F215FB441FA3DC891F /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
-		4B4313A360DA404B869B62E3 /* rubicon-icon-font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "rubicon-icon-font.ttf"; path = "../node_modules/native-base/Fonts/rubicon-icon-font.ttf"; sourceTree = "<group>"; };
-		5676D8408D32E0E46C736FBE /* Pods-cabbazar_user.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cabbazar_user.release.xcconfig"; path = "Pods/Target Support Files/Pods-cabbazar_user/Pods-cabbazar_user.release.xcconfig"; sourceTree = "<group>"; };
-		5CFD394B740607129C6E52FF /* libPods-cabbazar_userTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cabbazar_userTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
-		61BD8014C39949E2BA24A0C2 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/native-base/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
-		7CF92C599B876D5B961F7F1A /* Pods-cabbazar_user.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cabbazar_user.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cabbazar_user/Pods-cabbazar_user.debug.xcconfig"; sourceTree = "<group>"; };
-		7D3516EC3B4F443B835905C9 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
-		824D4D532DB45E96D93795FB /* libPods-cabbazar_user.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cabbazar_user.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		8C51583069BB4D1684BBB454 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/native-base/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		9969440421E0EB5300605BDC /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FIRAnalyticsConnector.framework; path = Pods/FirebaseAnalytics/FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
-		9969440621E0EC8100605BDC /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
-		9969440821E0ED5500605BDC /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
-		9969440A21E0EE2400605BDC /* GoogleAppMeasurement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleAppMeasurement.framework; path = Pods/GoogleAppMeasurement/Frameworks/GoogleAppMeasurement.framework; sourceTree = "<group>"; };
-		A0F03192055B4F7AA675F6DD /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/native-base/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
-		A23DBFECA55B6B019531574F /* Pods-cabbazar_user-cabbazar_user-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cabbazar_user-cabbazar_user-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-cabbazar_user-cabbazar_user-tvOS/Pods-cabbazar_user-cabbazar_user-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		AA2A65FE218C4062B17CF27C /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/native-base/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
-		AE1C51A845DB4F5BA7724F20 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/native-base/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
-		B556FA02F9904AAA867C1563 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
-		B98BB87A1C284B708830EA66 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/native-base/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
-		BC69E3C74597E602CB65B3D0 /* Pods-cabbazar_user-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cabbazar_user-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cabbazar_user-tvOS/Pods-cabbazar_user-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		C630F27DDFB7903DF62591DF /* libPods-cabbazar_user-cabbazar_user-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cabbazar_user-cabbazar_user-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C64E1671C25D4C4F9F2B5646 /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; };
-		CAD2E075C09341A3B4363680 /* libRNGooglePlaces.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGooglePlaces.a; sourceTree = "<group>"; };
-		CCE522086BA06F0D0A1E2AFD /* Pods-cabbazar_user-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cabbazar_user-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cabbazar_user-tvOSTests/Pods-cabbazar_user-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E76E5D9B0ABF45A29F307901 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/native-base/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
-		E99F5E82A9B9D91D93E981E0 /* libPods-cabbazar_user-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cabbazar_user-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB4CAC4E9F07474C99026809 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/native-base/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
-		FBDCFC1F57D54FA50362DC8A /* Pods-cabbazar_user-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cabbazar_user-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-cabbazar_user-tvOSTests/Pods-cabbazar_user-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		B8A3D9265B2D4C94BE8BBE42 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; name = "RNFirebase.xcodeproj"; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		17B45DB0F12D462E9D9B6C84 /* libRNFirebase.a */ = {isa = PBXFileReference; name = "libRNFirebase.a"; path = "libRNFirebase.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		A4832C44BEA1411B864DD04D /* RNGooglePlaces.xcodeproj */ = {isa = PBXFileReference; name = "RNGooglePlaces.xcodeproj"; path = "../node_modules/react-native-google-places/ios/RNGooglePlaces.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		BAE01419E244447184C174B4 /* libRNGooglePlaces.a */ = {isa = PBXFileReference; name = "libRNGooglePlaces.a"; path = "libRNGooglePlaces.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -459,7 +356,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
-				C4401FC5747F0A9713097E09 /* libPods-cabbazar_userTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,12 +363,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9969440B21E0EE2400605BDC /* GoogleAppMeasurement.framework in Frameworks */,
-				9969440921E0ED5500605BDC /* FirebaseInstanceID.framework in Frameworks */,
-				9969440721E0EC8100605BDC /* FirebaseAnalytics.framework in Frameworks */,
-				9969440521E0EB5300605BDC /* FIRAnalyticsConnector.framework in Frameworks */,
-				2DCD641F21DDEF2300B16BC1 /* libRazorpayCheckout.a in Frameworks */,
-				2DDD22C421DF3579000F0500 /* Razorpay.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -485,9 +375,8 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				2DDD22C521DF35D5000F0500 /* libRNFirebase.a in Frameworks */,
-				28E94477832E45F11C63B961 /* libPods-cabbazar_user.a in Frameworks */,
-				BC44790DC41447DEBD260B0A /* libRNGooglePlaces.a in Frameworks */,
+				41DC56F971814BEFA04020C3 /* libRNFirebase.a in Frameworks */,
+				82D8EE8F83D44C6AB26BBC86 /* libRNGooglePlaces.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,8 +392,6 @@
 				2D02E4C61E0B4AEC006451C7 /* libRCTSettings-tvOS.a in Frameworks */,
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
-				8BF218D8DF8D07166D00A571 /* libPods-cabbazar_user-tvOS.a in Frameworks */,
-				3954694714734357D8FE88B2 /* libPods-cabbazar_user-cabbazar_user-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,7 +400,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */,
-				CA613A753A5EA77487DAA876 /* libPods-cabbazar_user-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,13 +448,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		00E356EF1AD99517003FC87E /* cabbazar_userTests */ = {
+		00E356EF1AD99517003FC87E /* Cabbazar UserTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* cabbazar_userTests.m */,
+				00E356F21AD99517003FC87E /* Cabbazar UserTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = cabbazar_userTests;
+			path = Cabbazar UserTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -577,27 +463,6 @@
 				00E356F11AD99517003FC87E /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		0AE4444B34EF41D0A8D13353 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				61BD8014C39949E2BA24A0C2 /* Entypo.ttf */,
-				E76E5D9B0ABF45A29F307901 /* EvilIcons.ttf */,
-				169369C0BC2144F895005F76 /* Feather.ttf */,
-				B98BB87A1C284B708830EA66 /* FontAwesome.ttf */,
-				0397EDCD37CC4D3BA79D5E0F /* Foundation.ttf */,
-				8C51583069BB4D1684BBB454 /* Ionicons.ttf */,
-				46AB42F215FB441FA3DC891F /* MaterialCommunityIcons.ttf */,
-				EB4CAC4E9F07474C99026809 /* MaterialIcons.ttf */,
-				AE1C51A845DB4F5BA7724F20 /* Octicons.ttf */,
-				15BDAA52DDEA48B3AA4E1F4F /* Roboto_medium.ttf */,
-				C64E1671C25D4C4F9F2B5646 /* Roboto.ttf */,
-				4B4313A360DA404B869B62E3 /* rubicon-icon-font.ttf */,
-				AA2A65FE218C4062B17CF27C /* SimpleLineIcons.ttf */,
-				A0F03192055B4F7AA675F6DD /* Zocial.ttf */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		139105B71AF99BAD00B5F7CC /* Products */ = {
@@ -620,11 +485,9 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* cabbazar_user */ = {
+		13B07FAE1A68108700A75B9A /* Cabbazar User */ = {
 			isa = PBXGroup;
 			children = (
-				2D481316220C0B9000027C1D /* GoogleService-Info.plist */,
-				2D02CA5C21DE01EE006E4293 /* cabbazar_user.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -633,7 +496,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = cabbazar_user;
+			name = Cabbazar User;
 			sourceTree = "<group>";
 		};
 		146834001AC3E56700842450 /* Products */ = {
@@ -662,55 +525,9 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9969440A21E0EE2400605BDC /* GoogleAppMeasurement.framework */,
-				2D34833821F98939009DD6C8 /* GooglePlaces.framework */,
-				9969440821E0ED5500605BDC /* FirebaseInstanceID.framework */,
-				9969440621E0EC8100605BDC /* FirebaseAnalytics.framework */,
-				9969440421E0EB5300605BDC /* FIRAnalyticsConnector.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				824D4D532DB45E96D93795FB /* libPods-cabbazar_user.a */,
-				E99F5E82A9B9D91D93E981E0 /* libPods-cabbazar_user-tvOS.a */,
-				14B6FD523E167A479E11B8BD /* libPods-cabbazar_user-tvOSTests.a */,
-				5CFD394B740607129C6E52FF /* libPods-cabbazar_userTests.a */,
-				2DDD22C621DF3656000F0500 /* libPods-cabbazar_user.a */,
-				2DDD22C821DF3672000F0500 /* libPods-cabbazar_user.a */,
-				2DDD22CA21DF38F5000F0500 /* libPods-cabbazar_user.a */,
-				C630F27DDFB7903DF62591DF /* libPods-cabbazar_user-cabbazar_user-tvOS.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		2D3482D321F985EF009DD6C8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2D3482FF21F985EF009DD6C8 /* libRNGooglePlaces.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		2DCD63B421DDDF7E00B16BC1 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				7D3516EC3B4F443B835905C9 /* libRNFirebase.a */,
-				CAD2E075C09341A3B4363680 /* libRNGooglePlaces.a */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		2DCD63DC21DDDF8000B16BC1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2DCD63E021DDDF8000B16BC1 /* libRNFirebase.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		2DCD63F321DDEF1300B16BC1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2DCD63F821DDEF1400B16BC1 /* libRazorpayCheckout.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
@@ -734,7 +551,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				2DCD63F221DDEF1300B16BC1 /* RazorpayCheckout.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -747,8 +563,8 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-				B556FA02F9904AAA867C1563 /* RNFirebase.xcodeproj */,
-				44F9D7CF478B4200AF486B20 /* RNGooglePlaces.xcodeproj */,
+				B8A3D9265B2D4C94BE8BBE42 /* RNFirebase.xcodeproj */,
+				A4832C44BEA1411B864DD04D /* RNGooglePlaces.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -765,15 +581,11 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				2DCD642021DDEFC600B16BC1 /* Razorpay.framework */,
-				13B07FAE1A68108700A75B9A /* cabbazar_user */,
+				13B07FAE1A68108700A75B9A /* Cabbazar User */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* cabbazar_userTests */,
+				00E356EF1AD99517003FC87E /* Cabbazar UserTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				0AE4444B34EF41D0A8D13353 /* Resources */,
-				2DCD63B421DDDF7E00B16BC1 /* Recovered References */,
-				98EB6805EEECAC67C1799E95 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -783,29 +595,12 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* cabbazar_user.app */,
-				00E356EE1AD99517003FC87E /* cabbazar_userTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* cabbazar_user-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* cabbazar_user-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* Cabbazar User.app */,
+				00E356EE1AD99517003FC87E /* Cabbazar UserTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* Cabbazar User-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* Cabbazar User-tvOSTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		98EB6805EEECAC67C1799E95 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7CF92C599B876D5B961F7F1A /* Pods-cabbazar_user.debug.xcconfig */,
-				5676D8408D32E0E46C736FBE /* Pods-cabbazar_user.release.xcconfig */,
-				BC69E3C74597E602CB65B3D0 /* Pods-cabbazar_user-tvOS.debug.xcconfig */,
-				0F1360D4F53E4B2BF1426935 /* Pods-cabbazar_user-tvOS.release.xcconfig */,
-				CCE522086BA06F0D0A1E2AFD /* Pods-cabbazar_user-tvOSTests.debug.xcconfig */,
-				FBDCFC1F57D54FA50362DC8A /* Pods-cabbazar_user-tvOSTests.release.xcconfig */,
-				07A7D6FA5962598800191990 /* Pods-cabbazar_userTests.debug.xcconfig */,
-				3300F8D97E9DAF0156B18E06 /* Pods-cabbazar_userTests.release.xcconfig */,
-				2B3D458F55DC67BBA4A4D4B1 /* Pods-cabbazar_user-cabbazar_user-tvOS.debug.xcconfig */,
-				A23DBFECA55B6B019531574F /* Pods-cabbazar_user-cabbazar_user-tvOS.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		ADBDB9201DFEBF0600ED6528 /* Products */ = {
@@ -820,11 +615,10 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* cabbazar_userTests */ = {
+		00E356ED1AD99517003FC87E /* Cabbazar UserTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "cabbazar_userTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "Cabbazar UserTests" */;
 			buildPhases = (
-				468E5CC559BB29E620A7D3FA /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -834,57 +628,51 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = cabbazar_userTests;
-			productName = cabbazar_userTests;
-			productReference = 00E356EE1AD99517003FC87E /* cabbazar_userTests.xctest */;
+			name = Cabbazar UserTests;
+			productName = Cabbazar UserTests;
+			productReference = 00E356EE1AD99517003FC87E /* Cabbazar UserTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* cabbazar_user */ = {
+		13B07F861A680F5B00A75B9A /* Cabbazar User */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "cabbazar_user" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Cabbazar User" */;
 			buildPhases = (
-				C1C8C3F2F6E3A088A18FB8DA /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				997587CE21D4FC0100E1BD27 /* Embed Frameworks */,
-				E84CB2736F94AE2570253EE7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = cabbazar_user;
+			name = Cabbazar User;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* cabbazar_user.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Cabbazar User.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* cabbazar_user-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* Cabbazar User-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "cabbazar_user-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Cabbazar User-tvOS" */;
 			buildPhases = (
-				3D3A13C6D69A35675F47106F /* [CP] Check Pods Manifest.lock */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
 				2D02E4791E0B4A5D006451C7 /* Resources */,
 				2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */,
-				1E8298B789BB8F571372E451 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "cabbazar_user-tvOS";
-			productName = "cabbazar_user-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* cabbazar_user-tvOS.app */;
+			name = "Cabbazar User-tvOS";
+			productName = "Cabbazar User-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* Cabbazar User-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* cabbazar_user-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* Cabbazar User-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "cabbazar_user-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Cabbazar User-tvOSTests" */;
 			buildPhases = (
-				9E364F24882890E5CE00D42C /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -894,9 +682,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "cabbazar_user-tvOSTests";
-			productName = "cabbazar_user-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* cabbazar_user-tvOSTests.xctest */;
+			name = "Cabbazar User-tvOSTests";
+			productName = "Cabbazar User-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* Cabbazar User-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -910,19 +698,7 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = 8BZ53LM9H4;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
-					};
-					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = T5RCQBZKUM;
-						SystemCapabilities = {
-							com.apple.BackgroundModes = {
-								enabled = 1;
-							};
-							com.apple.Push = {
-								enabled = 1;
-							};
-						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -935,7 +711,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "cabbazar_user" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Cabbazar User" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -947,10 +723,6 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
-				{
-					ProductGroup = 2DCD63F321DDEF1300B16BC1 /* Products */;
-					ProjectRef = 2DCD63F221DDEF1300B16BC1 /* RazorpayCheckout.xcodeproj */;
-				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
@@ -999,21 +771,13 @@
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
-				{
-					ProductGroup = 2DCD63DC21DDDF8000B16BC1 /* Products */;
-					ProjectRef = B556FA02F9904AAA867C1563 /* RNFirebase.xcodeproj */;
-				},
-				{
-					ProductGroup = 2D3482D321F985EF009DD6C8 /* Products */;
-					ProjectRef = 44F9D7CF478B4200AF486B20 /* RNGooglePlaces.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* cabbazar_user */,
-				00E356ED1AD99517003FC87E /* cabbazar_userTests */,
-				2D02E47A1E0B4A5D006451C7 /* cabbazar_user-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* cabbazar_user-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* Cabbazar User */,
+				00E356ED1AD99517003FC87E /* Cabbazar UserTests */,
+				2D02E47A1E0B4A5D006451C7 /* Cabbazar User-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* Cabbazar User-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1094,27 +858,6 @@
 			fileType = archive.ar;
 			path = "libfishhook-tvOS.a";
 			remoteRef = 2D16E6851FA4F8DC00B85C8A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2D3482FF21F985EF009DD6C8 /* libRNGooglePlaces.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNGooglePlaces.a;
-			remoteRef = 2D3482FE21F985EF009DD6C8 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2DCD63E021DDDF8000B16BC1 /* libRNFirebase.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNFirebase.a;
-			remoteRef = 2DCD63DF21DDDF8000B16BC1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		2DCD63F821DDEF1400B16BC1 /* libRazorpayCheckout.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRazorpayCheckout.a;
-			remoteRef = 2DCD63F721DDEF1400B16BC1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		2DF0FFDF2056DD460020B375 /* libjsinspector.a */ = {
@@ -1315,21 +1058,6 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				2DDED7C2D4E04641BFE3FBA0 /* Entypo.ttf in Resources */,
-				A15DCB1C05DC4477BF482861 /* EvilIcons.ttf in Resources */,
-				546B81553149445A9608BF62 /* Feather.ttf in Resources */,
-				F6BFDFDD5DB84F0DA85C7FCA /* FontAwesome.ttf in Resources */,
-				42D93018D8A64C42B2F04D1D /* Foundation.ttf in Resources */,
-				C8F1B973DE604B338418A067 /* Ionicons.ttf in Resources */,
-				D42FED55D38E43C896765B51 /* MaterialCommunityIcons.ttf in Resources */,
-				13702984C94C48D2A52131CC /* MaterialIcons.ttf in Resources */,
-				B17B9B3795A74E4D89465794 /* Octicons.ttf in Resources */,
-				898BDF80FC104DBCB792FD0F /* Roboto_medium.ttf in Resources */,
-				2D481317220C0B9000027C1D /* GoogleService-Info.plist in Resources */,
-				E4DE1BEB6A8C4CD1B9AD3923 /* Roboto.ttf in Resources */,
-				E51728E49FE649EE97E0A89E /* rubicon-icon-font.ttf in Resources */,
-				98608487A0D544799D3D8CC3 /* SimpleLineIcons.ttf in Resources */,
-				255EA6A8C86F48908C61FBCD /* Zocial.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1363,29 +1091,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
-		};
-		1E8298B789BB8F571372E451 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-cabbazar_user-cabbazar_user-tvOS/Pods-cabbazar_user-cabbazar_user-tvOS-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
-				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-cabbazar_user-cabbazar_user-tvOS/Pods-cabbazar_user-cabbazar_user-tvOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1401,100 +1107,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		3D3A13C6D69A35675F47106F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-cabbazar_user-cabbazar_user-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		468E5CC559BB29E620A7D3FA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-cabbazar_userTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9E364F24882890E5CE00D42C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-cabbazar_user-tvOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C1C8C3F2F6E3A088A18FB8DA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-cabbazar_user-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E84CB2736F94AE2570253EE7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-cabbazar_user/Pods-cabbazar_user-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
-				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-cabbazar_user/Pods-cabbazar_user-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1502,7 +1114,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* cabbazar_userTests.m in Sources */,
+				00E356F31AD99517003FC87E /* Cabbazar UserTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1528,7 +1140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* cabbazar_userTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* Cabbazar UserTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1537,12 +1149,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* cabbazar_user */;
+			target = 13B07F861A680F5B00A75B9A /* Cabbazar User */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* cabbazar_user-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* Cabbazar User-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1554,7 +1166,7 @@
 				13B07FB21A68108700A75B9A /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = cabbazar_user;
+			path = Cabbazar User;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1562,145 +1174,112 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 07A7D6FA5962598800191990 /* Pods-cabbazar_userTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = 8BZ53LM9H4;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
-					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
-				);
-				INFOPLIST_FILE = cabbazar_userTests/Info.plist;
+				INFOPLIST_FILE = Cabbazar UserTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cabbazar_user.app/cabbazar_user";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cabbazar User.app/Cabbazar User";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+				);
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3300F8D97E9DAF0156B18E06 /* Pods-cabbazar_userTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = 8BZ53LM9H4;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
-					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
-				);
-				INFOPLIST_FILE = cabbazar_userTests/Info.plist;
+				INFOPLIST_FILE = Cabbazar UserTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cabbazar_user.app/cabbazar_user";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cabbazar User.app/Cabbazar User";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+				);
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7CF92C599B876D5B961F7F1A /* Pods-cabbazar_user.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = cabbazar_user/cabbazar_user.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = T5RCQBZKUM;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/../node_modules/react-native-razorpay/ios/",
-					"$(PROJECT_DIR)/Pods/FirebaseAnalytics",
-					"$(PROJECT_DIR)/Pods/FirebaseAnalytics/Frameworks",
-					"$(PROJECT_DIR)/Pods/FirebaseInstanceID/Frameworks",
-					"$(PROJECT_DIR)/Pods/GoogleAppMeasurement/Frameworks",
-					"$(PROJECT_DIR)/Pods/**",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
-					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
-				);
-				INFOPLIST_FILE = cabbazar_user/Info.plist;
+				INFOPLIST_FILE = Cabbazar User/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cabbazar-user";
-				PRODUCT_NAME = cabbazar_user;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = Cabbazar User;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+				);
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5676D8408D32E0E46C736FBE /* Pods-cabbazar_user.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = cabbazar_user/cabbazar_user.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = T5RCQBZKUM;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/../node_modules/react-native-razorpay/ios/",
-					"$(PROJECT_DIR)/Pods/FirebaseAnalytics",
-					"$(PROJECT_DIR)/Pods/FirebaseAnalytics/Frameworks",
-					"$(PROJECT_DIR)/Pods/FirebaseInstanceID/Frameworks",
-					"$(PROJECT_DIR)/Pods/GoogleAppMeasurement/Frameworks",
-					"$(PROJECT_DIR)/Pods/**",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
-					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
-				);
-				INFOPLIST_FILE = cabbazar_user/Info.plist;
+				INFOPLIST_FILE = Cabbazar User/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.cabbazar-user";
-				PRODUCT_NAME = cabbazar_user;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = Cabbazar User;
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
+				);
 			};
 			name = Release;
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B3D458F55DC67BBA4A4D4B1 /* Pods-cabbazar_user-cabbazar_user-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1711,33 +1290,32 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
-					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
-				);
-				INFOPLIST_FILE = "cabbazar_user-tvOS/Info.plist";
+				INFOPLIST_FILE = "Cabbazar User-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Cabbazar User-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.cabbazar_user-tvOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
 			name = Debug;
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A23DBFECA55B6B019531574F /* Pods-cabbazar_user-cabbazar_user-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1748,33 +1326,32 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
-					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
-				);
-				INFOPLIST_FILE = "cabbazar_user-tvOS/Info.plist";
+				INFOPLIST_FILE = "Cabbazar User-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Cabbazar User-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.cabbazar_user-tvOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
 			name = Release;
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CCE522086BA06F0D0A1E2AFD /* Pods-cabbazar_user-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1784,33 +1361,32 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
-					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
-				);
-				INFOPLIST_FILE = "cabbazar_user-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "Cabbazar User-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Cabbazar User-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cabbazar User-tvOS.app/Cabbazar User-tvOS";
+				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.cabbazar_user-tvOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cabbazar_user-tvOS.app/cabbazar_user-tvOS";
-				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FBDCFC1F57D54FA50362DC8A /* Pods-cabbazar_user-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1820,27 +1396,27 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
-					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
-				);
-				INFOPLIST_FILE = "cabbazar_user-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "Cabbazar User-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.Cabbazar User-tvOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cabbazar User-tvOS.app/Cabbazar User-tvOS";
+				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
-				OTHER_LDFLAGS = (
-					"-ObjC",
-					"-lc++",
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
+					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.cabbazar_user-tvOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/cabbazar_user-tvOS.app/cabbazar_user-tvOS";
-				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
 		};
@@ -1946,7 +1522,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "cabbazar_userTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "Cabbazar UserTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -1955,7 +1531,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "cabbazar_user" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Cabbazar User" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1964,7 +1540,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "cabbazar_user-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Cabbazar User-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1973,7 +1549,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "cabbazar_user-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "Cabbazar User-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -1982,7 +1558,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "cabbazar_user" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Cabbazar User" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

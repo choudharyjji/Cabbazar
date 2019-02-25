@@ -15,10 +15,10 @@ class WelComeScreen extends Component {
 
 
     componentWillMount() {
-         /*setTimeout(() => {
-             this.props.navigation.navigate('DrawerNavigator');
-            }, 200);*/
-        this._getStorageValue();
+         setTimeout(() => {
+             this._getStorageValue();
+            }, 3000);
+
     }
 
     async _getStorageValue(){
@@ -44,10 +44,12 @@ class WelComeScreen extends Component {
             <View style={styles.container}>
                 <StatusBar hidden />
 
-                <View style = {styles.logoViewStyle}>
-                    <Image  style={styles.logoStyle}
-                            source= {require('../../assets/ic_launcher.png')  } resizeMode="contain"  />
-                </View>
+
+                    <Image  style={[styles.logoStyle]}
+                            source= {require('../../assets/logo_new.png')  } resizeMode="contain"  />
+
+                    <Text style={styles.textStyle}>User App</Text>
+
             </View>
         );
     }

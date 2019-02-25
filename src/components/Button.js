@@ -26,7 +26,7 @@ const styles = {
         height:'100%',
         width:"100%",
         borderWidth : 0,
-        backgroundColor: 'black',
+        backgroundColor: '#e5ae43',
         borderRadius : 5,
         justifyContent:"center",
         alignItems:"center"

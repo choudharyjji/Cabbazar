@@ -126,9 +126,11 @@ class Profile extends Component {
                     <Right/>
                 </Header>
 
+                <ScrollView>
+
                 <View style={styles.containerContent}>
 
-                    <CardSection style={styles.cardStyle}>
+                    <CardSection style={[styles.cardStyle,{paddingBottom:30}]}>
 
                         <Image style={styles.avatar} source={{uri: 'https://bootdey.com/img/Content/avatar/avatar6.png'}}/>
 
@@ -196,7 +198,7 @@ class Profile extends Component {
 
                 </View>
 
-
+                </ScrollView>
 
                 <Toast
                     ref="toast"

@@ -107,16 +107,16 @@ class Booking extends Component {
                     </View>
 
                     <View style={{width:"100%",padding:5,flexDirection:"row"}}>
-                        <Text>Departure date/time : </Text>
-                        <Text style={{fontWeight:"bold",paddingLeft:5}}>
+                        <Text style={{flex:1}}>Departure date/time : </Text>
+                        <Text style={{fontWeight:"bold",paddingLeft:5,flex:1}}>
                             {moment.unix(booking.item.departureAt).format("DD-MM-YYYY HH:mm")}
                             </Text>
                     </View>
 
                     {booking.item.isReturn?
                         <View style={{width:"100%",padding:5,flexDirection:"row"}}>
-                            <Text>Arrival date/time : </Text>
-                            <Text style={{fontWeight:"bold",paddingLeft:5}}>
+                            <Text style={{flex:1}}>Arrival date/time : </Text>
+                            <Text style={{fontWeight:"bold",paddingLeft:5,flex:1}}>
                                 {moment.unix(booking.item.arrivalAt).format("DD-MM-YYYY HH:mm")}
                                 </Text>
                         </View>

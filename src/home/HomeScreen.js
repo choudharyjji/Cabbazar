@@ -211,23 +211,6 @@ class HomeScreen extends Component {
 
     sendData() {
 
-        let itinary=[
-            {
-                address: "Delhi",
-                location: {
-                    lat: 28.7041,
-                    lng: 77.1025
-                }
-            },
-            {
-                address: "Chandigarh",
-                location: {
-                    lat: 30.7333,
-                    lng: 76.7794
-                }
-            }
-
-        ];
 
         let data ={};
         if(this.state.oneWay){
@@ -236,7 +219,8 @@ class HomeScreen extends Component {
                 itinerary: this.state.itineraryOneWay,
                 departureAt: (moment(this.state.pickDate.toString()).unix()),
                 arrivalAt: null,
-                phone: 8059936746
+                phone: this.state.mobile,
+                visitorType: 'visitor'
             };
 
             this.getPrices(data);
@@ -249,10 +233,12 @@ class HomeScreen extends Component {
                     itinerary: this.state.itineraryRoundWay,
                     departureAt: (moment(this.state.pickDate.toString()).unix()),
                     arrivalAt: (moment(this.state.returnDate.toString()).unix() + 86399),
-                    phone: 8059936476
+                    phone: this.state.mobile,
+                    visitorType: 'visitor'
                 };
 
                 this.getPrices(data);
+                this.createVisitor(data);
             }else{
 
                 alert("Please enter return date")
@@ -264,6 +250,11 @@ class HomeScreen extends Component {
         this.refs.toast.show(message, 500, () => {
 
         });
+    }
+
+    createVisitor(data) {
+
+
     }
 
 
@@ -606,6 +597,7 @@ class HomeScreen extends Component {
             </View>
         );
     }
+
 
 }
 export default HomeScreen;

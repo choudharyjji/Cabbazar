@@ -147,16 +147,16 @@ class BookingDetailScreen extends Component {
                         </View>
 
                         <View style={{width:"100%",padding:5,flexDirection:"row"}}>
-                            <Text>Departure date/time : </Text>
-                            <Text style={{fontWeight:"bold",paddingLeft:5}}>
+                            <Text style={{flex:1}}>Departure date/time : </Text>
+                            <Text style={{fontWeight:"bold",paddingLeft:5,flex:1}}>
                                 {moment.unix(responseData.departureAt).format("DD-MM-YYYY HH:mm")}
                             </Text>
                         </View>
 
                         {responseData.isReturn?
                             <View style={{width:"100%",padding:5,flexDirection:"row"}}>
-                                <Text>Arrival date/time : </Text>
-                                <Text style={{fontWeight:"bold",paddingLeft:5}}>
+                                <Text style={{flex:1}}>Arrival date/time : </Text>
+                                <Text style={{fontWeight:"bold",paddingLeft:5,flex:1}}>
                                     {moment.unix(responseData.arrivalAt).format("DD-MM-YYYY HH:mm")}
                                 </Text>
                             </View>

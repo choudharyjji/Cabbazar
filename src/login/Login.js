@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styles from "./login.style";
 import Loader from "../components/Loader";
-import {BackHandler, KeyboardAvoidingView, StatusBar, TextInput, View} from "react-native";
+import {BackHandler, Image, KeyboardAvoidingView, StatusBar, Text, TextInput, View} from "react-native";
 import {Body, Header, Icon, Left, Right, Title} from "native-base";
 import AppTheme from "../components/AppTheme.style";
 import Button from '../components/Button'
@@ -114,13 +114,16 @@ class Login extends Component {
             <View  style = {styles.container}>
                 <StatusBar hidden />
                 <Loader loading={this.state.loading} />
-                <Header style = {headerStyle}>
-                    <Body style = {{flex:3 , justifyContent : 'center'}}>
-                        <Title style={titleStyle}>Cabbazar</Title>
-                    </Body>
 
-                </Header>
-                <View style={styles.containerContent}>
+                <View style={styles.containerContent2}>
+                    <View style={{alignItems:"center",marginTop:"15%"}}>
+                        <View style={{height:100,width:100,borderRadius:100/2,backgroundColor:'black',justifyContent:"center",alignItems:'center'}}>
+                            <Image  style={{height:40}} source={require("../../assets/logo_new.png")} resizeMode="contain" />
+
+                        </View>
+                        <Text style={{fontWeight:"bold"}}>CabBazar Login</Text>
+                    </View>
+                    <View style={{marginTop:"40%"}}>
                     <View style={styles.SectionStyle}>
                         <Icon style={styles.searchIcon} name="ios-phone-portrait" size={20} color="#000"/>
                         <Input
@@ -135,6 +138,7 @@ class Login extends Component {
                     <View style={styles.SectionStyle}>
                         <Button  children={"Submit"} onPress={()=>this.checkUser()}>
                         </Button>
+                    </View>
                     </View>
 
                 </View>

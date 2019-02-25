@@ -8,6 +8,13 @@ export default {
         justifyContent:'center',
         backgroundColor: '#F5FCFF',
     },
+
+    containerContent2:{
+        flex: 1,
+        backgroundColor: '#F5FCFF',
+        alignItems: 'center',
+    },
+
     input: {
         margin: 5,
         paddingLeft:"2%",
@@ -24,7 +31,7 @@ export default {
         justifyContent: 'center',
         alignItems: 'center',
         borderWidth: 1,
-        borderColor: 'rgba(0,0,0,0.7)',
+        borderColor: '#e5ae43',
         height: 40,
         borderRadius: 5 ,
         margin: 5
