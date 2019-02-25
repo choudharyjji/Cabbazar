@@ -3,6 +3,9 @@ package com.cabbazar_user;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.razorpay.rn.RazorpayPackage;
+import com.arttitude360.reactnative.rngoogleplaces.RNGooglePlacesPackage;
+import io.invertase.firebase.RNFirebasePackage;
 import com.arttitude360.reactnative.rngoogleplaces.RNGooglePlacesPackage;
 import com.razorpay.rn.RazorpayPackage;
 import com.facebook.react.ReactNativeHost;

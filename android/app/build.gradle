@@ -101,8 +101,8 @@ android {
         applicationId "com.cabbazar_user"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.0.1"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -137,9 +137,9 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-google-places')
-    compile project(':react-native-firebase')
-    compile project(':react-native-razorpay')
+    implementation project(':react-native-google-places')
+    implementation project(':react-native-firebase')
+    implementation project(':react-native-razorpay')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules
