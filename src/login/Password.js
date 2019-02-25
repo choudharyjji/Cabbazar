@@ -44,7 +44,7 @@ class Password extends Component {
                 phone: this.state.phoneNumber,
                 password: this.state.password
             };
-            console.log("Data : ", data)
+
             CheckUser(data).then((res) => {
                 if (res.status === 200) {
                     console.log("res: ", res.data);
@@ -111,7 +111,7 @@ class Password extends Component {
     };
 
     logInEmail = async (token) => {
-        console.log(token)
+
         if(token!==null) {
             await AsyncStorage.setItem('email', token)
         }else{
@@ -146,7 +146,7 @@ class Password extends Component {
                         password:this.state.newPassword
                     };
 
-                    console.log("Data: ",data);
+
                     ResetPassword(data).then((res) => {
                         if (res.status === 200) {
                             console.log("res: ", res.data)

@@ -76,7 +76,7 @@ class Login extends Component {
 
                 CheckUser(data).then((res) =>{
                     if (res.status===200) {
-                        console.log("res: ",res.data);
+
                         this.setState({
                             loading: false,
                         });

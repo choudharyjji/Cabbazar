@@ -11,8 +11,7 @@ export const GetPrices = (data) => {
         data:data,
         headers: {
             'Content-Type': 'application/json',
-        },
-        validateStatus: status => status >= 200 && status < 500, // default
+        }, // default
     });
 };
 
@@ -31,7 +30,7 @@ export const CreateVisitor = (data) => {
 
 
 export const SlackCall = (data) => {
-    console.log("Data: ",data)
+
     return axios({
         method: 'post',
         url: SLACK_VISITOR.replace(':_data',data),

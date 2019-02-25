@@ -7,7 +7,7 @@ import {Icon} from "native-base";
 
 class SideMenu extends Component {
     navigateToScreen = (route) => () => {
-        console.log('route',route)
+
         const navigateAction = NavigationActions.navigate({
             routeName: route,
         });

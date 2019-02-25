@@ -96,7 +96,7 @@ class Register extends Component {
 
                                 CreateUser(data).then((res) => {
                                     if (res.status === 200) {
-                                        console.log("res: ", res.data);
+
                                         this.setState({
                                             loading: false,
                                         });

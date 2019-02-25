@@ -55,7 +55,7 @@ class WelComeScreen extends Component {
 
     async _getStorageValue(){
         const token = await AsyncStorage.getItem('token')
-        console.log('LoginToken',token)
+
         if (token == null) {
             console.log('LoginToken',token)
             this.props.navigation.navigate('Login');

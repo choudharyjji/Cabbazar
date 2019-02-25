@@ -120,7 +120,11 @@ class HomeScreen extends Component {
     }
 
     openSearchModal(trip) {
-        RNGooglePlaces.openAutocompleteModal()
+        RNGooglePlaces.openAutocompleteModal({
+            type: 'establishment',
+            country: 'IN',
+            radius: 10
+        })
             .then((place) => {
 
                 let loc ={
@@ -185,7 +189,7 @@ class HomeScreen extends Component {
 
             this.getToken();
         } catch (error) {
-            console.log("Token: ",error)
+
             // User has rejected permissions
 
         }

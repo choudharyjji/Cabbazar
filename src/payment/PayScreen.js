@@ -63,7 +63,7 @@ class PayScreen extends Component {
 
     async _getNumberValue(){
         const number = await AsyncStorage.getItem('number')
-        console.log('LoginToken',number);
+
         if(number == null){
 
         }else{
@@ -124,7 +124,7 @@ class PayScreen extends Component {
     }
 
     openPaymentModal(amount,amountCb,id){
-        console.log("Id: ",id)
+
         this.setState({
             advanceAmount:amount,
             paymentDialog:true,
@@ -202,7 +202,7 @@ class PayScreen extends Component {
             loading: true,
         });
 
-        console.log("Data: ",data)
+
         PlaceBooking(data,token).then((res) => {
             console.log("res: ", res.data)
             if (res.status === 200) {
@@ -227,7 +227,7 @@ class PayScreen extends Component {
     }
 
     creatVisitorLead(data) {
-        console.log("Response in payscreen : ",this.state.response)
+
         let arrival ="";
 
         if(this.state.response.details.isReturn){
@@ -255,11 +255,11 @@ class PayScreen extends Component {
         }
 
         CreateVisitor(visitor).then((res) =>{
-            console.log("PayScreen: ",res)
+
         });
 
         SlackCall(slackData).then((res) =>{
-            console.log("PayScreen: ", res)
+
         });
 
 
@@ -325,7 +325,7 @@ class PayScreen extends Component {
         let price;
         let cars;
 
-        if(this.state.fare.carType==="suv"){
+        if(this.state.fare.carType==="suv" || this.state.fare.carType==="innova"){
             image = require('../../assets/suv.png')
             cars = "Innova, Xylo or Similar";
         }else if(this.state.fare.carType==="sedan"){

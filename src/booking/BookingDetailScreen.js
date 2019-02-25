@@ -90,7 +90,7 @@ class BookingDetailScreen extends Component {
         BookingDetail(token,this.state.id).then((res) => {
 
             if (res.status === 200) {
-                console.log("res.data:",res.data.carId.registrationNumber)
+
                 this.setState({
                     responseData:res.data,
                     driverName:res.data.driverId.name,

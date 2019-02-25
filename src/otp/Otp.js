@@ -49,7 +49,7 @@ class Otp extends Component {
     };
 
     logInEmail = async (token) => {
-        console.log(token)
+
         if(token!==null) {
             await AsyncStorage.setItem('email', token)
         }else{
@@ -75,7 +75,7 @@ class Otp extends Component {
 
                 CheckOtp(data).then((res) =>{
                     if (res.status===200) {
-                        console.log("res: ",res.data)
+
                         this.setState({
                             loading: false,
                         });

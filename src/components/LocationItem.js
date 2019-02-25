@@ -2,7 +2,7 @@ import  React from 'react';
 import {View,Text, TouchableOpacity} from 'react-native';
 
 const LocationItem = (props) => {
-    console.log('locationitem ..........  ',props.name);
+
     
     
 return (

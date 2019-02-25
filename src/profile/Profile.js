@@ -38,7 +38,7 @@ class Profile extends Component {
 
     async _getNumberValue(){
         const number = await AsyncStorage.getItem('number')
-        console.log('LoginToken',number);
+
         if(number == null){
 
         }else{
@@ -87,7 +87,7 @@ class Profile extends Component {
         });
 
         GetProfile(token).then((res) => {
-            console.log("res: ", res.data)
+
             if (res.status === 200) {
                 this.setState({
                     loading: false,
@@ -231,16 +231,16 @@ class Profile extends Component {
     }
     onPressOk(){
         AsyncStorage.removeItem('token', (err) => {
-            console.log('KeyRemoved')
+
         });
         AsyncStorage.removeItem('name', (err) => {
-            console.log('KeyRemoved')
+
         });
         AsyncStorage.removeItem('email', (err) => {
-            console.log('KeyRemoved')
+
         });
         AsyncStorage.removeItem('number', (err) => {
-            console.log('KeyRemoved')
+
         });
         this.props.navigation.navigate('Login');
 

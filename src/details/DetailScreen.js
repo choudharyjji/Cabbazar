@@ -106,7 +106,7 @@ class DetailScreen extends Component {
         let price;
         let cars;
 
-        if(fare.item.carType==="suv"){
+        if(fare.item.carType==="suv" || fare.item.carType==="innova"){
             image = require('../../assets/suv.png')
             cars = "Innova, Xylo or Similar";
         }else if(fare.item.carType==="sedan"){
@@ -115,6 +115,9 @@ class DetailScreen extends Component {
         }else if(fare.item.carType==="hatchback"){
             image = require('../../assets/hatchback.png')
             cars = "Indica, Swift or Similar";
+        }else {
+            image = require('../../assets/traveler.png')
+            cars = "Tempo Traveler";
         }
         let percentage = 100 - fare.item.offerPercentage;
 
@@ -232,7 +235,7 @@ class DetailScreen extends Component {
     }
 
     openPaymentModal(fare,amount,amountCb,id){
-        console.log("Fare Item : ",fare)
+
         this.setState({
             advanceAmount:amount,
             paymentDialog:true,
@@ -369,11 +372,11 @@ class DetailScreen extends Component {
         };
 
         CreateVisitor(visitor).then((res) =>{
-            console.log("PayScreen: ", res)
+
         });
 
         SlackCall(slackData).then((res) =>{
-            console.log("PayScreen: ", res)
+
         });
 
     }

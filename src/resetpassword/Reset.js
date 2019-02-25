@@ -48,7 +48,7 @@ class Reset extends Component {
     };
 
     logInEmail = async (token) => {
-        console.log(token)
+
         if(token!==null) {
             await AsyncStorage.setItem('email', token)
         }else{
@@ -74,7 +74,7 @@ class Reset extends Component {
                         password:this.state.password
                     };
 
-                    console.log("Data: ",data);
+
                     ResetPassword(data).then((res) => {
                         if (res.status === 200) {
                             console.log("res: ", res.data)
