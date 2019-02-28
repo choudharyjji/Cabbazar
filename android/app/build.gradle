@@ -137,6 +137,9 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-razorpay')
+    compile project(':react-native-google-places')
+    compile project(':react-native-firebase')
     implementation project(':react-native-google-places')
     implementation project(':react-native-firebase')
     implementation project(':react-native-razorpay')

@@ -6,6 +6,9 @@ import com.facebook.react.ReactApplication;
 import com.razorpay.rn.RazorpayPackage;
 import com.arttitude360.reactnative.rngoogleplaces.RNGooglePlacesPackage;
 import io.invertase.firebase.RNFirebasePackage;
+import com.razorpay.rn.RazorpayPackage;
+import com.arttitude360.reactnative.rngoogleplaces.RNGooglePlacesPackage;
+import io.invertase.firebase.RNFirebasePackage;
 import com.arttitude360.reactnative.rngoogleplaces.RNGooglePlacesPackage;
 import com.razorpay.rn.RazorpayPackage;
 import com.facebook.react.ReactNativeHost;
@@ -31,6 +34,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RazorpayPackage(),
+            new RNGooglePlacesPackage(),
+            new RNFirebasePackage(),
             new RNGooglePlacesPackage(),
             new RazorpayPackage(),
             new RNFirebasePackage(),

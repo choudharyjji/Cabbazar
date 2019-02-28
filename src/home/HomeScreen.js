@@ -121,7 +121,6 @@ class HomeScreen extends Component {
 
     openSearchModal(trip) {
         RNGooglePlaces.openAutocompleteModal({
-            type: 'establishment',
             country: 'IN',
             radius: 10
         })
