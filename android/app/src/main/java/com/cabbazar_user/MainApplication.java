@@ -34,9 +34,6 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RazorpayPackage(),
-            new RNGooglePlacesPackage(),
-            new RNFirebasePackage(),
             new RNGooglePlacesPackage(),
             new RazorpayPackage(),
             new RNFirebasePackage(),

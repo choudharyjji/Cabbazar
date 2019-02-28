@@ -8,7 +8,7 @@ import {
     ActivityIndicator,
     TouchableHighlight,
     StatusBar, TextInput, TouchableOpacity, ScrollView, AsyncStorage,
-    BackHandler
+    BackHandler, error
 } from "react-native";
 import {Header, Left, Right, Icon, Body, Title, Item, Input, Content} from "native-base";
 import styles from './home.style';
@@ -288,10 +288,10 @@ class HomeScreen extends Component {
             loading:true
         });
 
-
+        console.log('Data: ',data )
 
         GetPrices(data).then((res) =>{
-
+            console.log("Rewsponse in getPrice: ",res)
             if (res.status===200) {
                 this.setState({
                     loading: false,
@@ -299,12 +299,16 @@ class HomeScreen extends Component {
                 console.log("Rewsponse in getPrice: ",res)
                 this.props.navigation.navigate("DetailScreen",{itinerary:res.data.details.itinerary,response:res.data,fareChart:res.data.fareChart})
             }else {
+                console.log("Rewsponse in getPrice: ",res)
                 this.showToast(res.data.message)
                 this.setState({
                     loading: false,
                 })
             }
 
+        }).catch((response) => {
+            console.log('catch response',response)
+            error(response.status, response.data)
         });
     }
 

@@ -11,7 +11,8 @@ export const GetPrices = (data) => {
         data:data,
         headers: {
             'Content-Type': 'application/json',
-        }, // default
+        },
+        validateStatus: status => status >= 200 && status <= 500,
     });
 };
 
