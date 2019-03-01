@@ -123,6 +123,8 @@ class DetailScreen extends Component {
 
         price  = (fare.item.estimatedPriceCb * 100)/percentage;
 
+
+
         return(
             <CardSection key={fare.index} style={styles.cardFare}>
 
@@ -171,7 +173,7 @@ class DetailScreen extends Component {
                         </Text>
 
                         <Text style={{flex:1,textAlign:"right"}}>
-                            &#8377;{this.state.response.details.isReturn?fare.item.oneWayPricePerKmCb:fare.item.roundTripPricePerKmCb}/km
+                            &#8377;{fare.item.roundTripPricePerKmCb}/km
                         </Text>
 
                     </View>
@@ -293,6 +295,12 @@ class DetailScreen extends Component {
                     })
                 }
 
+            }).catch((response) => {
+                this.setState({
+                    loading: false,
+                })
+                this.showToast("No Internet")
+
             });
         }else{
             alert("Please enter coupon.")
@@ -337,6 +345,12 @@ class DetailScreen extends Component {
                     loading: false,
                 })
             }
+
+        }).catch((response) => {
+            this.setState({
+                loading: false,
+            })
+            this.showToast("No Internet")
 
         });
     }
@@ -400,6 +414,12 @@ class DetailScreen extends Component {
                     loading: false,
                 })
             }
+
+        }).catch((response) => {
+            this.setState({
+                loading: false,
+            })
+            this.showToast("No Internet")
 
         });
     }
@@ -496,7 +516,7 @@ class DetailScreen extends Component {
                                 </Text>
 
                                 <Text style={{flex:1,textAlign:"right",fontWeight:'bold'}}>
-                                    {moment.unix(this.state.response.details.arrivalAt).format("YYYY-MM-DD HH:mm")}
+                                    {moment.unix(this.state.response.details.arrivalAt).format("DD-MM-YYYY HH:mm")}
                                 </Text>
 
                             </View>

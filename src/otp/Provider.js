@@ -12,6 +12,6 @@ export const CheckOtp = (data, token) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        validateStatus: status => status >= 200 && status < 500, // default
+        validateStatus: status => status >= 200 && status <= 500, // default
     });
 }

@@ -182,6 +182,12 @@ class PayScreen extends Component {
                     })
                 }
 
+            }).catch((response) => {
+                this.setState({
+                    loading: false,
+                })
+                this.showToast("No Internet")
+
             });
         }else{
             alert("Please enter coupon.")
@@ -222,6 +228,12 @@ class PayScreen extends Component {
                     loading: false,
                 })
             }
+
+        }).catch((response) => {
+            this.setState({
+                loading: false,
+            })
+            this.showToast("No Internet")
 
         });
     }
@@ -285,6 +297,12 @@ class PayScreen extends Component {
                     loading: false,
                 })
             }
+
+        }).catch((response) => {
+            this.setState({
+                loading: false,
+            })
+            this.showToast("No Internet")
 
         });
     }
@@ -404,7 +422,7 @@ class PayScreen extends Component {
                                     </Text>
 
                                     <Text style={{flex:1,textAlign:"right"}}>
-                                        &#8377;{this.state.response.details.isReturn?this.state.fare.oneWayPricePerKmCb:this.state.fare.roundTripPricePerKmCb}/km
+                                        &#8377;{this.state.fare.roundTripPricePerKmCb}/km
                                     </Text>
 
                                 </View>

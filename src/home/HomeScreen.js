@@ -307,8 +307,11 @@ class HomeScreen extends Component {
             }
 
         }).catch((response) => {
-            console.log('catch response',response)
-            error(response.status, response.data)
+            this.setState({
+                loading: false,
+            })
+            this.showToast("No Internet")
+
         });
     }
 

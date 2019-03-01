@@ -181,6 +181,12 @@ class Booking extends Component {
                 })
             }
 
+        }).catch((response) => {
+            this.setState({
+                loading: false,
+            })
+            this.showToast("No Internet")
+
         });
 
     }

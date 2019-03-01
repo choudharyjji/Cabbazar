@@ -96,6 +96,12 @@ class Login extends Component {
                         })
                     }
 
+                }).catch((response) => {
+                    this.setState({
+                        loading: false,
+                    })
+                    this.showToast("No Internet")
+
                 });
             }else{
                 alert("Please enter correct mobile number")

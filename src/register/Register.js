@@ -107,6 +107,12 @@ class Register extends Component {
                                         })
                                     }
 
+                                }).catch((response) => {
+                                    this.setState({
+                                        loading: false,
+                                    })
+                                    this.showToast("No Internet")
+
                                 });
                             }else{
                                 alert("Please check terms and condition")
