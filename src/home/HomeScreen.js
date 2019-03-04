@@ -26,7 +26,7 @@ import RNGooglePlaces from 'react-native-google-places';
 
 
 let d1 = new Date();
-d1.setHours((new Date().getHours())+2);
+d1.setHours((new Date().getHours())+3);
 
 
 
@@ -298,8 +298,12 @@ class HomeScreen extends Component {
                 })
                 console.log("Rewsponse in getPrice: ",res)
                 this.props.navigation.navigate("DetailScreen",{itinerary:res.data.details.itinerary,response:res.data,fareChart:res.data.fareChart})
-            }else {
-                console.log("Rewsponse in getPrice: ",res)
+            }else if(res.status===401){
+                this.setState({
+                    loading: false,
+                });
+                this.props.navigation.navigate("Login")
+            }else{
                 this.showToast(res.data.message)
                 this.setState({
                     loading: false,

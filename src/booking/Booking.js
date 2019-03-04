@@ -174,13 +174,17 @@ class Booking extends Component {
                 });
 
 
-            } else {
+            } else if(res.status===401){
+                this.setState({
+                    loading: false,
+                });
+                this.props.navigation.navigate("Login")
+            }else{
                 this.showToast(res.data.message)
                 this.setState({
                     loading: false,
                 })
             }
-
         }).catch((response) => {
             this.setState({
                 loading: false,

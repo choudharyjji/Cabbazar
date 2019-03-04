@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styles from "./login.style";
 import Loader from "../components/Loader";
-import {BackHandler, Image, KeyboardAvoidingView, StatusBar, Text, TextInput, View} from "react-native";
+import {BackHandler, Image, StatusBar, Text, TextInput, View} from "react-native";
 import {Body, Header, Icon, Left, Right, Title} from "native-base";
 import AppTheme from "../components/AppTheme.style";
 import Button from '../components/Button'
@@ -9,6 +9,7 @@ import {Input} from "../components/Input";
 import {CheckUser} from "./Provider";
 import Toast, {DURATION} from 'react-native-easy-toast'
 import HomeScreen from "../home/HomeScreen";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
 
@@ -121,7 +122,7 @@ class Login extends Component {
                 <StatusBar hidden />
                 <Loader loading={this.state.loading} />
 
-                <View style={styles.containerContent}>
+                <KeyboardAwareScrollView style={styles.containerContent}>
                     <View style={{alignItems:"center",marginTop:"15%"}}>
                         <View style={{height:100,width:100,borderRadius:100/2,backgroundColor:'black',justifyContent:"center",alignItems:'center'}}>
                             <Image  style={{height:40}} source={require("../../assets/logo_new.png")} resizeMode="contain" />
@@ -129,7 +130,7 @@ class Login extends Component {
                         </View>
                         <Text style={{fontWeight:"bold"}}>CabBazar Login</Text>
                     </View>
-                    <View style={{marginTop:"40%"}}>
+                    <View style={{marginTop:"40%",alignItems:"center"}}>
                     <View style={styles.SectionStyle}>
                         <Icon style={styles.searchIcon} name="ios-phone-portrait" size={20} color="#000"/>
                         <Input
@@ -147,7 +148,7 @@ class Login extends Component {
                     </View>
                     </View>
 
-                </View>
+                </KeyboardAwareScrollView>
                 <Toast
                     ref="toast"
                     style={{backgroundColor:'black',padding:5}}
@@ -159,12 +160,7 @@ class Login extends Component {
                     textStyle={{color:'white'}}
                 />
 
-                <KeyboardAvoidingView
-                    resetScrollToCoords={{ x: 0, y: 0 }}
-                    contentContainerStyle={styles.container}
-                    scrollEnabled={false}
-                >
-                </KeyboardAvoidingView>
+
             </View>
         )
 

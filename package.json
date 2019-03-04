@@ -28,7 +28,8 @@
     "react-navigation": "^2.18.2",
     "react-redux": "^5.1.0",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "react-native-keyboard-aware-scroll-view": "latest"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",

@@ -19,6 +19,7 @@ import {
     RAZAR_PAY_KEY_LIVE,RAZAR_PAY_KEY_TEST
 } from '../constant/Constants';
 import moment from "moment";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
 
@@ -373,7 +374,7 @@ class PayScreen extends Component {
                     <Right/>
                 </Header>
 
-                <View style={styles.containerContent}>
+                <KeyboardAwareScrollView style={styles.containerContent}>
                     <ScrollView>
                         <CardSection  style={styles.cardFare}>
 
@@ -500,7 +501,7 @@ class PayScreen extends Component {
 
                         </CardSection>
                     </ScrollView>
-                </View>
+                </KeyboardAwareScrollView>
 
 
 
