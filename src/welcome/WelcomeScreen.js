@@ -86,7 +86,7 @@ class WelComeScreen extends Component {
                                 })
                             }]
                         }]}
-                                     source= {require('../../assets/logo_new.png')  } resizeMode="contain"  />
+                                     source= {require('../../assets/cab-logo-final2.png')  } resizeMode="contain"  />
 
                     <Animated.View
                         style={{opacity: this.state.fadeIn}}

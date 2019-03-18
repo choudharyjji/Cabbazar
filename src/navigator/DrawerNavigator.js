@@ -21,7 +21,9 @@ import DetailScreen from '../details/DetailScreen';
 import Booking from '../booking/Booking';
 import BookingDetailScreen from '../booking/BookingDetailScreen';
 import Profile from '../profile/Profile';
-import PayScreen from '../payment/PayScreen'
+import PayScreen from '../payment/PayScreen';
+import Thankyou from '../thankyou/Thankyou';
+
 
 const InnerStackNavigator = new createStackNavigator ({
     HomeScreen : {screen : HomeScreen ,navigationOptions : {
@@ -86,7 +88,7 @@ const customDrawerComponent = (props) => (
     </SafeAreaView>
 )
 const DrawerNavigator = new createDrawerNavigator ({
-        HomeScreen : {screen : HomeScreen },
+        Thankyou : {screen : Thankyou },
           PrivacyPolicy : {screen : PrivacyPolicy},
           RefundPolicy : {screen : RefundPolicy},
           Terms : {screen : Terms},
@@ -108,6 +110,9 @@ const DrawerNavigator = new createDrawerNavigator ({
             Profile: {screen :  Profile, navigationOptions:{
                 header : null
                 }},
+          Thankyou: {screen :  Thankyou, navigationOptions:{
+                       header : null
+                                                       }},
         InnerStackNavigator : {screen : InnerStackNavigator },
     },
     {

@@ -16,6 +16,8 @@ target 'cabbazar_user' do
   target 'cabbazar_user-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'react-native-fbsdk', :path => '../node_modules/react-native-fbsdk'
+
   end
 
   target 'cabbazar_userTests' do

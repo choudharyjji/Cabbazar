@@ -101,8 +101,8 @@ android {
         applicationId "com.cabbazar_user"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 5
-        versionName "1.0.4"
+        versionCode 7
+        versionName "1.0.6"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
@@ -137,6 +137,8 @@ android {
 }
 
 dependencies {
+    implementation 'com.facebook.android:facebook-android-sdk:4.34.0'
+    implementation project(':react-native-fbsdk')
     implementation project(':react-native-google-places')
     implementation project(':react-native-firebase')
     implementation project(':react-native-razorpay')

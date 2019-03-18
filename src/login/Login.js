@@ -125,27 +125,28 @@ class Login extends Component {
                 <KeyboardAwareScrollView style={styles.containerContent}>
                     <View style={{alignItems:"center",marginTop:"15%"}}>
                         <View style={{height:100,width:100,borderRadius:100/2,backgroundColor:'black',justifyContent:"center",alignItems:'center'}}>
-                            <Image  style={{height:40}} source={require("../../assets/logo_new.png")} resizeMode="contain" />
+                            <Image  style={{height:40}} source={require("../../assets/cab-logo-final2.png")} resizeMode="contain" />
 
                         </View>
                         <Text style={{fontWeight:"bold"}}>CabBazar Login</Text>
                     </View>
                     <View style={{marginTop:"40%",alignItems:"center"}}>
-                    <View style={styles.SectionStyle}>
-                        <Icon style={styles.searchIcon} name="ios-phone-portrait" size={20} color="#000"/>
-                        <Input
-                            maxLength={10}
-                            keyboardType = 'phone-pad'
-                            placeholder = 'Mobile No'
-                            value = {this.state.phoneNumber}
-                            onChangeText = {phoneNumber =>this.mobileValidate(phoneNumber)}
-                        />
-                    </View>
+                        <View style={styles.SectionStyle}>
+                            <Icon style={styles.searchIcon} name="ios-phone-portrait" size={20} color="#000"/>
+                            <Input
+                                maxLength={10}
+                                keyboardType = 'phone-pad'
+                                placeholder = 'Mobile No'
+                                value = {this.state.phoneNumber}
+                                onChangeText = {phoneNumber =>this.mobileValidate(phoneNumber)}
+                            />
+                        </View>
 
-                    <View style={styles.SectionStyle}>
-                        <Button  children={"Submit"} onPress={()=>this.checkUser()}>
-                        </Button>
-                    </View>
+
+                        <View style={styles.SectionStyle}>
+                            <Button  children={"Submit"} onPress={()=>this.checkUser()}>
+                            </Button>
+                        </View>
                     </View>
 
                 </KeyboardAwareScrollView>

@@ -26,7 +26,11 @@ import RNGooglePlaces from 'react-native-google-places';
 
 
 let d1 = new Date();
-d1.setHours((new Date().getHours())+3);
+if(d1.getHours()>0 && d1.getHours()<=6){
+    d1.setHours(8);
+}else {
+    d1.setHours((new Date().getHours()) + 2.5);
+}
 
 
 
@@ -126,8 +130,9 @@ class HomeScreen extends Component {
         })
             .then((place) => {
 
+                console.log("Place : ",place)
                 let loc ={
-                    address: place.name,
+                    address: place.address,
                     location: {
                         lat: place.latitude,
                         lng: place.longitude
@@ -217,35 +222,43 @@ class HomeScreen extends Component {
 
         let data ={};
         if(this.state.oneWay){
-            data={
-                isReturn:!this.state.oneWay,
-                itinerary: this.state.itineraryOneWay,
-                departureAt: (moment(this.state.pickDate.toString()).unix()),
-                arrivalAt: null,
-                phone: this.state.mobile,
-                visitorType:'visitor'
-            };
-
-            this.getPrices(data);
-            this.createVisitor(data)
-        }else{
-            if(this.state.returnDate!=='') {
-
+            if(this.state.itineraryOneWay.length>1) {
                 data = {
                     isReturn: !this.state.oneWay,
-                    itinerary: this.state.itineraryRoundWay,
+                    itinerary: this.state.itineraryOneWay,
                     departureAt: (moment(this.state.pickDate.toString()).unix()),
-                    arrivalAt: (moment(this.state.returnDate.toString()).unix() + 86399),
+                    arrivalAt: null,
                     phone: this.state.mobile,
-                    visitorType:'visitor'
+                    visitorType: 'visitor'
                 };
 
                 this.getPrices(data);
                 this.createVisitor(data)
             }else{
+                this.showToast("Please choose places.")
+            }
+        }else{
+            if(this.state.returnDate!=='') {
+                if(this.state.itineraryRoundWay.length>1) {
+                    data = {
+                        isReturn: !this.state.oneWay,
+                        itinerary: this.state.itineraryRoundWay,
+                        departureAt: (moment(this.state.pickDate.toString()).unix()),
+                        arrivalAt: (moment(this.state.returnDate.toString()).unix() + 86399),
+                        phone: this.state.mobile,
+                        visitorType:'visitor'
+                    };
+
+                    this.getPrices(data);
+                    this.createVisitor(data)
+                }else{
+                    this.showToast("Please choose places.")
+                }
+            }else{
 
                 alert("Please enter return date")
             }
+
         }
     }
 
@@ -350,6 +363,10 @@ class HomeScreen extends Component {
             itineraryOneWay:this.state.itineraryOneWay,
             itineraryRoundWay:this.state.itineraryRoundWay,
         });
+    }
+
+    gotoNewPage(){
+
     }
 
 
@@ -524,7 +541,7 @@ class HomeScreen extends Component {
                                         onDateChange={(date) => {this.setState({pickDate: date})}}
                                     />
                                 </View>
-                                <Text style={styles.text}>Pickup Date and Time:</Text>
+                                <Text style={styles.text}>Return Date and Time:</Text>
                                 <View style={styles.SectionStyle}>
                                     <Icon style={styles.searchIcon} name="ios-time" size={20} color="#000"/>
                                     <DatePicker

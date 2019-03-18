@@ -108,7 +108,7 @@ class DetailScreen extends Component {
 
         if(fare.item.carType==="suv" || fare.item.carType==="innova"){
             image = require('../../assets/suv.png')
-            cars = "Innova, Xylo or Similar";
+            cars = "Innova, Xylo, Ertiga or Similar";
         }else if(fare.item.carType==="sedan"){
             image = require('../../assets/sedan.png')
             cars = "Dzire, Etios or Similar";
@@ -325,6 +325,7 @@ class DetailScreen extends Component {
 
         PlaceBooking(data,this.state.token).then((res) => {
 
+            console.log("Place Booking: ",res)
             if (res.status === 200) {
                 this.setState({
                     loading: false,
@@ -426,10 +427,10 @@ class DetailScreen extends Component {
 
     openRazorPay(data){
         let options = {
-            description: 'Advance booking amount payment',
+            description: 'Advance booking amount payment '+data.bookingId,
             image: 'https://cabbazar.com/assets/img/logo/featured-image.jpg',
             currency: 'INR',
-            key: RAZAR_PAY_KEY_LIVE,
+            key: RAZAR_PAY_KEY_TEST,
             amount:data.amount ,
             name: 'Cab Bazar LLP',
             notes:data.notes,

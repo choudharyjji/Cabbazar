@@ -34,6 +34,29 @@ export default {
         margin: 5
     },
 
+    SectionStyle3: {
+        flex:9,
+        width:"100%",
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: 'black',
+        height: 35,
+        borderRadius: 10 ,
+        margin: 5
+    },
+
+    SectionStyle2: {
+        width:"100%",
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 45,
+        backgroundColor:"#d3d3d3",
+        margin: 5
+    },
+
     ImageStyle: {
         padding: 10,
         margin: 5,
@@ -61,6 +84,13 @@ export default {
     searchIcon: {
         paddingLeft: 5,
         paddingTop:3
+    },
+
+    searchIcon1: {
+        flex:1,
+        justifyContent:"center",
+        alignItems:"center",
+
     },
     checkBoxStyle: {
         width:"80%",

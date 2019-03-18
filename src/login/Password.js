@@ -10,6 +10,7 @@ import {CheckUser, forgotPassword} from "./Provider";
 import Toast, {DURATION} from 'react-native-easy-toast';
 import { Dialog } from 'react-native-simple-dialogs';
 import {ResetPassword} from "../resetpassword/Provider";
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 
 
@@ -224,47 +225,55 @@ class Password extends Component {
 
                 </View>
 
+
+
                 <Dialog
                     visible={this.state.dialog}
                     onTouchOutside={() => this.setState({dialog: false})} >
-                    <View style={{height:200}}>
-                        <View style={{flexDirection:'row'}}>
-                            <Text style={{flex:9,marginTop:5,fontSize:20}}>Reset Password</Text>
-                            <Icon style={{flex:1,backgroundColor:'transparent'}} name = 'ios-close' onPress = {()=>this.closeModal()}/>
-                        </View>
 
-                        <View style={{paddingTop:5,justifyContent:"center",alignItems:"center"}}>
-                            <View style={[styles.SectionStyle,{width:"90%"}]}>
-                                <Input
-                                    maxLength={4}
-                                    keyboardType = 'phone-pad'
-                                    placeholder = 'Otp'
-                                    value = {this.state.otp}
-                                    onChangeText = {otp => this.setState({otp:otp})}
-                                />
+                        <View style={{height:200}}>
+                            <View style={{flexDirection:'row'}}>
+                                <Text style={{flex:9,marginTop:5,fontSize:20}}>Reset Password</Text>
+                                <Icon style={{flex:1,backgroundColor:'transparent'}} name = 'ios-close' onPress = {()=>this.closeModal()}/>
                             </View>
 
-                            <View style={[styles.SectionStyle,{width:"90%"}]}>
-                                <Input
-                                    keyboardType = 'default'
-                                    placeholder = 'New Password'
-                                    value = {this.state.newPassword}
-                                    onChangeText = {newPassword => this.setState({newPassword:newPassword})}
-                                />
+                            <View style={{paddingTop:5,justifyContent:"center",alignItems:"center"}}>
+                                <View style={[styles.SectionStyle,{width:"90%"}]}>
+                                    <Input
+                                        maxLength={4}
+                                        keyboardType = 'phone-pad'
+                                        placeholder = 'Otp'
+                                        value = {this.state.otp}
+                                        onChangeText = {otp => this.setState({otp:otp})}
+                                    />
+                                </View>
+
+
+                                <View style={[styles.SectionStyle,{width:"90%"}]}>
+                                    <Input
+                                        secureTextEntry
+                                        keyboardType = 'default'
+                                        placeholder = 'New Password'
+                                        value = {this.state.newPassword}
+                                        onChangeText = {newPassword => this.setState({newPassword:newPassword})}
+                                    />
+                                </View>
+
                             </View>
+
+                            <TouchableOpacity style={{
+                                height:50,backgroundColor:'#e5ae43',justifyContent:'center',alignItems:'center',alignSelf:'center',width:'100%',marginTop:10,
+                                borderRadius:5}}
+                                              onPress={()=>this.resetPassword()}>
+                                <Text style={{color:"white"}}>Reset</Text>
+                            </TouchableOpacity>
+
+
+
                         </View>
 
-                        <TouchableOpacity style={{
-                            height:50,backgroundColor:'#000000',justifyContent:'center',alignItems:'center',alignSelf:'center',width:'100%',marginTop:10,
-                            borderRadius:5}}
-                                          onPress={()=>this.resetPassword()}>
-                            <Text style={{color:"white"}}>Reset</Text>
-                        </TouchableOpacity>
-
-
-
-                    </View>
                 </Dialog>
+
                 <Toast
                     ref="toast"
                     style={{backgroundColor:'black',padding:5}}

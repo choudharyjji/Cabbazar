@@ -290,7 +290,7 @@ class PayScreen extends Component {
 
                 });
 
-                this.props.navigation.navigate("Booking");
+                this.props.navigation.navigate("Thankyou");
 
             } else {
                 this.showToast(res.data.message)
@@ -310,10 +310,10 @@ class PayScreen extends Component {
 
     openRazorPay(data){
         let options = {
-            description: 'Advance booking amount payment',
+            description: 'Advance booking amount payment '+data.bookingId,
             image: 'https://cabbazar.com/assets/img/logo/featured-image.jpg',
             currency: 'INR',
-            key: RAZAR_PAY_KEY_LIVE,
+            key: RAZAR_PAY_KEY_TEST,
             amount:data.amount ,
             name: 'Cab Bazar LLP',
             notes:data.notes,
@@ -346,7 +346,7 @@ class PayScreen extends Component {
 
         if(this.state.fare.carType==="suv" || this.state.fare.carType==="innova"){
             image = require('../../assets/suv.png')
-            cars = "Innova, Xylo or Similar";
+            cars = "Innova, Xylo, Ertiga or Similar";
         }else if(this.state.fare.carType==="sedan"){
             image = require('../../assets/sedan.png')
             cars = "Dzire, Etios or Similar";

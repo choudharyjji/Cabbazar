@@ -9,6 +9,7 @@ buildscript {
         supportLibVersion = "27.1.1"
     }
     repositories {
+        mavenCentral()
         google()
         jcenter()
          maven {
@@ -26,7 +27,7 @@ buildscript {
 
 allprojects {
     repositories {
-
+        mavenCentral()
         mavenLocal()
         google()
         jcenter()

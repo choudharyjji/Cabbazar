@@ -38,6 +38,11 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2D481317220C0B9000027C1D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D481316220C0B9000027C1D /* GoogleService-Info.plist */; };
+		2DC530B5223D1FDE005AF431 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC53088223D1FDC005AF431 /* Bolts.framework */; };
+		2DC530B6223D1FDE005AF431 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC530B2223D1FDD005AF431 /* FBSDKCoreKit.framework */; };
+		2DC530B7223D1FDE005AF431 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC530B3223D1FDD005AF431 /* FBSDKLoginKit.framework */; };
+		2DC530B8223D1FDE005AF431 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC530B4223D1FDE005AF431 /* FBSDKShareKit.framework */; };
+		2DC53115223F9FD9005AF431 /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC530F2223F9FCA005AF431 /* libRCTFBSDK.a */; };
 		2DCD641F21DDEF2300B16BC1 /* libRazorpayCheckout.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCD63F821DDEF1400B16BC1 /* libRazorpayCheckout.a */; };
 		2DCD642221DDEFC600B16BC1 /* Razorpay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2DCD642021DDEFC600B16BC1 /* Razorpay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2DCD954D1E0B4F2C00145EB5 /* cabbazar_userTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* cabbazar_userTests.m */; };
@@ -167,6 +172,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNGooglePlaces;
+		};
+		2DC530F1223F9FCA005AF431 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DC530E6223F9FCA005AF431 /* RCTFBSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9350E0F11CE3B0920041D815;
+			remoteInfo = RCTFBSDK;
 		};
 		2DCD63DF21DDDF8000B16BC1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -413,6 +425,11 @@
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D34833821F98939009DD6C8 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Pods/GooglePlaces/Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
 		2D481316220C0B9000027C1D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2DC53088223D1FDC005AF431 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		2DC530B2223D1FDD005AF431 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		2DC530B3223D1FDD005AF431 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		2DC530B4223D1FDE005AF431 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		2DC530E6223F9FCA005AF431 /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTFBSDK.xcodeproj; path = "../node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; };
 		2DCD63F221DDEF1300B16BC1 /* RazorpayCheckout.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RazorpayCheckout.xcodeproj; path = "../node_modules/react-native-razorpay/ios/RazorpayCheckout.xcodeproj"; sourceTree = "<group>"; };
 		2DCD642021DDEFC600B16BC1 /* Razorpay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Razorpay.framework; path = "../node_modules/react-native-razorpay/ios/Razorpay.framework"; sourceTree = "<group>"; };
 		2DDD22C621DF3656000F0500 /* libPods-cabbazar_user.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-cabbazar_user.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -480,15 +497,20 @@
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
+				2DC530B8223D1FDE005AF431 /* FBSDKShareKit.framework in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
+				2DC530B7223D1FDE005AF431 /* FBSDKLoginKit.framework in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				2DDD22C521DF35D5000F0500 /* libRNFirebase.a in Frameworks */,
+				2DC530B5223D1FDE005AF431 /* Bolts.framework in Frameworks */,
+				2DC530B6223D1FDE005AF431 /* FBSDKCoreKit.framework in Frameworks */,
 				28E94477832E45F11C63B961 /* libPods-cabbazar_user.a in Frameworks */,
 				BC44790DC41447DEBD260B0A /* libRNGooglePlaces.a in Frameworks */,
+				2DC53115223F9FD9005AF431 /* libRCTFBSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,6 +685,10 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2DC53088223D1FDC005AF431 /* Bolts.framework */,
+				2DC530B2223D1FDD005AF431 /* FBSDKCoreKit.framework */,
+				2DC530B3223D1FDD005AF431 /* FBSDKLoginKit.framework */,
+				2DC530B4223D1FDE005AF431 /* FBSDKShareKit.framework */,
 				9969440A21E0EE2400605BDC /* GoogleAppMeasurement.framework */,
 				2D34833821F98939009DD6C8 /* GooglePlaces.framework */,
 				9969440821E0ED5500605BDC /* FirebaseInstanceID.framework */,
@@ -685,6 +711,14 @@
 			isa = PBXGroup;
 			children = (
 				2D3482FF21F985EF009DD6C8 /* libRNGooglePlaces.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2DC530E7223F9FCA005AF431 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2DC530F2223F9FCA005AF431 /* libRCTFBSDK.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -735,6 +769,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				2DC530E6223F9FCA005AF431 /* RCTFBSDK.xcodeproj */,
 				2DCD63F221DDEF1300B16BC1 /* RazorpayCheckout.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -918,7 +953,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 8BZ53LM9H4;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -930,11 +965,11 @@
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					2D02E48F1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						TestTargetID = 2D02E47A1E0B4A5D006451C7;
 					};
 				};
@@ -966,6 +1001,10 @@
 				{
 					ProductGroup = ADBDB9201DFEBF0600ED6528 /* Products */;
 					ProjectRef = ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */;
+				},
+				{
+					ProductGroup = 2DC530E7223F9FCA005AF431 /* Products */;
+					ProjectRef = 2DC530E6223F9FCA005AF431 /* RCTFBSDK.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
@@ -1105,6 +1144,13 @@
 			fileType = archive.ar;
 			path = libRNGooglePlaces.a;
 			remoteRef = 2D3482FE21F985EF009DD6C8 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2DC530F2223F9FCA005AF431 /* libRCTFBSDK.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTFBSDK.a;
+			remoteRef = 2DC530F1223F9FCA005AF431 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		2DCD63E021DDDF8000B16BC1 /* libRNFirebase.a */ = {
@@ -1587,7 +1633,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chandni Sharma (KAV8P7YWKU)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chandni Sharma (8BZ53LM9H4)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8BZ53LM9H4;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1624,7 +1670,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chandni Sharma (KAV8P7YWKU)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chandni Sharma (8BZ53LM9H4)";
 				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 8BZ53LM9H4;
@@ -1659,11 +1705,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = cabbazar_user/cabbazar_user.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chandni Sharma (8BZ53LM9H4)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8BZ53LM9H4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/../node_modules/react-native-razorpay/ios/",
@@ -1672,6 +1718,7 @@
 					"$(PROJECT_DIR)/Pods/FirebaseInstanceID/Frameworks",
 					"$(PROJECT_DIR)/Pods/GoogleAppMeasurement/Frameworks",
 					"$(PROJECT_DIR)/Pods/**",
+					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1687,7 +1734,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cabbazarUser;
 				PRODUCT_NAME = cabbazar_user;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "CabBazar Distribution";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1700,10 +1747,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = cabbazar_user/cabbazar_user.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chandni Sharma (8BZ53LM9H4)";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8BZ53LM9H4;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/../node_modules/react-native-razorpay/ios/",
@@ -1712,6 +1759,7 @@
 					"$(PROJECT_DIR)/Pods/FirebaseInstanceID/Frameworks",
 					"$(PROJECT_DIR)/Pods/GoogleAppMeasurement/Frameworks",
 					"$(PROJECT_DIR)/Pods/**",
+					"$(PROJECT_DIR)",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1727,7 +1775,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cabbazarUser;
 				PRODUCT_NAME = cabbazar_user;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "CabBazar Distribution";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1743,8 +1791,8 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chandni Sharma (KAV8P7YWKU)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chandni Sharma (8BZ53LM9H4)";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1782,8 +1830,8 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chandni Sharma (KAV8P7YWKU)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chandni Sharma (8BZ53LM9H4)";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1820,8 +1868,8 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chandni Sharma (KAV8P7YWKU)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chandni Sharma (8BZ53LM9H4)";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1858,8 +1906,8 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chandni Sharma (KAV8P7YWKU)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chandni Sharma (8BZ53LM9H4)";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1914,9 +1962,9 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chandni Sharma (KAV8P7YWKU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chandni Sharma (KAV8P7YWKU)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chandni Sharma (8BZ53LM9H4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chandni Sharma (8BZ53LM9H4)";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1969,9 +2017,9 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Chandni Sharma (KAV8P7YWKU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Chandni Sharma (KAV8P7YWKU)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chandni Sharma (8BZ53LM9H4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chandni Sharma (8BZ53LM9H4)";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
