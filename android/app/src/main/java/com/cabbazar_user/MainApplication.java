@@ -2,6 +2,8 @@ package com.cabbazar_user;
 
 import android.app.Application;
 
+import com.facebook.CallbackManager;
+import com.facebook.appevents.AppEventsLogger;
 import com.facebook.react.ReactApplication;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.razorpay.rn.RazorpayPackage;

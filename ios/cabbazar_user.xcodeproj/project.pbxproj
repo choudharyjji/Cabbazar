@@ -953,7 +953,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 8BZ53LM9H4;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1705,11 +1705,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = cabbazar_user/cabbazar_user.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Chandni Sharma (8BZ53LM9H4)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 8BZ53LM9H4;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/../node_modules/react-native-razorpay/ios/",
@@ -1734,7 +1734,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cabbazarUser;
 				PRODUCT_NAME = cabbazar_user;
-				PROVISIONING_PROFILE_SPECIFIER = "CabBazar Distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1747,10 +1747,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = cabbazar_user/cabbazar_user.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Chandni Sharma (8BZ53LM9H4)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8BZ53LM9H4;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/../node_modules/react-native-razorpay/ios/",
@@ -1775,7 +1775,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cabbazarUser;
 				PRODUCT_NAME = cabbazar_user;
-				PROVISIONING_PROFILE_SPECIFIER = "CabBazar Distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
