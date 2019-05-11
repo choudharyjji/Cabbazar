@@ -52,7 +52,7 @@ class HomeScreen extends Component {
         };
     }
     componentWillMount(){
-
+        console.disableYellowBox = true;
         this._getNumberValue();
         BackHandler.addEventListener('hardwareBackPress', HomeScreen.handleBackButtonClick);
         //  this.locationData();
@@ -310,7 +310,7 @@ class HomeScreen extends Component {
                     loading: false,
                 })
                 console.log("Rewsponse in getPrice: ",res)
-                this.props.navigation.navigate("DetailScreen",{itinerary:res.data.details.itinerary,response:res.data,fareChart:res.data.fareChart})
+                this.props.navigation.navigate("DetailScreen",{postData:data,itinerary:res.data.details.itinerary,response:res.data,fareChart:res.data.fareChart})
             }else if(res.status===401){
                 this.setState({
                     loading: false,
@@ -415,9 +415,9 @@ class HomeScreen extends Component {
                 </View>
                 <View style={{height:10,backgroundColor:'white',marginBottom:2}}>
                     <View style={{flexDirection:'row',flex:1}}>
-                        <View style={{width:"50%",height:'100%',justifyContent:'center',alignItems:'center',borderColor:"gray",borderRightWidth:1, backgroundColor:!this.state.oneWay?'rgb(204,162,80)':'white'}}>
+                        <View style={{width:"50%",height:'100%',justifyContent:'center',alignItems:'center',borderColor:"gray",borderRightWidth:1, backgroundColor:!this.state.oneWay?'#e5ae43':'white'}}>
                         </View>
-                        <View style={{width:"50%",height:'100%',justifyContent:'center',alignItems:'center',backgroundColor:!this.state.oneWay?'white':'rgb(204,162,80)'}}>
+                        <View style={{width:"50%",height:'100%',justifyContent:'center',alignItems:'center',backgroundColor:!this.state.oneWay?'white':'#e5ae43'}}>
                         </View>
                     </View>
                 </View>

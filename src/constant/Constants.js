@@ -17,6 +17,7 @@ export const BOOKING_INITIATED = BASE + "booking/initiated/:_id";
 export const BOOKING_HISTORY = BASE + "booking/user";
 export const BOOKING_DETAIL = BASE + 'booking/user/:_id';
 export const PROFILE = BASE + 'user/user';
+export const SHARE_POST = BASE + '/enquiry';
 
 
 export const SLACK_VISITOR = BASE + 'contact/click?clickEvent=:_data';

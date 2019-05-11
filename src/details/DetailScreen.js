@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {
     AsyncStorage, FlatList, Image, ImageBackground, Modal, StatusBar, TouchableHighlight, TouchableOpacity,
-    View,Platform,
+    View, Platform, Share, Alert
 } from "react-native";
 import styles from "./detail.style";
 import Loader from "../components/Loader";
@@ -15,10 +15,12 @@ import {CreateVisitor,SlackCall} from "../home/Provider";
 import Toast, {DURATION} from 'react-native-easy-toast';
 import RazorpayCheckout from 'react-native-razorpay';
 import moment from "moment";
+import {ShareDialog, ShareApi} from 'react-native-fbsdk';
 import {
     RAZAR_PAY_KEY_LIVE,RAZAR_PAY_KEY_TEST
 } from '../constant/Constants';
-
+import {PostEnquiry} from "../thankyou/Provider";
+let url="";
 
 
 class DetailScreen extends Component {
@@ -30,6 +32,7 @@ class DetailScreen extends Component {
             itinerary:this.props.navigation.state.params.itinerary,
             response :this.props.navigation.state.params.response,
             fareChart :this.props.navigation.state.params.fareChart,
+            postData: this.props.navigation.state.params.postData,
             modalVisible:false,
             paymentDialog:false,
             advanceAmount:'',
@@ -86,7 +89,7 @@ class DetailScreen extends Component {
 
         return(
             <View key={place.index} style={{flexDirection:'row',alignItems:'center'}} >
-                <View style={{backgroundColor:"rgb(240,162,81)",borderRadius:10,height:35,justifyContent:'center',alignItems:'center',marginLeft:2.5,marginRight:2.5,padding:2}}>
+                <View style={{backgroundColor:"#e5ae43",borderRadius:10,height:35,justifyContent:'center',alignItems:'center',marginLeft:2.5,marginRight:2.5,padding:2}}>
                     <Text style={styles.listText}>
                         {place.item.address}
                     </Text>
@@ -101,14 +104,141 @@ class DetailScreen extends Component {
         )
     };
 
+    shareLinkWithShareDialog(shareLinkContent) {
+
+        ShareDialog.canShow(shareLinkContent).then((res)=>{
+                console.log("Result in show: ",res)
+                if (res) {
+                    console.log("this.state.shareLinkContent: ",shareLinkContent)
+                    return ShareDialog.show(shareLinkContent);
+                }
+            }
+
+        ).then(
+            function(result) {
+                console.log("Result: ",result)
+                if (result.postId===null) {
+                    console.log("AlalalZxcdccxcxcxzcxz cxz zcxxzcxczcxzcxzcxa","asncadas");
+
+                    this.setState({
+                        modalVisible:true
+                    });
+                    Alert.alert(
+                        'Post Shared',
+                        '',
+                        [
+                            {text: 'OK', onPress:this.props.navigation.navigate("Booking") },
+                        ],
+                        { cancelable: false }
+                    )
+                    // alert('Share success with postId: ' + result.postId);
+                } else {
+                    alert('Share cancelled');
+
+                }
+            },
+            function(error) {
+                alert('Share fail with error: ' + error);
+            }
+        );
+    }
+
+    postEnquiry(post){
+
+        if(url==="") {
+            PostEnquiry(this.state.postData, this.state.token).then((res) => {
+
+                console.log("Post Booking: ", res)
+                if (res.status === 200) {
+                    this.setState({
+                        loading: false,
+
+                    });
+                    url = res.data._id;
+                    console.log("Url : ",url)
+                    if (post === 1) {
+
+                        let shareLinkContent = {
+                            contentType: 'link',
+                            contentDescription: 'Facebook sharing is easy!',
+                            contentUrl: 'https://cabbazar.com/prices.html?enquiry=' + url,
+                        };
+
+                        console.log("Share Data: ", shareLinkContent);
+                        this.shareLinkWithShareDialog(shareLinkContent);
+                    }else{
+                        let data ='https://cabbazar.com/prices.html?enquiry=' + url;
+                        this.onShare(data)
+                    }
+
+                } else {
+                    this.showToast(res.data.message)
+                    this.setState({
+                        loading: false,
+                    })
+                }
+
+            }).catch((response) => {
+                this.setState({
+                    loading: false,
+                })
+                this.showToast("No Internet")
+
+            });
+        }else{
+            console.log("Url in else: ",url)
+            if (post === 1) {
+                let shareLinkContent = {
+                    contentType: 'link',
+                    contentDescription: 'Facebook sharing is easy!',
+                    contentUrl: 'https://cabbazar.com/prices.html?enquiry=' + url,
+                };
+
+                console.log("Share Data: ", shareLinkContent);
+                this.shareLinkWithShareDialog(shareLinkContent);
+            }else{
+                let data ='https://cabbazar.com/prices.html?enquiry=' + url;
+
+                this.onShare(data)
+            }
+        }
+
+    }
+
+    onShare = async (message) => {
+        console.log("Data:8888888**********************************************",message  )
+        try {
+            const result = await Share.share({
+                message:
+                    message,
+            });
+
+            if (result.action === Share.sharedAction) {
+                if (result.activityType) {
+                    // shared with activity type of result.activityType
+                } else {
+                    // shared
+                }
+            } else if (result.action === Share.dismissedAction) {
+                // dismissed
+            }
+        } catch (error) {
+            alert(error.message);
+        }
+    };
+
+
     renderFareItem = (fare) =>{
         let image;
         let price;
         let cars;
 
-        if(fare.item.carType==="suv" || fare.item.carType==="innova"){
+        if(fare.item.carType==="suv"){
             image = require('../../assets/suv.png')
             cars = "Innova, Xylo, Ertiga or Similar";
+        }else if(fare.item.carType==="innova"){
+            image = require('../../assets/suv.png')
+            cars = "Assured Innova";
         }else if(fare.item.carType==="sedan"){
             image = require('../../assets/sedan.png')
             cars = "Dzire, Etios or Similar";
@@ -205,9 +335,48 @@ class DetailScreen extends Component {
                     }}
                 />
 
+
+
+
+                        <Button style={{backgroundColor:"#e5ae43",padding:4,elevation:3,alignSelf:"center",justifyContent:"center",alignItems:"center",marginTop:10,
+                            width:"90%", shadowColor: 'rgba(0,0,0,1)',
+                            shadowOffset: {
+                                width: .5,
+                                height: .5
+                            },
+
+                        }} onPress={()=>this.postEnquiry(2)}>
+                            <Text style={{color:"white"}}>Share with friends</Text>
+                        </Button>
+
+
+                    {/*<View style={{backgroundColor:'transparent',justifyContent:'center',alignItems:'center',flex:1}}
+                           >
+                        <TouchableOpacity onPress={()=>this.postEnquiry(2)}>
+                            <Image style={{height:50,width:50}}  source={require('../../assets/whatsapp.png')}/>
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={{backgroundColor:'transparent',justifyContent:'center',alignItems:'center',flex:1}}
+                    >
+                        <TouchableOpacity>
+                            <Image style={{height:50,width:50}}  source={require('../../assets/gmail.png')}/>
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={{backgroundColor:'transparent',justifyContent:'center',alignItems:'center',flex:1}}
+                    >
+                        <TouchableOpacity>
+                            <Image style={{height:50,width:50}}  source={require('../../assets/twitter.png')}/>
+                        </TouchableOpacity>
+                    </View>*/}
+
+
+
                 <Button style={{backgroundColor:'#f5593d',justifyContent:'center',alignItems:'center',alignSelf:'center',width:'90%',marginTop:10}}
                         onPress={()=>{Platform.OS==='ios' ? this.props.navigation.navigate("PayScreen",
                             {
+                                postData:this.state.postData,
                                 itinerary:this.state.itinerary,
                                 response :this.state.response,
                                 fareChart :this.state.fareChart,
@@ -407,7 +576,7 @@ class DetailScreen extends Component {
 
                 });
 
-                this.props.navigation.navigate("Booking");
+                this.props.navigation.navigate("Booking",{postData:this.state.postData});
 
             } else {
                 this.showToast(res.data.message)

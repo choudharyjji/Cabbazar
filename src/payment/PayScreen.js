@@ -33,6 +33,7 @@ class PayScreen extends Component {
             response :this.props.navigation.state.params.response,
             fareChart :this.props.navigation.state.params.fareChart,
             fare : this.props.navigation.state.params.item,
+            postData:this.props.navigation.state.params.postData,
             modalVisible:false,
             paymentDialog:false,
             advanceAmount:'',
@@ -290,7 +291,7 @@ class PayScreen extends Component {
 
                 });
 
-                this.props.navigation.navigate("Thankyou");
+                this.props.navigation.navigate("Booking",{postData:this.state.postData});
 
             } else {
                 this.showToast(res.data.message)
@@ -344,9 +345,12 @@ class PayScreen extends Component {
         let price;
         let cars;
 
-        if(this.state.fare.carType==="suv" || this.state.fare.carType==="innova"){
+        if(this.state.fare.carType==="suv" ){
             image = require('../../assets/suv.png')
             cars = "Innova, Xylo, Ertiga or Similar";
+        }else if(this.state.fare.carType==="innova"){
+            image = require('../../assets/suv.png')
+            cars = "Assured Innova";
         }else if(this.state.fare.carType==="sedan"){
             image = require('../../assets/sedan.png')
             cars = "Dzire, Etios or Similar";
@@ -365,7 +369,7 @@ class PayScreen extends Component {
                 <Header style = {headerStyle}>
                     <Left style = {leftStyle}>
                         <Icon style={leftIconStyle} name = 'ios-arrow-back' onPress = {()=>
-                            this.props.navigation.navigate("DetailScreen",{itinerary:this.state.itinerary,response:this.state.response,fareChart:this.state.fareChart})}
+                            this.props.navigation.navigate("DetailScreen",{itinerary:this.state.itinerary,response:this.state.response,fareChart:this.state.fareChart,postData:this.state.postData})}
                         />
                     </Left>
                     <Body style = {{flex:3 , justifyContent : 'center'}}>

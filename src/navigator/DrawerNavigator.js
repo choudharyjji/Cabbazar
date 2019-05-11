@@ -88,7 +88,7 @@ const customDrawerComponent = (props) => (
     </SafeAreaView>
 )
 const DrawerNavigator = new createDrawerNavigator ({
-        Thankyou : {screen : Thankyou },
+        HomeScreen : {screen : HomeScreen },
           PrivacyPolicy : {screen : PrivacyPolicy},
           RefundPolicy : {screen : RefundPolicy},
           Terms : {screen : Terms},
