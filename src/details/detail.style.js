@@ -18,6 +18,15 @@ export default {
         marginTop:5,
     },
 
+    checkBoxStyle: {
+        width:"80%",
+        flexDirection: 'row',
+        alignItems: 'center',
+        height: 50,
+        margin: 5
+
+    },
+
     cardStyle:{
         marginTop:10,
         padding:10,

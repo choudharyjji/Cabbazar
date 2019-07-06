@@ -5,6 +5,7 @@ import android.app.Application;
 import com.facebook.CallbackManager;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.react.ReactApplication;
+import com.reactlibrary.RNPayTmPackage;
 import com.facebook.reactnative.androidsdk.FBSDKPackage;
 import com.razorpay.rn.RazorpayPackage;
 import com.arttitude360.reactnative.rngoogleplaces.RNGooglePlacesPackage;
@@ -46,6 +47,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNPayTmPackage(),
             new FBSDKPackage(mCallbackManager),
             new RNGooglePlacesPackage(),
             new RazorpayPackage(),

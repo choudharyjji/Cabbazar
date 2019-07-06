@@ -68,7 +68,7 @@ class Booking extends Component {
     openDetailBookingScreen(id,itinerary,status,bookingStatus) {
 
 
-        if(status==="success" && (bookingStatus!=="pending" && bookingStatus!=="cancelled")) {
+        if(status==="success" && bookingStatus!=="cancelled") {
             this.props.navigation.navigate("BookingDetailScreen", {id: id, itinerary: itinerary})
         }else{
 
@@ -91,6 +91,8 @@ class Booking extends Component {
 
         if(booking.item.paymentStatus==="initiated"){
             colorPayment = "#EFCC00";
+        }else if(booking.item.paymentStatus==="failed") {
+            colorPayment = "#EB0C14";
         }else{
             colorPayment = "#0F9200";
         }
@@ -142,7 +144,7 @@ class Booking extends Component {
 
                     <View style={{backgroundColor:"black",padding:5,position:"absolute",right:"-3%",top:"1%"
                         ,borderTopLeftRadius:10,borderBottomLeftRadius:10}}>
-                        <Text style={{color:colorStatus,fontSize:12,marginBottom:5,}}>Status: {booking.item.status.toUpperCase()}</Text>
+
 
                         <Text style={{color:colorPayment,fontSize:12,fontWeight:"bold"}}>Payment: {booking.item.paymentStatus.toUpperCase()}</Text>
                     </View>

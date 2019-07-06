@@ -35,7 +35,7 @@ class Register extends Component {
     }
 
     emailValidate(email) {
-        const reg = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+        const reg = /^([a-zA-Z0-9_+-.]+)@([a-zA-Z0-9_+-.]+)\.([a-zA-Z0-9-.]+)$/;
         if (reg.test(email) === false) {
             this.setState({
                 emailValidate: false,

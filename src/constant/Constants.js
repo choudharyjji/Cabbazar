@@ -1,10 +1,11 @@
 
-export const BASE = "http://api.stage.cabbazar.com/";
-//export const BASE = "https://api.cabbazar.com/";
+//export const BASE = "http://api.stage.cabbazar.com/";
+export const BASE = "https://api.cabbazar.com/";
 export const RAZAR_PAY_KEY_LIVE = "rzp_live_8j61s3LJKaJcJD";
 export const RAZAR_PAY_KEY_TEST = "rzp_test_6KeUReJYTLhPt0";
 
 export const LOGIN = BASE + "user/login";
+export const UPDATE_USER = BASE + '/user';
 export const REGISTER = BASE + 'user';
 export const FORGOT = BASE + 'user/forgot';
 export const RESET = BASE + 'user/reset_password';
@@ -18,6 +19,9 @@ export const BOOKING_HISTORY = BASE + "booking/user";
 export const BOOKING_DETAIL = BASE + 'booking/user/:_id';
 export const PROFILE = BASE + 'user/user';
 export const SHARE_POST = BASE + '/enquiry';
+export const USER_WALLET = BASE + '/user/wallet';
+export const USER_WALLET_BALANCE = BASE + '/user/wallet/balance?estimatedPriceCb=';
+export const POST_USER_SHARE = BASE + '/user/wallet/share';
 
 
 export const SLACK_VISITOR = BASE + 'contact/click?clickEvent=:_data';

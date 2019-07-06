@@ -43,6 +43,7 @@ class WelComeScreen extends Component {
 
 
     componentWillMount() {
+        console.disableYellowBox = true;
         setTimeout(() => {
             this._getStorageValue();
         }, 3000);

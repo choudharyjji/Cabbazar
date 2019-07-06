@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-    GET_PRICES,CREATE_VISITOR,SLACK_VISITOR
+    GET_PRICES, CREATE_VISITOR, SLACK_VISITOR, UPDATE_USER, BOOKING_HISTORY
 } from '../constant/Constants'; // endpoint
 
 
@@ -13,6 +13,19 @@ export const GetPrices = (data) => {
             'Content-Type': 'application/json',
         },
         validateStatus: status => status >= 200 && status <= 500,
+    });
+};
+
+export const UpdateUser = (token,data) => {
+    return axios({
+        method: 'put',
+        url: UPDATE_USER,
+        data:data,
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `${token}`
+        },
+        validateStatus: status => status >= 200 && status < 500, // default
     });
 };
 

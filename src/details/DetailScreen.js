@@ -10,7 +10,7 @@ import AppTheme from '../components/AppTheme.style';
 import {CardSection} from "../components/CardSection";
 import { Dialog } from 'react-native-simple-dialogs';
 import {Input} from "../components/Input";
-import {CheckCoupon,PlaceBooking,BookingInitiated} from "./Provider";
+import {CheckCoupon, PlaceBooking, BookingInitiated, UserWalletBalance} from "./Provider";
 import {CreateVisitor,SlackCall} from "../home/Provider";
 import Toast, {DURATION} from 'react-native-easy-toast';
 import RazorpayCheckout from 'react-native-razorpay';
@@ -20,6 +20,7 @@ import {
     RAZAR_PAY_KEY_LIVE,RAZAR_PAY_KEY_TEST
 } from '../constant/Constants';
 import {PostEnquiry} from "../thankyou/Provider";
+import {CheckBox} from "react-native-elements";
 let url="";
 
 
@@ -47,6 +48,8 @@ class DetailScreen extends Component {
             name:'',
             email:'',
             carType:'',
+            balance:'',
+            maxCurrentDiscount:'',
         }
 
     }
@@ -82,6 +85,53 @@ class DetailScreen extends Component {
             });
         }
 
+        //this.getWalletBalance(token);
+
+    }
+
+    getWalletBalance(token,price,fare,amount,amountCb,id) {
+
+        UserWalletBalance(token,price).then((res) => {
+
+            if (res.status === 200) {
+                this.setState({
+                    loading: false,
+                    balance:res.data.balance,
+                    maxCurrentDiscount: res.data.maxWalletDiscount,
+                });
+
+                let walletDiscount =  res.data.balance> res.data.maxWalletDiscount?res.data.maxWalletDiscount:res.data.balance;
+
+                let cbfare = fare.estimatedCbFare - walletDiscount;
+                let cbPrice = fare.estimatedPriceCb - walletDiscount;
+                let gst = ((cbPrice * (5 / 100)).toFixed(2));
+                amount = Number(cbfare) + Number(gst);
+
+
+
+                this.setState({
+                    advanceAmount:amount.toFixed(2),
+                    paymentDialog:true,
+                    amountCb:amountCb,
+                    carId:id,
+                    carType:fare.carType
+                })
+
+
+            } else {
+                this.showToast(res.data.message)
+                this.setState({
+                    loading: false,
+                })
+            }
+
+        }).catch((response) => {
+            this.setState({
+                loading: false,
+            })
+            this.showToast("No Internet")
+
+        });
 
     }
 
@@ -148,7 +198,7 @@ class DetailScreen extends Component {
         if(url==="") {
             PostEnquiry(this.state.postData, this.state.token).then((res) => {
 
-                console.log("Post Booking: ", res)
+
                 if (res.status === 200) {
                     this.setState({
                         loading: false,
@@ -382,7 +432,8 @@ class DetailScreen extends Component {
                                 fareChart :this.state.fareChart,
                                 item: fare.item
 
-                            }):this.openPaymentModal(fare.item,fare.item.advanceAmount,fare.item.journeyPriceCb,fare.item._id)}}>
+                            }):this.openPaymentModal(fare.item,fare.item.advanceAmount,fare.item.journeyPriceCb,
+                            fare.item._id)}}>
                     <Text>Book Now</Text>
                 </Button>
 
@@ -406,14 +457,9 @@ class DetailScreen extends Component {
     }
 
     openPaymentModal(fare,amount,amountCb,id){
+        this.getWalletBalance(this.state.token,fare.estimatedPriceCb,fare,amount,amountCb,id);
 
-        this.setState({
-            advanceAmount:amount,
-            paymentDialog:true,
-            amountCb:amountCb,
-            carId:id,
-            carType:fare.carType
-        })
+
     }
 
     closeModal(){
@@ -453,6 +499,7 @@ class DetailScreen extends Component {
                             coupon:res.data.couponCode,
                             advanceAmount:this.state.advanceAmount
                         })
+                        this.placeBooking(res.data.couponCode)
                     }else{
                         this.showToast(res.data.message)
                     }
@@ -477,14 +524,15 @@ class DetailScreen extends Component {
 
     }
 
-    placeBooking() {
+    placeBooking(coupon) {
         let data = {
             isReturn:this.state.response.details.isReturn ,
             itinerary: this.state.itinerary,
             departureAt: this.state.response.details.departureAt,
             arrivalAt:  this.state.response.details.arrivalAt,
             carId: this.state.carId,
-            couponCode: this.state.coupon
+            couponCode: coupon,
+            dynamicWalletDiscount:true,
         };
         this.setState({
             loading: true,
@@ -576,7 +624,7 @@ class DetailScreen extends Component {
 
                 });
 
-                this.props.navigation.navigate("Booking",{postData:this.state.postData});
+                this.props.navigation.navigate("Thankyou",{postData:this.state.postData});
 
             } else {
                 this.showToast(res.data.message)
@@ -599,13 +647,10 @@ class DetailScreen extends Component {
             description: 'Advance booking amount payment '+data.bookingId,
             image: 'https://cabbazar.com/assets/img/logo/featured-image.jpg',
             currency: 'INR',
-            key: RAZAR_PAY_KEY_TEST,
+            key: RAZAR_PAY_KEY_LIVE,
             amount:data.amount ,
             name: 'Cab Bazar LLP',
             notes:data.notes,
-            external: {
-                wallets: ['paytm']
-            },
             prefill: {
                 email: data.email,
                 contact: data.phone,
@@ -752,6 +797,21 @@ class DetailScreen extends Component {
                             <Icon style={{flex:1,backgroundColor:'transparent'}} name = 'ios-close' onPress = {()=>this.closeModal()}/>
                         </View>
 
+                        <View style={styles.checkBoxStyle}>
+
+                            <CheckBox
+                                iconRight
+                                center
+                                disabled
+                                checkedColor='blue'
+                                checked={true}
+                                size = {24}
+                                containerStyle={{ marginLeft: 0, marginRight: 0, borderWidth: 0 ,backgroundColor:'transparent'}}/>
+
+                            <Text style={{color:'black',paddingLeft:5}}>Rewards Discount - {this.state.balance> this.state.maxCurrentDiscount?this.state.maxCurrentDiscount:this.state.balance}</Text>
+
+                        </View>
+
                         {!this.state.couponApplied?<View style={{flexDirection:'row',paddingTop:5}}>
 
                                 <View style={styles.SectionStyle}>
@@ -776,7 +836,7 @@ class DetailScreen extends Component {
 
 
                         <Button style={{backgroundColor:'#f5593d',justifyContent:'center',alignItems:'center',alignSelf:'center',width:'100%',marginTop:10}}
-                                onPress={()=>this.placeBooking()}>
+                                onPress={()=>this.placeBooking(null)}>
                             <Text>Pay &#8377;{this.state.advanceAmount} advance and Book</Text>
                         </Button>
 

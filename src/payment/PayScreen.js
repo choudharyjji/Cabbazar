@@ -11,7 +11,7 @@ import AppTheme from '../components/AppTheme.style';
 import {CardSection} from "../components/CardSection";
 import { Dialog } from 'react-native-simple-dialogs';
 import {Input} from "../components/Input";
-import {CheckCoupon,PlaceBooking,BookingInitiated} from "../details/Provider";
+import {CheckCoupon, PlaceBooking, BookingInitiated, UserWalletBalance} from "../details/Provider";
 import Toast, {DURATION} from 'react-native-easy-toast';
 import RazorpayCheckout from 'react-native-razorpay';
 import {CreateVisitor,SlackCall} from "../home/Provider";
@@ -20,6 +20,7 @@ import {
 } from '../constant/Constants';
 import moment from "moment";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import {CheckBox} from "react-native-elements";
 
 
 
@@ -36,7 +37,7 @@ class PayScreen extends Component {
             postData:this.props.navigation.state.params.postData,
             modalVisible:false,
             paymentDialog:false,
-            advanceAmount:'',
+            advanceAmount:this.props.navigation.state.params.item.advanceAmount,
             coupon:'',
             amountCb:'',
             mobile:'',
@@ -45,7 +46,9 @@ class PayScreen extends Component {
             cardId:'',
             token:'',
             bookingId:'',
-            options:''
+            options:'',
+            balance:'',
+            maxCurrentDiscount:'',
         }
 
     }
@@ -59,7 +62,7 @@ class PayScreen extends Component {
 
     componentDidMount(){
         this.setState({
-            advanceAmount:this.state.fare.advanceAmount
+
         })
     }
 
@@ -85,9 +88,10 @@ class PayScreen extends Component {
             this.setState({
                 token:token
             });
-            this.placeBooking(null,token);
+
         }
 
+        this.getWalletBalance(token,this.props.navigation.state.params.item.estimatedPriceCb);
 
     }
 
@@ -197,6 +201,38 @@ class PayScreen extends Component {
 
     }
 
+    getWalletBalance(token,price) {
+
+        UserWalletBalance(token,price).then((res) => {
+            console.log("res: ", res.data)
+            if (res.status === 200) {
+                this.setState({
+                    loading: false,
+                    balance:res.data.balance,
+                    maxCurrentDiscount: res.data.maxWalletDiscount,
+                    //advanceAmount : res.data.balance>res.data.maxWalletDiscount?this.state.advanceAmount-res.data.maxWalletDiscount:this.state.advanceAmount-res.data.balance,
+                });
+
+                this.placeBooking(null,token);
+
+
+            } else {
+                this.showToast(res.data.message)
+                this.setState({
+                    loading: false,
+                })
+            }
+
+        }).catch((response) => {
+            this.setState({
+                loading: false,
+            })
+            this.showToast("No Internet")
+
+        });
+
+    }
+
     placeBooking(coupon,token) {
         let data = {
             isReturn:this.state.response.details.isReturn ,
@@ -204,7 +240,8 @@ class PayScreen extends Component {
             departureAt: this.state.response.details.departureAt,
             arrivalAt:  this.state.response.details.arrivalAt,
             carId: this.state.fare._id,
-            couponCode: coupon
+            couponCode: coupon,
+            dynamicWalletDiscount:true,
         };
         this.setState({
             loading: true,
@@ -276,8 +313,6 @@ class PayScreen extends Component {
 
         });
 
-
-
     }
 
 
@@ -291,7 +326,7 @@ class PayScreen extends Component {
 
                 });
 
-                this.props.navigation.navigate("Booking",{postData:this.state.postData});
+                this.props.navigation.navigate("Thankyou",{postData:this.state.postData});
 
             } else {
                 this.showToast(res.data.message)
@@ -314,13 +349,10 @@ class PayScreen extends Component {
             description: 'Advance booking amount payment '+data.bookingId,
             image: 'https://cabbazar.com/assets/img/logo/featured-image.jpg',
             currency: 'INR',
-            key: RAZAR_PAY_KEY_TEST,
+            key: RAZAR_PAY_KEY_LIVE,
             amount:data.amount ,
             name: 'Cab Bazar LLP',
             notes:data.notes,
-            external: {
-                wallets: ['paytm']
-            },
             prefill: {
                 email: data.email,
                 contact: data.phone,
@@ -361,6 +393,14 @@ class PayScreen extends Component {
         let percentage = 100 - this.state.fare.offerPercentage;
 
         price  = (this.state.fare.estimatedPriceCb * 100)/percentage;
+
+        // let advanceAmount = this.state.advanceAmount;
+        // if(this.state.balance > this.state.maxCurrentDiscount){
+        //     advanceAmount = advanceAmount - this.state.maxCurrentDiscount;
+        // }else{
+        //     advanceAmount = advanceAmount - this.state.balance;
+        // }
+
         const {headerStyle,leftIconStyle,leftStyle,bodyStyle,titleStyle,rightIconStyle} = AppTheme;
         return(
             <View  style = {styles.container}>
@@ -449,6 +489,21 @@ class PayScreen extends Component {
                             <TouchableOpacity style={{backgroundColor:'transparent',alignSelf:'center'}} onPress={this.onSelectItem.bind(this)}>
                                 <Text style={{fontSize: 15,marginTop:5,color:'black',textDecorationLine: 'underline',fontWeight: 'bold'}}>Other Terms</Text>
                             </TouchableOpacity>
+
+                            <View style={styles.checkBoxStyle}>
+
+                                <CheckBox
+                                    iconRight
+                                    center
+                                    disabled
+                                    checkedColor='blue'
+                                    checked={true}
+                                    size = {24}
+                                    containerStyle={{ marginLeft: 0, marginRight: 0, borderWidth: 0 ,backgroundColor:'transparent'}}/>
+
+                                <Text style={{color:'black',paddingLeft:5}}>Rewards Discount : {this.state.balance> this.state.maxCurrentDiscount?this.state.maxCurrentDiscount:this.state.balance}</Text>
+
+                            </View>
 
                             <View
                                 style={{

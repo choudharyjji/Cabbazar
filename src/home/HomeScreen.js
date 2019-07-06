@@ -18,7 +18,7 @@ import DatePicker from "react-native-datepicker";
 import {GoogleAutoComplete} from 'react-native-google-autocomplete';
 import Button from '../components/Button'
 import moment from "moment";
-import {CreateVisitor, GetPrices,SlackCall} from "./Provider";
+import {CreateVisitor, GetPrices,SlackCall,UpdateUser} from "./Provider";
 import Toast, {DURATION} from 'react-native-easy-toast';
 import LocationItem from '../components/LocationItem';
 import firebase, {Notification, NotificationOpen} from "react-native-firebase";
@@ -48,11 +48,13 @@ class HomeScreen extends Component {
             isLocationListShow: true,
             itineraryRoundWay:[],
             itineraryOneWay:[],
-            addLocation:false
+            addLocation:false,
+            token:'',
         };
     }
     componentWillMount(){
         console.disableYellowBox = true;
+        this._getToken();
         this._getNumberValue();
         BackHandler.addEventListener('hardwareBackPress', HomeScreen.handleBackButtonClick);
         //  this.locationData();
@@ -90,7 +92,7 @@ class HomeScreen extends Component {
         * */
         this.notificationOpenedListener = firebase.notifications().onNotificationOpened((notificationOpen) => {
             const { title, body } = notificationOpen.notification;
-            this.props.navigation.navigate("Booking")
+           // this.props.navigation.navigate("Booking")
         });
 
         /*
@@ -173,16 +175,61 @@ class HomeScreen extends Component {
 
     async getToken() {
 
+        console.log('In get token')
         let fcmToken = await AsyncStorage.getItem('fcmToken');
 
+        console.log('fcmToken : ',fcmToken)
         if (fcmToken==null) {
             fcmToken = await firebase.messaging().getToken();
             if (fcmToken) {
                 // user has a device token
-
+                this.updateUser(fcmToken);
                 await AsyncStorage.setItem('fcmToken', fcmToken);
             }
+        }else{
+            this.updateUser(fcmToken);
+            await AsyncStorage.setItem('fcmToken', fcmToken);
         }
+    }
+
+    updateUser(fcmToken){
+
+
+        console.log('Here in update user')
+        let data = {
+            notification:{
+                deviceType:Platform.OS,
+                deviceToken:fcmToken
+            }
+        };
+
+
+        UpdateUser(this.state.token,data).then((res) =>{
+            console.log("Rewsponse in Udateuser: ",res)
+            if (res.status===200) {
+                this.setState({
+                    loading: false,
+                })
+            }else if(res.status===401){
+                this.setState({
+                    loading: false,
+                });
+                this.props.navigation.navigate("Login")
+            }else{
+                this.showToast(res.data.message)
+                this.setState({
+                    loading: false,
+                })
+            }
+
+        }).catch((response) => {
+            console.log("Rewsponse in Udateuser: ",response)
+            this.setState({
+                loading: false,
+            })
+
+
+        });
     }
 
     //2
@@ -199,6 +246,19 @@ class HomeScreen extends Component {
         }
     }
 
+    async _getToken(){
+        const token = await AsyncStorage.getItem('token')
+
+        if(token == null){
+
+        }else{
+            this.setState({
+                token:token
+            });
+        }
+
+
+    }
 
     async _getNumberValue(){
         const number = await AsyncStorage.getItem('number')

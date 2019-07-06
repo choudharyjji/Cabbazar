@@ -81,6 +81,15 @@ class SideMenu extends Component {
                             </View>
 
                         </TouchableOpacity>
+                        <TouchableOpacity onPress={this.navigateToScreen('Wallet')}>
+                            <View style={styles.navItemStyle}>
+                                <Icon style={styles.icon} name="ios-card"  />
+                                <Text style={styles.text}>
+                                    Share and Earn
+                                </Text>
+                            </View>
+
+                        </TouchableOpacity>
                         <TouchableOpacity onPress={this.navigateToScreen('PrivacyPolicy')}>
                             <View style={styles.navItemStyle}>
                                 <Icon style={styles.icon} name="ios-person"  />

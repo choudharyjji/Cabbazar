@@ -90,13 +90,14 @@ class BookingDetailScreen extends Component {
         BookingDetail(token,this.state.id).then((res) => {
 
             if (res.status === 200) {
+                console.log(res)
 
                 this.setState({
                     responseData:res.data,
-                    driverName:res.data.driverId.name,
-                    driverNumber:res.data.driverId.phone,
-                    carName:res.data.carId.carNameId.brandId.brandName+" "+res.data. carId.carNameId.carName,
-                    carNumber:res.data.carId.registrationNumber,
+                    driverName:res.data.driverId?res.data.driverId.name:"pending allocation",
+                    driverNumber:res.data.driverId?res.data.driverId.phone:"pending allocation",
+                    carName:res.data.carId?res.data.carId.carNameId.brandId.brandName+" "+res.data. carId.carNameId.carName:'pending allocation',
+                    carNumber:res.data.carId?res.data.carId.registrationNumber:'pending allocation',
                     loading: false,
 
                 });
@@ -201,14 +202,14 @@ class BookingDetailScreen extends Component {
 
                         <View style={{width:"100%",padding:5,flexDirection:"row"}}>
                             <Text>Name : </Text>
-                            <Text style={{fontWeight:"bold",paddingLeft:5}}>
+                            <Text style={{paddingLeft:5}}>
                                 {this.state.driverName}
                             </Text>
                         </View>
 
                         <View style={{width:"100%",padding:5,flexDirection:"row"}}>
                             <Text>Phone : </Text>
-                            <Text style={{fontWeight:"bold",paddingLeft:5}}>
+                            <Text style={{paddingLeft:5}}>
                                 {this.state.driverNumber}
                             </Text>
                         </View>
@@ -226,14 +227,14 @@ class BookingDetailScreen extends Component {
 
                         <View style={{width:"100%",padding:5,flexDirection:"row"}}>
                             <Text>Name : </Text>
-                            <Text style={{fontWeight:"bold",paddingLeft:5}}>
+                            <Text style={{paddingLeft:5}}>
                                 {this.state.carName}
                             </Text>
                         </View>
 
                         <View style={{width:"100%",padding:5,flexDirection:"row"}}>
                             <Text>Registration Number : </Text>
-                            <Text style={{fontWeight:"bold",paddingLeft:5}}>
+                            <Text style={{paddingLeft:5}}>
                                 {this.state.carNumber}
                             </Text>
                         </View>
@@ -401,7 +402,7 @@ class BookingDetailScreen extends Component {
 
 
                                 {responseData.isFixedRoute?
-                                    <Text style={{fontWeight:"bold"}}>Toll Tax, State Tax, Parking Included</Text>
+                                    <Text style={{fontWeight:"bold"}}>Toll Tax, State Tax Included and  Parking Extra</Text>
                                     :<Text style={{fontWeight:"bold"}}>Toll Tax, State Tax, Parking Extra</Text>}
 
                             </View>
