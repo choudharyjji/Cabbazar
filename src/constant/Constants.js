@@ -1,6 +1,6 @@
 
-//export const BASE = "http://api.stage.cabbazar.com/";
-export const BASE = "https://api.cabbazar.com/";
+export const BASE = "https://api.stage.cabbazar.com/";
+//export const BASE = "https://api.cabbazar.com/";
 export const RAZAR_PAY_KEY_LIVE = "rzp_live_8j61s3LJKaJcJD";
 export const RAZAR_PAY_KEY_TEST = "rzp_test_6KeUReJYTLhPt0";
 

@@ -137,7 +137,6 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-paytm')
     implementation 'com.facebook.android:facebook-android-sdk:4.34.0'
     implementation project(':react-native-fbsdk')
     implementation project(':react-native-google-places')

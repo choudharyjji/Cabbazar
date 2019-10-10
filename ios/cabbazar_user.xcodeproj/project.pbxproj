@@ -57,7 +57,7 @@
 		898BDF80FC104DBCB792FD0F /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15BDAA52DDEA48B3AA4E1F4F /* Roboto_medium.ttf */; };
 		8BF218D8DF8D07166D00A571 /* libPods-cabbazar_user-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E99F5E82A9B9D91D93E981E0 /* libPods-cabbazar_user-tvOS.a */; };
 		98608487A0D544799D3D8CC3 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA2A65FE218C4062B17CF27C /* SimpleLineIcons.ttf */; };
-		9969440521E0EB5300605BDC /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9969440421E0EB5300605BDC /* FIRAnalyticsConnector.framework */; };
+		9969440521E0EB5300605BDC /* FIRAnalyticsConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9969440421E0EB5300605BDC /* FIRAnalyticsConnector.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		9969440721E0EC8100605BDC /* FirebaseAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9969440621E0EC8100605BDC /* FirebaseAnalytics.framework */; };
 		9969440921E0ED5500605BDC /* FirebaseInstanceID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9969440821E0ED5500605BDC /* FirebaseInstanceID.framework */; };
 		9969440B21E0EE2400605BDC /* GoogleAppMeasurement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9969440A21E0EE2400605BDC /* GoogleAppMeasurement.framework */; };
