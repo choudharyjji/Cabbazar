@@ -136,8 +136,8 @@ class HomeScreen extends Component {
                 let loc ={
                     address: place.address,
                     location: {
-                        lat: place.latitude,
-                        lng: place.longitude
+                        lat: place.location.latitude,
+                        lng: place.location.longitude
                     }
                 }
 

@@ -200,6 +200,13 @@ class Profile extends Component {
                                     onPress={()=>this.onClickLogout()}>
                                 <Text>Logout</Text>
                             </Button>
+
+                            <View style={{width:'100%',marginTop:10,padding:5,justifyContent:'center',alignItems:'center'}}>
+                                <Text style={{marginTop:40}}>
+                                   contact us at : 7777-880-880
+                                </Text>
+                            </View>
+
                         </CardSection>
 
                     </View>

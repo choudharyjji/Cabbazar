@@ -18,6 +18,7 @@ export default {
     containerContent: {
         flex:1,
         marginTop:5,
+        height:deviceHeight-80,
     },
     avatar: {
         width: 130,
